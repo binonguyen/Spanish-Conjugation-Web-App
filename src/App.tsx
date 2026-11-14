@@ -115,8 +115,15 @@ function Trainer({ store, settings, initialCustomVerbs, storageMessage }: Traine
         onOpenBuilder={() => setScreen('builder')}
       />
     ),
-    results: <ResultsScreen />,
-    stats: <StatsScreen />,
+    results: (
+      <ResultsScreen
+        state={drill}
+        onStartAnother={() => setScreen('builder')}
+        onOpenDrill={() => setScreen('drill')}
+        onOpenStats={() => setScreen('stats')}
+      />
+    ),
+    stats: <StatsScreen store={store} onOpenBuilder={() => setScreen('builder')} />,
   }
 
   return (

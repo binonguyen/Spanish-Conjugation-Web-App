@@ -860,6 +860,230 @@ p {
   font-weight: 400;
 }
 
+/* Results and Stats */
+
+.results,
+.stats {
+  gap: 1rem;
+}
+
+.results-header,
+.stats-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+}
+
+.results-mode {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.results-score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.results-score-value {
+  color: var(--foreground);
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.results-score-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.result-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.result-counts > div {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.result-counts dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.result-counts dd {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-block {
+  display: grid;
+  gap: 0.45rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+.result-block h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.result-table th,
+.result-table td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.result-table thead th {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.result-table tbody th {
+  font-weight: 600;
+}
+
+.result-table th:not(:first-child),
+.result-table td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.review-outcome {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.review-outcome strong {
+  color: var(--foreground);
+}
+
+.missed-list,
+.most-missed {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.missed-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 0.75rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.missed-prompt {
+  display: grid;
+  grid-row: 1 / span 2;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.missed-infinitive {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.missed-meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.missed-answer {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.missed-badge {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.missed-badge.is-corrected {
+  color: var(--success);
+}
+
+.missed-badge.is-accent {
+  color: var(--warning);
+}
+
+.missed-badge.is-wrong {
+  color: var(--error);
+}
+
+.most-missed li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stats-empty {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.stats-empty p:first-child {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
 @media (max-width: 30rem) {
   .builder-start {
     justify-items: start;
@@ -880,5 +1104,25 @@ p {
   .drill-infinitive,
   .correct-form {
     font-size: 1.7rem;
+  }
+
+  .missed-item {
+    grid-template-columns: 1fr;
+  }
+
+  .missed-prompt {
+    grid-row: auto;
+  }
+
+  .missed-answer {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
+  }
+
+  .missed-badge {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
   }
 }

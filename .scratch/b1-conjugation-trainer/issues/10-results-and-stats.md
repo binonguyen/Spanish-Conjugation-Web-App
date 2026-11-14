@@ -1,8 +1,17 @@
 # 10 — Results and stats
 
-Status: ready-for-agent
+Status: in-progress
 Type: task
 Blocked by: 01, 03, 05, 06, 07, 08
+
+## Progress
+
+- [x] `src/domain/aggregate.ts`: session summaries split by round, with per-tense and missed-item selectors
+- [x] `src/domain/aggregate.ts`: history stats (per-tense accuracy, accent rate, vocabulary, most-missed verbs) and tests
+- [x] Results screen wired to the finished drill state
+- [x] Stats screen reads history from the store, with a first-visit empty state
+- [x] Typecheck, full suite, build, browser pass
+- [ ] Review, ticket closed, commit
 
 ## Context
 
