@@ -10,6 +10,15 @@ Issues and specs for this repo live as markdown files in `.scratch/`.
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `docs/agents/triage-labels.md` for the role strings)
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
 
+## Resuming interrupted work
+
+Long sessions can run out of model budget or be closed. Treat the ticket file, not the chat, as the source of truth:
+
+- While working, set `Status: in-progress` (a working state, not one of the triage roles) and keep a `## Progress` checklist in the ticket, naming the next unchecked step.
+- Commit each completed step, and put the step in the commit message.
+- To resume: read the ticket's `## Progress` list, run `git log --oneline -10` and `git status`, then continue from the first unchecked step. Re-run `npm run typecheck` and the focused test file before continuing.
+- When the work is finished, tick every box, set `Status: done`, and append what changed under `## Comments`.
+
 ## When a skill says "publish to the issue tracker"
 
 Create a new file under `.scratch/<feature-slug>/` (creating the directory if needed).
