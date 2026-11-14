@@ -20,3 +20,7 @@ The vocabulary mode: a whole session of meaning questions, never items sprinkled
 ## Done when
 
 - A vocabulary item is indistinguishable from a drill in flow and progress accounting, and a unit test proves the correct option is present exactly once and the distractors are tier-matched.
+
+## Comments
+
+- Interim state left by issue 08: `startBlockedReason` in `src/domain/builder.ts` blocks vocabulary mode with "Vocabulary checks are not available yet…" (pinned in `src/domain/builder.test.ts`), and `DrillScreen` has a matching placeholder, because no vocabulary item exists yet. Remove the guard, its assertion and the placeholder when this ticket wires the vocabulary item; the drill reducer's `verdictFor` deliberately returns `undefined` for vocabulary items so they cannot be counted as wrong before then.
