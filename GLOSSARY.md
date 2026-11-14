@@ -1,0 +1,46 @@
+# Conjugation Trainer
+
+A single-learner web app for practicing Spanish verb conjugation in chosen tenses, with English translations carried alongside so vocabulary grows with the drills.
+
+## Language
+
+**Verb**:
+A Spanish lemma, identified by its infinitive (`hablar`, `ir`). The unit a session draws from.
+_Avoid_: Word, entry, card
+
+**Infinitive**:
+The citation form of a verb, and the only form that names the verb in prompts and answers.
+_Avoid_: Base form, root
+
+**Verb pool**:
+The set of verbs a session may draw from: a frequency tier (top 100 / top 500 / all), plus whichever verbs were added by hand.
+_Avoid_: Deck, library, word list
+
+**Tense**:
+A named paradigm of forms, one per grammatical person, with a mood and an aspect (e.g. _pretérito indefinido_, _presente de subjuntivo_). The unit selected when building a session.
+_Avoid_: Conjugation, timeframe, ending set
+
+**Person**:
+A grammatical slot in a paradigm — first/second/third person, singular/plural (yo, tú, él/ella/usted, nosotros, vosotros, ellos/ellas/ustedes). A tense supplies a form for each person, though some tenses have no form for some persons.
+
+**Session**:
+One practice run, assembled from a tense selection plus a verb pool and ended by the learner. Progress lives at the level of individual tense–verb pairs; a session is just the order they are served in.
+_Avoid_: Test, quiz, lesson, round
+
+**Verdict**:
+The outcome of one item: _correct_, _accent-only_ (the right form without its accent marks) or _wrong_. Accent-only counts as correct in the session score and is tracked separately, because a missing accent is a different mistake from the wrong form.
+_Avoid_: Score, result, pass/fail, near miss
+
+**Conjugation drill**:
+A session item that asks for one form: a verb, a tense and a person go in; the conjugated form comes out.
+
+**Vocabulary check**:
+A session item that pairs a verb with its English meaning, so the verbs met while drilling are learned as words and not just as endings.
+
+**Mode**:
+Which kind of item a session is made of — _conjugation_ or _vocabulary_. Fixed for the whole session; never mixed.
+_Avoid_: Type, track, category
+
+**Selection**:
+The set of tenses a session is built from. Chosen per session; not a saved profile.
+_Avoid_: Preset, filter, deck
