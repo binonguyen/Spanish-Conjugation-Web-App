@@ -555,7 +555,29 @@ p {
   gap: 0.3rem;
 }
 
+.answer-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.answer-person {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .answer-input {
+  flex: 1 1 auto;
   width: 100%;
   min-width: 0;
   padding: 0.6rem 0.75rem;

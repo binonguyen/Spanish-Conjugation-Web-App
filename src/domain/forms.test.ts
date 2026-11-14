@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { TENSES } from './tenses'
-import { personsForTense, personLabel } from './session'
+import { personsForTense, personLabel, subjectPronoun } from './session'
 import { acceptedForms, paradigm } from './forms'
 import { canonicalVerb } from './verbs'
 import type { Verb } from '../data/verbs'
@@ -89,6 +89,16 @@ describe('paradigm', () => {
     expect(personLabel('imperativo_negativo', '3sg')).toBe('usted')
     expect(personLabel('imperativo_negativo', '3pl')).toBe('ustedes')
     expect(personLabel('presente', '3sg')).toBe('él / ella / usted')
+  })
+
+  it('gives the input cue one representative subject pronoun', () => {
+    expect(subjectPronoun('presente', 'yo')).toBe('yo')
+    expect(subjectPronoun('presente', 'tu')).toBe('tú')
+    expect(subjectPronoun('presente', '3sg')).toBe('él')
+    expect(subjectPronoun('presente', '3pl')).toBe('ellos')
+    // An imperative addresses someone, so its third persons stay usted/ustedes.
+    expect(subjectPronoun('imperativo_afirmativo', '3sg')).toBe('usted')
+    expect(subjectPronoun('imperativo_negativo', '3pl')).toBe('ustedes')
   })
 
   it('composes compound rows too', () => {

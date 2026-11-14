@@ -10,7 +10,7 @@ import type { Verdict } from '../domain/check'
 import { currentItem, currentVerdict, type DrillAction, type DrillState } from '../domain/drill'
 import type { ConjugationItem } from '../domain/draw'
 import { acceptedForms, paradigm } from '../domain/forms'
-import { personLabel } from '../domain/session'
+import { personLabel, subjectPronoun } from '../domain/session'
 import { tenseById } from '../domain/tenses'
 
 interface DrillScreenProps {
@@ -128,6 +128,7 @@ function ConjugationDrill({
   const sentence = item.verb.sentence
   const lastItem = state.index >= state.items.length - 1
   const person = personLabel(item.tense, item.person)
+  const subject = subjectPronoun(item.tense, item.person)
 
   useEffect(() => {
     const input = inputRef.current
@@ -255,28 +256,31 @@ function ConjugationDrill({
         <p className="drill-meta">
           <span lang="es">{tense ? tense.label : item.tense}</span>
           {tense ? <span className="tense-gloss"> ({tense.gloss})</span> : null}
-          <span aria-hidden="true"> · </span>
-          <span>{person}</span>
         </p>
       </div>
 
       <label className="field drill-answer">
         <span className="field-label">Your answer</span>
-        <input
-          ref={inputRef}
-          className={verdict ? `answer-input is-${verdict}` : 'answer-input'}
-          value={state.input}
-          onChange={(event) => dispatch({ type: 'input', value: event.currentTarget.value })}
-          onKeyDown={handleKeyDown}
-          onBlur={() => setDeadKey(null)}
-          readOnly={revealed}
-          autoFocus
-          autoComplete="off"
-          autoCapitalize="off"
-          spellCheck={false}
-          enterKeyHint="go"
-          aria-label={`The ${person} form of ${item.verb.infinitive} in ${tense ? tense.label : item.tense}`}
-        />
+        <span className="answer-bar">
+          <span className="answer-person" lang="es" aria-hidden="true">
+            {subject}
+          </span>
+          <input
+            ref={inputRef}
+            className={verdict ? `answer-input is-${verdict}` : 'answer-input'}
+            value={state.input}
+            onChange={(event) => dispatch({ type: 'input', value: event.currentTarget.value })}
+            onKeyDown={handleKeyDown}
+            onBlur={() => setDeadKey(null)}
+            readOnly={revealed}
+            autoFocus
+            autoComplete="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            enterKeyHint="go"
+            aria-label={`The ${person} form of ${item.verb.infinitive} in ${tense ? tense.label : item.tense}`}
+          />
+        </span>
       </label>
 
       <div className="accent-bar" role="group" aria-label="Accent characters">

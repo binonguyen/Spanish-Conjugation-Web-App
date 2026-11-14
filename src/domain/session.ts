@@ -54,6 +54,33 @@ export function personLabel(tense: TenseId, person: Person): string {
   return usesImperativeSlots(tense) ? IMPERATIVE_PERSON_LABELS[person] : PERSON_LABELS[person]
 }
 
+/**
+ * One representative subject pronoun, for the cue beside the answer input. The
+ * third persons share their form with the other genders, so one pronoun is enough.
+ */
+const SUBJECT_PRONOUNS: Record<Person, string> = {
+  yo: 'yo',
+  tu: 'tú',
+  '3sg': 'él',
+  nosotros: 'nosotros',
+  vosotros: 'vosotros',
+  '3pl': 'ellos',
+}
+
+/** An imperative addresses someone, so its third persons are the usted forms. */
+const IMPERATIVE_SUBJECT_PRONOUNS: Record<Person, string> = {
+  ...SUBJECT_PRONOUNS,
+  '3sg': 'usted',
+  '3pl': 'ustedes',
+}
+
+/** The short pronoun shown in front of the answer input. */
+export function subjectPronoun(tense: TenseId, person: Person): string {
+  return usesImperativeSlots(tense)
+    ? IMPERATIVE_SUBJECT_PRONOUNS[person]
+    : SUBJECT_PRONOUNS[person]
+}
+
 /** Frequency tier of the verb pool: top 100, top 500, or the whole artifact. */
 export type VerbTier = 1 | 2 | 'all'
 
