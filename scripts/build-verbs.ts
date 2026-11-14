@@ -41,6 +41,8 @@ const LIST_PATH = join(ROOT, 'scripts', 'data', 'top-verbs.tsv')
 const OVERRIDES_PATH = join(ROOT, 'scripts', 'data', 'gloss-overrides.tsv')
 const OUT_PATH = join(ROOT, 'src', 'data', 'verbs.json')
 const GZIP_LIMIT = 110 * 1024
+const TIER_1_SIZE = 100
+const MIN_VERB_COUNT = 500
 
 const PERSON_FROM_CELL = {
   primera_singular: 'yo',
@@ -130,7 +132,7 @@ function parseVerbList(): VerbListRow[] {
     if (!Number.isInteger(parsedRank) || parsedRank < 1) fail(`bad rank in: ${line}`)
     rows.push({ rank: parsedRank, infinitive: infinitive.trim(), fallbackGloss })
   }
-  if (rows.length < 500) fail(`expected at least 500 verbs, got ${rows.length}`)
+  if (rows.length < MIN_VERB_COUNT) fail(`expected at least ${MIN_VERB_COUNT} verbs, got ${rows.length}`)
   const seen = new Set<string>()
   for (const row of rows) {
     if (seen.has(row.infinitive)) fail(`duplicate infinitive: ${row.infinitive}`)
@@ -281,7 +283,7 @@ function main() {
   const verbs = rows.map((row, index) => {
     const gloss = overrides.get(row.infinitive) ?? conjugatorGlosses.get(row.infinitive) ?? row.fallbackGloss
     if (!gloss) fail(`no gloss for ${row.infinitive}`)
-    return buildVerbRecord(row, index < 100 ? 1 : 2, normalizeGloss(gloss))
+    return buildVerbRecord(row, index < TIER_1_SIZE ? 1 : 2, normalizeGloss(gloss))
   })
 
   const artifact = {
