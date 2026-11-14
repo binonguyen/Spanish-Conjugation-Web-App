@@ -1,15 +1,17 @@
 import type { Verdict } from '../domain/check'
+import {
+  isVerbTier,
+  MAX_SESSION_LENGTH,
+  MIN_SESSION_LENGTH,
+  type Mode,
+  type VerbTier,
+} from '../domain/session'
 
 /** The tag every export carries, so an import can refuse a file from another app. */
 export const APP_ID = 'conjugation-trainer'
 
 /** The only export schema this build reads. A higher number is a newer app. */
 export const EXPORT_VERSION = 1
-
-export type Mode = 'conjugation' | 'vocabulary'
-
-/** Frequency tier of the verb pool: top 100, top 500, or the whole artifact. */
-export type VerbTier = 1 | 2 | 'all'
 
 export interface Settings {
   vosotros: boolean
@@ -59,11 +61,11 @@ export function parseSettings(raw: unknown): Settings | undefined {
   }
   if (raw.sessionLength !== undefined) {
     if (typeof raw.sessionLength !== 'number' || !Number.isInteger(raw.sessionLength)) return undefined
-    if (raw.sessionLength < 5 || raw.sessionLength > 50) return undefined
+    if (raw.sessionLength < MIN_SESSION_LENGTH || raw.sessionLength > MAX_SESSION_LENGTH) return undefined
     parsed.sessionLength = raw.sessionLength
   }
   if (raw.verbTier !== undefined) {
-    if (raw.verbTier !== 1 && raw.verbTier !== 2 && raw.verbTier !== 'all') return undefined
+    if (!isVerbTier(raw.verbTier)) return undefined
     parsed.verbTier = raw.verbTier
   }
   if (raw.mode !== undefined) {

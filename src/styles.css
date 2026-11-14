@@ -160,3 +160,304 @@ p {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+.status {
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+/* Builder */
+
+.builder {
+  gap: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field > legend,
+.field-label {
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.field-error {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.field select {
+  width: min(100%, 14rem);
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.segmented {
+  display: inline-flex;
+  justify-self: start;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+}
+
+.segmented button {
+  padding: 0.35rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.segmented button:hover {
+  color: var(--foreground);
+}
+
+.segmented button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.segmented button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tense-groups {
+  display: grid;
+  gap: 1rem;
+}
+
+.tense-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.tense-group h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tense-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.1rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tense-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 0.45rem;
+  padding: 0.3rem 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tense-option:hover {
+  background: var(--background);
+}
+
+.tense-option input {
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.tense-option > span {
+  grid-column: 2;
+}
+
+.tense-gloss {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.archaic-tenses {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--border);
+}
+
+.archaic-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.verb-search {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.verb-search > label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.verb-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.verb-search-row input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.verb-search button,
+.stepper button,
+.custom-verbs button {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.verb-search button:hover:not(:disabled),
+.stepper button:hover:not(:disabled),
+.custom-verbs button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.verb-search button:disabled,
+.stepper button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.custom-verbs {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-verbs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.custom-verbs button {
+  margin-left: auto;
+  padding: 0.15rem 0.5rem;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.stepper button {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.stepper-value {
+  min-width: 6rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.builder-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.builder-summary {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.session-summary {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.builder-start {
+  display: grid;
+  justify-items: end;
+  gap: 0.4rem;
+}
+
+.start-button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.start-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.start-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 30rem) {
+  .builder-start {
+    justify-items: start;
+  }
+}

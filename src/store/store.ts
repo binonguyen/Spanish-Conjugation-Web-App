@@ -1,6 +1,6 @@
 import type { Verdict } from '../domain/check'
 import type { Verb } from '../data/verbs'
-import { canonicalVerb, normalizeInfinitive, resolveVerbs } from './customVerbs'
+import { canonicalVerb, normalizeInfinitive, resolveVerbs } from '../domain/verbs'
 import {
   DATABASE_NAME,
   openDatabase,
