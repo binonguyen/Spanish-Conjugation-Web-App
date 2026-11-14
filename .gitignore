@@ -1,6 +1,9 @@
 node_modules/
 dist/
 
+# Regenerable raw data downloads (see scripts/build-sentences.ts)
+.cache/
+
 .env
 .env.*
 *.local

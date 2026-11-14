@@ -1,11 +1,26 @@
 import { describe, expect, it } from 'vitest'
+import {
+  buildFormIndex,
+  matchVerbs,
+  MIN_TOP_SENTENCE_COVERAGE,
+  SENTENCE_MAX_LENGTH,
+  TOP_VERB_COUNT,
+} from '../../scripts/sentences.ts'
 import artifact from './verbs.json'
+
+interface Sentence {
+  es: string
+  en: string
+  id: number
+  author: string
+}
 
 interface Verb {
   infinitive: string
   reflexive: boolean
   gloss: string
   tier: 1 | 2
+  sentence?: Sentence
   forms: Record<string, string[][]>
   nonFinite: { gerundio: string[]; participio: string[] }
 }
@@ -130,6 +145,37 @@ describe('conjugation data artifact', () => {
     }
   })
 
+  it('attributes every example sentence to a Tatoeba id and author', () => {
+    const index = buildFormIndex(data.verbs)
+    const top = data.verbs.slice(0, TOP_VERB_COUNT)
+    const covered = top.filter((candidate) => candidate.sentence).length
+    expect(covered / top.length).toBeGreaterThanOrEqual(MIN_TOP_SENTENCE_COVERAGE)
+
+    for (const candidate of data.verbs.filter((verb) => verb.sentence)) {
+      const sentence = candidate.sentence as Sentence
+      expect(Number.isInteger(sentence.id), candidate.infinitive).toBe(true)
+      expect(sentence.id).toBeGreaterThan(0)
+      expect(sentence.author.trim(), candidate.infinitive).not.toBe('')
+      expect(sentence.es.trim(), candidate.infinitive).not.toBe('')
+      expect(sentence.en.trim(), candidate.infinitive).not.toBe('')
+      expect(sentence.es.length, candidate.infinitive).toBeLessThanOrEqual(SENTENCE_MAX_LENGTH)
+      expect(matchVerbs(sentence.es, index).has(candidate.infinitive), candidate.infinitive).toBe(true)
+    }
+  })
+
+  it('falls back cleanly for verbs without a suitable sentence', () => {
+    for (const candidate of data.verbs.filter((verb) => !verb.sentence)) {
+      expect(candidate).not.toHaveProperty('sentence')
+    }
+  })
+
+  it('names Tatoeba as the sentence source', () => {
+    const tatoeba = data.sources.find((source) => source.name === 'Tatoeba')
+    expect(tatoeba).toBeDefined()
+    expect(tatoeba?.license).toBe('CC BY 2.0 FR')
+    expect(tatoeba?.url).toBe('https://tatoeba.org')
+  })
+
   it('gives every verb one comma-joined English gloss', () => {
     for (const candidate of data.verbs) {
       expect(candidate.gloss.trim()).not.toBe('')
@@ -183,9 +229,9 @@ describe('conjugation data artifact', () => {
     expect(data.haber).not.toHaveProperty('imperativo_afirmativo')
   })
 
-  it('ships under the 110 KB gzip budget', async () => {
+  it('ships under the 130 KB gzip budget', async () => {
     const stream = new Blob([JSON.stringify(data)]).stream().pipeThrough(new CompressionStream('gzip'))
     const gzip = (await new Response(stream).arrayBuffer()).byteLength
-    expect(gzip).toBeLessThan(110 * 1024)
+    expect(gzip).toBeLessThan(130 * 1024)
   })
 })

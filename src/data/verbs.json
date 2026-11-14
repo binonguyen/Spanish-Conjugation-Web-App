@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T21:13:32.012Z",
+  "generatedAt": "2026-11-14T21:31:15.816Z",
   "personOrder": {
     "personal": [
       "yo",
@@ -47,6 +47,12 @@
       "license": "MIT",
       "url": "https://github.com/fuzzy-logic/2000-verbos",
       "use": "frequency order and fallback glosses"
+    },
+    {
+      "name": "Tatoeba",
+      "license": "CC BY 2.0 FR",
+      "url": "https://tatoeba.org",
+      "use": "example sentences and translations (manythings.org aligned export)"
     }
   ],
   "verbs": [
@@ -55,6 +61,12 @@
       "reflexive": false,
       "gloss": "to be (permanent)",
       "tier": 1,
+      "sentence": {
+        "id": 2608,
+        "author": "Shishir",
+        "es": "No era mi intención.",
+        "en": "It wasn't my intention."
+      },
       "forms": {
         "presente": [
           [
@@ -271,6 +283,12 @@
       "reflexive": false,
       "gloss": "to have (auxiliary)",
       "tier": 1,
+      "sentence": {
+        "id": 491171,
+        "author": "Shishir",
+        "es": "No hay dos sin tres.",
+        "en": "Misfortunes always come in threes."
+      },
       "forms": {
         "presente": [
           [
@@ -489,6 +507,12 @@
       "reflexive": false,
       "gloss": "to be (state, location)",
       "tier": 1,
+      "sentence": {
+        "id": 2826,
+        "author": "Shishir",
+        "es": "¿Está lejos de aquí?",
+        "en": "Is it far from here?"
+      },
       "forms": {
         "presente": [
           [
@@ -705,6 +729,12 @@
       "reflexive": false,
       "gloss": "to have",
       "tier": 1,
+      "sentence": {
+        "id": 329870,
+        "author": "tatoerique",
+        "es": "Tengo una bicicleta.",
+        "en": "I have a bicycle."
+      },
       "forms": {
         "presente": [
           [
@@ -921,6 +951,12 @@
       "reflexive": false,
       "gloss": "to do, make",
       "tier": 1,
+      "sentence": {
+        "id": 343486,
+        "author": "tatoerique",
+        "es": "Hiciste una promesa.",
+        "en": "You have made a promise."
+      },
       "forms": {
         "presente": [
           [
@@ -1137,6 +1173,12 @@
       "reflexive": false,
       "gloss": "to be able to",
       "tier": 1,
+      "sentence": {
+        "id": 449685,
+        "author": "Shishir",
+        "es": "No puede ser cierto.",
+        "en": "It can't be true."
+      },
       "forms": {
         "presente": [
           [
@@ -1353,6 +1395,12 @@
       "reflexive": false,
       "gloss": "to say, tell",
       "tier": 1,
+      "sentence": {
+        "id": 606170,
+        "author": "arashi_29",
+        "es": "Un pajarito me dijo.",
+        "en": "A little bird told me."
+      },
       "forms": {
         "presente": [
           [
@@ -1569,6 +1617,12 @@
       "reflexive": false,
       "gloss": "to go",
       "tier": 1,
+      "sentence": {
+        "id": 455669,
+        "author": "Shishir",
+        "es": "No voy a molestarte.",
+        "en": "I won't bother you."
+      },
       "forms": {
         "presente": [
           [
@@ -1786,6 +1840,12 @@
       "reflexive": false,
       "gloss": "to see",
       "tier": 1,
+      "sentence": {
+        "id": 655271,
+        "author": "Shishir",
+        "es": "¿Qué ves en la foto?",
+        "en": "What do you see in the picture?"
+      },
       "forms": {
         "presente": [
           [
@@ -2002,6 +2062,12 @@
       "reflexive": false,
       "gloss": "to give",
       "tier": 1,
+      "sentence": {
+        "id": 345329,
+        "author": "tatoerique",
+        "es": "Él dio en el blanco.",
+        "en": "He hit the mark."
+      },
       "forms": {
         "presente": [
           [
@@ -2218,6 +2284,12 @@
       "reflexive": false,
       "gloss": "to know (facts)",
       "tier": 1,
+      "sentence": {
+        "id": 772019,
+        "author": "Shishir",
+        "es": "Sabe tocar el piano.",
+        "en": "She can play the piano."
+      },
       "forms": {
         "presente": [
           [
@@ -2434,6 +2506,12 @@
       "reflexive": false,
       "gloss": "to want, love",
       "tier": 1,
+      "sentence": {
+        "id": 449768,
+        "author": "Shishir",
+        "es": "Ponlo donde quieras.",
+        "en": "Put it where you like."
+      },
       "forms": {
         "presente": [
           [
@@ -2650,6 +2728,12 @@
       "reflexive": false,
       "gloss": "to arrive",
       "tier": 1,
+      "sentence": {
+        "id": 922680,
+        "author": "Shishir",
+        "es": "Tom llegó el último.",
+        "en": "Tom arrived last."
+      },
       "forms": {
         "presente": [
           [
@@ -2866,6 +2950,12 @@
       "reflexive": false,
       "gloss": "to pass, happen, spend (time)",
       "tier": 1,
+      "sentence": {
+        "id": 1307630,
+        "author": "marcelostockle",
+        "es": "Pasaron dos semanas.",
+        "en": "Two weeks went by."
+      },
       "forms": {
         "presente": [
           [
@@ -3082,6 +3172,12 @@
       "reflexive": false,
       "gloss": "to have to, must",
       "tier": 1,
+      "sentence": {
+        "id": 625574,
+        "author": "Leono",
+        "es": "Él debe ser del Sur.",
+        "en": "He must be from the South."
+      },
       "forms": {
         "presente": [
           [
@@ -3298,6 +3394,12 @@
       "reflexive": false,
       "gloss": "to put",
       "tier": 1,
+      "sentence": {
+        "id": 3037545,
+        "author": "marcelostockle",
+        "es": "Tom ya puso la mesa.",
+        "en": "Tom has already set the table."
+      },
       "forms": {
         "presente": [
           [
@@ -3514,6 +3616,12 @@
       "reflexive": false,
       "gloss": "to seem",
       "tier": 1,
+      "sentence": {
+        "id": 344114,
+        "author": "tatoerique",
+        "es": "Mi tía parece joven.",
+        "en": "My aunt looks young."
+      },
       "forms": {
         "presente": [
           [
@@ -3730,6 +3838,12 @@
       "reflexive": false,
       "gloss": "to stay, remain, be left",
       "tier": 1,
+      "sentence": {
+        "id": 741587,
+        "author": "Shishir",
+        "es": "Ella se quedó ciega.",
+        "en": "She went blind."
+      },
       "forms": {
         "presente": [
           [
@@ -3946,6 +4060,12 @@
       "reflexive": false,
       "gloss": "to believe",
       "tier": 1,
+      "sentence": {
+        "id": 727850,
+        "author": "Fanki",
+        "es": "Casi nadie le creyó.",
+        "en": "Almost no one believed her."
+      },
       "forms": {
         "presente": [
           [
@@ -4162,6 +4282,12 @@
       "reflexive": false,
       "gloss": "to speak, talk",
       "tier": 1,
+      "sentence": {
+        "id": 340398,
+        "author": "tatoerique",
+        "es": "¿Habla usted inglés?",
+        "en": "Do you speak English?"
+      },
       "forms": {
         "presente": [
           [
@@ -4378,6 +4504,12 @@
       "reflexive": false,
       "gloss": "to carry, take, wear",
       "tier": 1,
+      "sentence": {
+        "id": 1423046,
+        "author": "peibolvig",
+        "es": "Tom lleva un diario.",
+        "en": "Tom keeps a diary."
+      },
       "forms": {
         "presente": [
           [
@@ -4594,6 +4726,12 @@
       "reflexive": false,
       "gloss": "to leave, let, allow",
       "tier": 1,
+      "sentence": {
+        "id": 554952,
+        "author": "Shishir",
+        "es": "Deja de mirarme así.",
+        "en": "Quit looking at me like that."
+      },
       "forms": {
         "presente": [
           [
@@ -4810,6 +4948,12 @@
       "reflexive": false,
       "gloss": "to follow, continue",
       "tier": 1,
+      "sentence": {
+        "id": 1885070,
+        "author": "Shishir",
+        "es": "¿No te siguió nadie?",
+        "en": "Didn't anyone follow you?"
+      },
       "forms": {
         "presente": [
           [
@@ -5026,6 +5170,12 @@
       "reflexive": false,
       "gloss": "to find, meet",
       "tier": 1,
+      "sentence": {
+        "id": 867034,
+        "author": "ildefonk",
+        "es": "¿Cómo te encuentras?",
+        "en": "How do you feel?"
+      },
       "forms": {
         "presente": [
           [
@@ -5242,6 +5392,12 @@
       "reflexive": false,
       "gloss": "to call",
       "tier": 1,
+      "sentence": {
+        "id": 2884,
+        "author": "Shishir",
+        "es": "¡Llama a la policía!",
+        "en": "Call the police!"
+      },
       "forms": {
         "presente": [
           [
@@ -5458,6 +5614,12 @@
       "reflexive": false,
       "gloss": "to come",
       "tier": 1,
+      "sentence": {
+        "id": 342769,
+        "author": "tatoerique",
+        "es": "Ella vino enseguida.",
+        "en": "She came at once."
+      },
       "forms": {
         "presente": [
           [
@@ -5674,6 +5836,12 @@
       "reflexive": false,
       "gloss": "to think",
       "tier": 1,
+      "sentence": {
+        "id": 358538,
+        "author": "tatoerique",
+        "es": "Dime lo que piensas.",
+        "en": "Tell me what you're thinking."
+      },
       "forms": {
         "presente": [
           [
@@ -5890,6 +6058,12 @@
       "reflexive": false,
       "gloss": "to leave, go out",
       "tier": 1,
+      "sentence": {
+        "id": 1080375,
+        "author": "hayastan",
+        "es": "Esta mancha no sale.",
+        "en": "This stain won't come out."
+      },
       "forms": {
         "presente": [
           [
@@ -6106,6 +6280,12 @@
       "reflexive": false,
       "gloss": "to return, go back",
       "tier": 1,
+      "sentence": {
+        "id": 339108,
+        "author": "tatoerique",
+        "es": "Él volvió de Canadá.",
+        "en": "He came back from Canada."
+      },
       "forms": {
         "presente": [
           [
@@ -6322,6 +6502,12 @@
       "reflexive": false,
       "gloss": "to take, drink",
       "tier": 1,
+      "sentence": {
+        "id": 1520876,
+        "author": "marcelostockle",
+        "es": "No tomes el anzuelo.",
+        "en": "Don't take the bait."
+      },
       "forms": {
         "presente": [
           [
@@ -6538,6 +6724,12 @@
       "reflexive": false,
       "gloss": "to know (people, places)",
       "tier": 1,
+      "sentence": {
+        "id": 495325,
+        "author": "Shishir",
+        "es": "Los conozco a todos.",
+        "en": "I know them all."
+      },
       "forms": {
         "presente": [
           [
@@ -6754,6 +6946,12 @@
       "reflexive": false,
       "gloss": "to live, be alive",
       "tier": 1,
+      "sentence": {
+        "id": 712062,
+        "author": "Shishir",
+        "es": "Vivo con mis padres.",
+        "en": "I live with my parents."
+      },
       "forms": {
         "presente": [
           [
@@ -6970,6 +7168,12 @@
       "reflexive": false,
       "gloss": "to feel",
       "tier": 1,
+      "sentence": {
+        "id": 1441919,
+        "author": "marcelostockle",
+        "es": "Tom se sintió feliz.",
+        "en": "Tom felt happy."
+      },
       "forms": {
         "presente": [
           [
@@ -7186,6 +7390,12 @@
       "reflexive": false,
       "gloss": "to treat, try",
       "tier": 1,
+      "sentence": {
+        "id": 1258443,
+        "author": "marcelostockle",
+        "es": "Ella trató de nadar.",
+        "en": "She tried to swim."
+      },
       "forms": {
         "presente": [
           [
@@ -7402,6 +7612,12 @@
       "reflexive": false,
       "gloss": "to watch, see, look",
       "tier": 1,
+      "sentence": {
+        "id": 340529,
+        "author": "tatoerique",
+        "es": "Él miró hacia atrás.",
+        "en": "He looked back."
+      },
       "forms": {
         "presente": [
           [
@@ -7618,6 +7834,12 @@
       "reflexive": false,
       "gloss": "to count, tell, matter",
       "tier": 1,
+      "sentence": {
+        "id": 1314398,
+        "author": "Shishir",
+        "es": "Él me lo contó todo.",
+        "en": "He told me everything."
+      },
       "forms": {
         "presente": [
           [
@@ -7834,6 +8056,12 @@
       "reflexive": false,
       "gloss": "to start, begin",
       "tier": 1,
+      "sentence": {
+        "id": 759998,
+        "author": "chinopinyin",
+        "es": "Empecé a vivir solo.",
+        "en": "I began living by myself."
+      },
       "forms": {
         "presente": [
           [
@@ -8050,6 +8278,12 @@
       "reflexive": false,
       "gloss": "to wait, hope",
       "tier": 1,
+      "sentence": {
+        "id": 574215,
+        "author": "Shishir",
+        "es": "¡Espere, no dispare!",
+        "en": "Wait, don't shoot!"
+      },
       "forms": {
         "presente": [
           [
@@ -8266,6 +8500,12 @@
       "reflexive": false,
       "gloss": "to look for, seek, search",
       "tier": 1,
+      "sentence": {
+        "id": 521070,
+        "author": "Shishir",
+        "es": "Yo buscaba la llave.",
+        "en": "I looked for the key."
+      },
       "forms": {
         "presente": [
           [
@@ -8482,6 +8722,12 @@
       "reflexive": false,
       "gloss": "to exist",
       "tier": 1,
+      "sentence": {
+        "id": 4620392,
+        "author": "saverius",
+        "es": "La suerte no existe.",
+        "en": "Luck doesn't exist."
+      },
       "forms": {
         "presente": [
           [
@@ -8698,6 +8944,12 @@
       "reflexive": false,
       "gloss": "to enter, go in",
       "tier": 1,
+      "sentence": {
+        "id": 4557660,
+        "author": "swyter",
+        "es": "Tom entró en pánico.",
+        "en": "Tom panicked."
+      },
       "forms": {
         "presente": [
           [
@@ -8914,6 +9166,12 @@
       "reflexive": false,
       "gloss": "to work",
       "tier": 1,
+      "sentence": {
+        "id": 977660,
+        "author": "Shishir",
+        "es": "Trabaja en un banco.",
+        "en": "She works in a bank."
+      },
       "forms": {
         "presente": [
           [
@@ -9130,6 +9388,12 @@
       "reflexive": false,
       "gloss": "to write",
       "tier": 1,
+      "sentence": {
+        "id": 1311782,
+        "author": "Kiraness",
+        "es": "Él escribe en árabe.",
+        "en": "He writes Arabic."
+      },
       "forms": {
         "presente": [
           [
@@ -9346,6 +9610,12 @@
       "reflexive": false,
       "gloss": "to lose",
       "tier": 1,
+      "sentence": {
+        "id": 834734,
+        "author": "Shishir",
+        "es": "Perdimos la partida.",
+        "en": "We lost the game."
+      },
       "forms": {
         "presente": [
           [
@@ -9562,6 +9832,12 @@
       "reflexive": false,
       "gloss": "to produce",
       "tier": 1,
+      "sentence": {
+        "id": 5147700,
+        "author": "albrusgher",
+        "es": "El éxito produce éxito.",
+        "en": "Success breeds success."
+      },
       "forms": {
         "presente": [
           [
@@ -9778,6 +10054,12 @@
       "reflexive": false,
       "gloss": "to occur",
       "tier": 1,
+      "sentence": {
+        "id": 966440,
+        "author": "hundo",
+        "es": "¿Cuándo ocurrió eso?",
+        "en": "When did this occur?"
+      },
       "forms": {
         "presente": [
           [
@@ -9994,6 +10276,12 @@
       "reflexive": false,
       "gloss": "to understand",
       "tier": 1,
+      "sentence": {
+        "id": 1202222,
+        "author": "marcelostockle",
+        "es": "Yo no entiendo esto.",
+        "en": "I don't understand this."
+      },
       "forms": {
         "presente": [
           [
@@ -10210,6 +10498,12 @@
       "reflexive": false,
       "gloss": "to request, ask for",
       "tier": 1,
+      "sentence": {
+        "id": 1171929,
+        "author": "Shishir",
+        "es": "Él pidió un cigarro.",
+        "en": "He asked for a cigarette."
+      },
       "forms": {
         "presente": [
           [
@@ -10426,6 +10720,12 @@
       "reflexive": false,
       "gloss": "to receive",
       "tier": 1,
+      "sentence": {
+        "id": 856711,
+        "author": "Rafp",
+        "es": "¿Recibiste mi carta?",
+        "en": "Did you get my letter?"
+      },
       "forms": {
         "presente": [
           [
@@ -10642,6 +10942,12 @@
       "reflexive": false,
       "gloss": "to remember, remind",
       "tier": 1,
+      "sentence": {
+        "id": 4091300,
+        "author": "hayastan",
+        "es": "Tom no me recordaba.",
+        "en": "Tom didn't remember me."
+      },
       "forms": {
         "presente": [
           [
@@ -10858,6 +11164,12 @@
       "reflexive": false,
       "gloss": "to finish, end",
       "tier": 1,
+      "sentence": {
+        "id": 1475366,
+        "author": "marcelostockle",
+        "es": "Tom terminó segundo.",
+        "en": "Tom finished second."
+      },
       "forms": {
         "presente": [
           [
@@ -11074,6 +11386,12 @@
       "reflexive": false,
       "gloss": "to permit, allow, let",
       "tier": 1,
+      "sentence": {
+        "id": 4530167,
+        "author": "Shishir",
+        "es": "Se permiten mascotas.",
+        "en": "Pets are allowed."
+      },
       "forms": {
         "presente": [
           [
@@ -11290,6 +11608,12 @@
       "reflexive": false,
       "gloss": "to appear",
       "tier": 1,
+      "sentence": {
+        "id": 5053904,
+        "author": "albrusgher",
+        "es": "Tú nunca apareciste.",
+        "en": "You never showed up."
+      },
       "forms": {
         "presente": [
           [
@@ -11506,6 +11830,12 @@
       "reflexive": false,
       "gloss": "to get, obtain, manage",
       "tier": 1,
+      "sentence": {
+        "id": 1869857,
+        "author": "Shishir",
+        "es": "Apenas consigo verla.",
+        "en": "I can barely see it."
+      },
       "forms": {
         "presente": [
           [
@@ -11722,6 +12052,12 @@
       "reflexive": false,
       "gloss": "to start, begin",
       "tier": 1,
+      "sentence": {
+        "id": 1861764,
+        "author": "marcelostockle",
+        "es": "La aventura comienza.",
+        "en": "The adventure begins."
+      },
       "forms": {
         "presente": [
           [
@@ -11938,6 +12274,12 @@
       "reflexive": false,
       "gloss": "to serve",
       "tier": 1,
+      "sentence": {
+        "id": 445725,
+        "author": "Shishir",
+        "es": "Ella me sirvió café.",
+        "en": "She served me coffee."
+      },
       "forms": {
         "presente": [
           [
@@ -12154,6 +12496,12 @@
       "reflexive": false,
       "gloss": "to take out, remove",
       "tier": 1,
+      "sentence": {
+        "id": 2197665,
+        "author": "hayastan",
+        "es": "Tom sacó la billetera y pagó la cuenta.",
+        "en": "Tom took out his wallet and paid the bill."
+      },
       "forms": {
         "presente": [
           [
@@ -12370,6 +12718,12 @@
       "reflexive": false,
       "gloss": "to need",
       "tier": 1,
+      "sentence": {
+        "id": 3067,
+        "author": "Shishir",
+        "es": "Necesito tu consejo.",
+        "en": "I need your advice."
+      },
       "forms": {
         "presente": [
           [
@@ -12586,6 +12940,12 @@
       "reflexive": false,
       "gloss": "to maintain",
       "tier": 1,
+      "sentence": {
+        "id": 5567631,
+        "author": "swyter",
+        "es": "Él la mantuvo cerca.",
+        "en": "He held her close."
+      },
       "forms": {
         "presente": [
           [
@@ -12802,6 +13162,12 @@
       "reflexive": false,
       "gloss": "to turn out, result",
       "tier": 1,
+      "sentence": {
+        "id": 2114260,
+        "author": "Shishir",
+        "es": "Me resulta familiar.",
+        "en": "It looks familiar."
+      },
       "forms": {
         "presente": [
           [
@@ -13018,6 +13384,12 @@
       "reflexive": false,
       "gloss": "to read",
       "tier": 1,
+      "sentence": {
+        "id": 6853445,
+        "author": "arh",
+        "es": "Hoy me quedaré en casa y leeré un libro.",
+        "en": "I'm going to stay home today and read a book."
+      },
       "forms": {
         "presente": [
           [
@@ -13234,6 +13606,12 @@
       "reflexive": false,
       "gloss": "to fall",
       "tier": 1,
+      "sentence": {
+        "id": 1118115,
+        "author": "arashi_29",
+        "es": "Ella cayó del árbol.",
+        "en": "She fell from the tree."
+      },
       "forms": {
         "presente": [
           [
@@ -13450,6 +13828,12 @@
       "reflexive": false,
       "gloss": "to change",
       "tier": 1,
+      "sentence": {
+        "id": 623930,
+        "author": "Shishir",
+        "es": "Ella cambió de tema.",
+        "en": "She changed the subject."
+      },
       "forms": {
         "presente": [
           [
@@ -13666,6 +14050,12 @@
       "reflexive": false,
       "gloss": "to present, introduce",
       "tier": 1,
+      "sentence": {
+        "id": 4950985,
+        "author": "osprell",
+        "es": "Ella no se presentó.",
+        "en": "She failed to appear."
+      },
       "forms": {
         "presente": [
           [
@@ -13882,6 +14272,12 @@
       "reflexive": false,
       "gloss": "to create",
       "tier": 1,
+      "sentence": {
+        "id": 1238859,
+        "author": "Shishir",
+        "es": "Dios creó el universo.",
+        "en": "God made the universe."
+      },
       "forms": {
         "presente": [
           [
@@ -14098,6 +14494,12 @@
       "reflexive": false,
       "gloss": "to open",
       "tier": 1,
+      "sentence": {
+        "id": 1139962,
+        "author": "Shishir",
+        "es": "Ella abrió los ojos.",
+        "en": "She opened her eyes."
+      },
       "forms": {
         "presente": [
           [
@@ -14314,6 +14716,12 @@
       "reflexive": false,
       "gloss": "to consider",
       "tier": 1,
+      "sentence": {
+        "id": 9713674,
+        "author": "Teiruzu",
+        "es": "Considera la fuente.",
+        "en": "Consider the source."
+      },
       "forms": {
         "presente": [
           [
@@ -14530,6 +14938,12 @@
       "reflexive": false,
       "gloss": "to hear",
       "tier": 1,
+      "sentence": {
+        "id": 1426391,
+        "author": "marcelostockle",
+        "es": "Oí a alguien silbar.",
+        "en": "I heard someone whistle."
+      },
       "forms": {
         "presente": [
           [
@@ -14746,6 +15160,12 @@
       "reflexive": false,
       "gloss": "to complete, finish, end",
       "tier": 1,
+      "sentence": {
+        "id": 345105,
+        "author": "tatoerique",
+        "es": "Ella acaba de salir.",
+        "en": "She just left."
+      },
       "forms": {
         "presente": [
           [
@@ -14962,6 +15382,12 @@
       "reflexive": false,
       "gloss": "to convert, change, transform",
       "tier": 1,
+      "sentence": {
+        "id": 3860992,
+        "author": "gianich73",
+        "es": "Tom se convirtió al islam.",
+        "en": "Tom converted to Islam."
+      },
       "forms": {
         "presente": [
           [
@@ -15178,6 +15604,12 @@
       "reflexive": false,
       "gloss": "to win, earn, gain",
       "tier": 1,
+      "sentence": {
+        "id": 1204769,
+        "author": "Shishir",
+        "es": "Tom ganó la apuesta.",
+        "en": "Tom won the bet."
+      },
       "forms": {
         "presente": [
           [
@@ -15394,6 +15826,12 @@
       "reflexive": false,
       "gloss": "to form",
       "tier": 1,
+      "sentence": {
+        "id": 3667150,
+        "author": "Seael",
+        "es": "Forman un buen equipo.",
+        "en": "They're a good team."
+      },
       "forms": {
         "presente": [
           [
@@ -15610,6 +16048,12 @@
       "reflexive": false,
       "gloss": "to bring",
       "tier": 1,
+      "sentence": {
+        "id": 856131,
+        "author": "opor",
+        "es": "Te lo traeré mañana.",
+        "en": "I'll bring it to you tomorrow."
+      },
       "forms": {
         "presente": [
           [
@@ -15826,6 +16270,12 @@
       "reflexive": false,
       "gloss": "to leave, depart, divide",
       "tier": 1,
+      "sentence": {
+        "id": 1229317,
+        "author": "nancy",
+        "es": "Si el tiempo lo permite, partiré mañana.",
+        "en": "Weather permitting, I'll depart tomorrow."
+      },
       "forms": {
         "presente": [
           [
@@ -16042,6 +16492,12 @@
       "reflexive": false,
       "gloss": "to die",
       "tier": 1,
+      "sentence": {
+        "id": 2900,
+        "author": "Shishir",
+        "es": "¡Me muero de hambre!",
+        "en": "I'm starved."
+      },
       "forms": {
         "presente": [
           [
@@ -16258,6 +16714,12 @@
       "reflexive": false,
       "gloss": "to accept",
       "tier": 1,
+      "sentence": {
+        "id": 551886,
+        "author": "Shishir",
+        "es": "Él aceptó mi regalo.",
+        "en": "He accepted my present."
+      },
       "forms": {
         "presente": [
           [
@@ -16474,6 +16936,12 @@
       "reflexive": false,
       "gloss": "to carry out, achieve",
       "tier": 1,
+      "sentence": {
+        "id": 969757,
+        "author": "hundo",
+        "es": "Él realizó tres disparos.",
+        "en": "He fired three shots."
+      },
       "forms": {
         "presente": [
           [
@@ -16690,6 +17158,12 @@
       "reflexive": false,
       "gloss": "to suppose",
       "tier": 1,
+      "sentence": {
+        "id": 2869091,
+        "author": "cueyayotl",
+        "es": "Supongo que usted no aprueba.",
+        "en": "I take it you disapprove."
+      },
       "forms": {
         "presente": [
           [
@@ -16906,6 +17380,12 @@
       "reflexive": false,
       "gloss": "to understand",
       "tier": 1,
+      "sentence": {
+        "id": 2254325,
+        "author": "cueyayotl",
+        "es": "¿Lo comprende usted?",
+        "en": "Do you get the idea?"
+      },
       "forms": {
         "presente": [
           [
@@ -17122,6 +17602,12 @@
       "reflexive": false,
       "gloss": "to manage to",
       "tier": 1,
+      "sentence": {
+        "id": 7682834,
+        "author": "arh",
+        "es": "No logro entenderlo.",
+        "en": "I can't understand it."
+      },
       "forms": {
         "presente": [
           [
@@ -17338,6 +17824,12 @@
       "reflexive": false,
       "gloss": "to explain",
       "tier": 1,
+      "sentence": {
+        "id": 5967599,
+        "author": "arh",
+        "es": "Nadie se lo explicó.",
+        "en": "No one explained it."
+      },
       "forms": {
         "presente": [
           [
@@ -17554,6 +18046,12 @@
       "reflexive": false,
       "gloss": "to ask (a question)",
       "tier": 1,
+      "sentence": {
+        "id": 950666,
+        "author": "hayastan",
+        "es": "Me preguntó mi edad.",
+        "en": "She asked me how old I was."
+      },
       "forms": {
         "presente": [
           [
@@ -17770,6 +18268,12 @@
       "reflexive": false,
       "gloss": "to play (an instrument), touch, knock",
       "tier": 1,
+      "sentence": {
+        "id": 580954,
+        "author": "Shishir",
+        "es": "¿Ella toca el piano?",
+        "en": "Does she play piano?"
+      },
       "forms": {
         "presente": [
           [
@@ -17986,6 +18490,12 @@
       "reflexive": false,
       "gloss": "to recognize",
       "tier": 1,
+      "sentence": {
+        "id": 5011903,
+        "author": "Shishir",
+        "es": "¿Ya no me reconoces?",
+        "en": "Don't you recognize me anymore?"
+      },
       "forms": {
         "presente": [
           [
@@ -18202,6 +18712,12 @@
       "reflexive": false,
       "gloss": "to study",
       "tier": 1,
+      "sentence": {
+        "id": 1296693,
+        "author": "marcelostockle",
+        "es": "Ella estudia inglés.",
+        "en": "She studies English."
+      },
       "forms": {
         "presente": [
           [
@@ -18418,6 +18934,12 @@
       "reflexive": false,
       "gloss": "to reach, achieve",
       "tier": 1,
+      "sentence": {
+        "id": 985813,
+        "author": "Shishir",
+        "es": "Nunca me alcanzarás.",
+        "en": "You'll never catch up with me."
+      },
       "forms": {
         "presente": [
           [
@@ -18634,6 +19156,12 @@
       "reflexive": false,
       "gloss": "to be born",
       "tier": 1,
+      "sentence": {
+        "id": 528810,
+        "author": "Shishir",
+        "es": "¿En qué año naciste?",
+        "en": "What year were you born?"
+      },
       "forms": {
         "presente": [
           [
@@ -18850,6 +19378,12 @@
       "reflexive": false,
       "gloss": "to direct",
       "tier": 1,
+      "sentence": {
+        "id": 2405701,
+        "author": "Shishir",
+        "es": "Yo dirijo este lugar.",
+        "en": "I run this place."
+      },
       "forms": {
         "presente": [
           [
@@ -19066,6 +19600,12 @@
       "reflexive": false,
       "gloss": "to run, race, hasten, go fast",
       "tier": 1,
+      "sentence": {
+        "id": 866002,
+        "author": "ildefonk",
+        "es": "Él corre muy rápido.",
+        "en": "He runs very fast."
+      },
       "forms": {
         "presente": [
           [
@@ -19282,6 +19822,12 @@
       "reflexive": false,
       "gloss": "to use",
       "tier": 1,
+      "sentence": {
+        "id": 6711190,
+        "author": "arh",
+        "es": "¿Cómo se utiliza esto?",
+        "en": "How does this work?"
+      },
       "forms": {
         "presente": [
           [
@@ -19498,6 +20044,12 @@
       "reflexive": false,
       "gloss": "to pay",
       "tier": 1,
+      "sentence": {
+        "id": 3231187,
+        "author": "Shishir",
+        "es": "¿Cuánto te paga Tom?",
+        "en": "How much does Tom pay you?"
+      },
       "forms": {
         "presente": [
           [
@@ -19714,6 +20266,12 @@
       "reflexive": false,
       "gloss": "to help, assist",
       "tier": 1,
+      "sentence": {
+        "id": 1493195,
+        "author": "hayastan",
+        "es": "Aunque estaba ocupada, ayudé a mi madre.",
+        "en": "I helped my mother even though I was busy."
+      },
       "forms": {
         "presente": [
           [
@@ -19930,6 +20488,12 @@
       "reflexive": false,
       "gloss": "to please, be pleasing",
       "tier": 1,
+      "sentence": {
+        "id": 343584,
+        "author": "tatoerique",
+        "es": "¿Te gusta la música?",
+        "en": "Do you like music?"
+      },
       "forms": {
         "presente": [
           [
@@ -20146,6 +20710,12 @@
       "reflexive": false,
       "gloss": "to play (games, sports)",
       "tier": 1,
+      "sentence": {
+        "id": 625861,
+        "author": "Leono",
+        "es": "¿No juegas al tenis?",
+        "en": "Don't you play tennis?"
+      },
       "forms": {
         "presente": [
           [
@@ -20362,6 +20932,12 @@
       "reflexive": false,
       "gloss": "to listen, hear",
       "tier": 1,
+      "sentence": {
+        "id": 862926,
+        "author": "jorgearestrepo",
+        "es": "Escuché su historia.",
+        "en": "I listened to his story."
+      },
       "forms": {
         "presente": [
           [
@@ -20578,6 +21154,12 @@
       "reflexive": false,
       "gloss": "to fulfil, complete, turn (an age)",
       "tier": 1,
+      "sentence": {
+        "id": 2266214,
+        "author": "cueyayotl",
+        "es": "Cumple con su deber.",
+        "en": "He does his duty."
+      },
       "forms": {
         "presente": [
           [
@@ -20794,6 +21376,12 @@
       "reflexive": false,
       "gloss": "to offer",
       "tier": 1,
+      "sentence": {
+        "id": 990692,
+        "author": "Shishir",
+        "es": "Se ofreció a ayudarme.",
+        "en": "He offered to help me."
+      },
       "forms": {
         "presente": [
           [
@@ -21010,6 +21598,12 @@
       "reflexive": false,
       "gloss": "to discover, uncover",
       "tier": 1,
+      "sentence": {
+        "id": 1698541,
+        "author": "marcelostockle",
+        "es": "¿Cómo descubrió eso?",
+        "en": "How did you discover that?"
+      },
       "forms": {
         "presente": [
           [
@@ -21226,6 +21820,12 @@
       "reflexive": false,
       "gloss": "to lift, pick up, raise",
       "tier": 1,
+      "sentence": {
+        "id": 1279981,
+        "author": "marcelostockle",
+        "es": "Me levanté temprano.",
+        "en": "I got up early."
+      },
       "forms": {
         "presente": [
           [
@@ -21442,6 +22042,12 @@
       "reflexive": false,
       "gloss": "to try, intend",
       "tier": 1,
+      "sentence": {
+        "id": 602801,
+        "author": "Leono",
+        "es": "¿Qué intentas hacer?",
+        "en": "What do you intend to do?"
+      },
       "forms": {
         "presente": [
           [
@@ -21658,6 +22264,12 @@
       "reflexive": false,
       "gloss": "to use",
       "tier": 2,
+      "sentence": {
+        "id": 1197559,
+        "author": "rafmagon",
+        "es": "¿Cuánto azúcar usas?",
+        "en": "How much sugar do you use?"
+      },
       "forms": {
         "presente": [
           [
@@ -21874,6 +22486,12 @@
       "reflexive": false,
       "gloss": "to decide",
       "tier": 2,
+      "sentence": {
+        "id": 356219,
+        "author": "tatoerique",
+        "es": "Él decidió operarse.",
+        "en": "He decided to be operated on."
+      },
       "forms": {
         "presente": [
           [
@@ -22090,6 +22708,12 @@
       "reflexive": false,
       "gloss": "to repeat",
       "tier": 2,
+      "sentence": {
+        "id": 2828776,
+        "author": "marcelostockle",
+        "es": "Yo no repetiría eso.",
+        "en": "I wouldn't repeat that."
+      },
       "forms": {
         "presente": [
           [
@@ -22306,6 +22930,12 @@
       "reflexive": false,
       "gloss": "to forget",
       "tier": 2,
+      "sentence": {
+        "id": 791727,
+        "author": "Shishir",
+        "es": "Un día me olvidarás.",
+        "en": "You'll forget about me someday."
+      },
       "forms": {
         "presente": [
           [
@@ -22522,6 +23152,12 @@
       "reflexive": false,
       "gloss": "to be worth",
       "tier": 2,
+      "sentence": {
+        "id": 872425,
+        "author": "Rafp",
+        "es": "Cualquier cosa vale.",
+        "en": "Anything will do."
+      },
       "forms": {
         "presente": [
           [
@@ -22738,6 +23374,12 @@
       "reflexive": false,
       "gloss": "to eat",
       "tier": 2,
+      "sentence": {
+        "id": 870593,
+        "author": "ildefonk",
+        "es": "¿A qué hora comiste?",
+        "en": "When did you eat?"
+      },
       "forms": {
         "presente": [
           [
@@ -22954,6 +23596,12 @@
       "reflexive": false,
       "gloss": "to show, demonstrate, exemplify",
       "tier": 2,
+      "sentence": {
+        "id": 2097851,
+        "author": "marcelostockle",
+        "es": "Le mostré mi cuarto.",
+        "en": "I showed her my room."
+      },
       "forms": {
         "presente": [
           [
@@ -23170,6 +23818,12 @@
       "reflexive": false,
       "gloss": "to include",
       "tier": 2,
+      "sentence": {
+        "id": 9432197,
+        "author": "ignacio",
+        "es": "El precio incluye impuestos.",
+        "en": "The price includes tax."
+      },
       "forms": {
         "presente": [
           [
@@ -23386,6 +24040,12 @@
       "reflexive": false,
       "gloss": "to continue",
       "tier": 2,
+      "sentence": {
+        "id": 2721437,
+        "author": "Shishir",
+        "es": "Continúa, por favor.",
+        "en": "Please go ahead."
+      },
       "forms": {
         "presente": [
           [
@@ -23602,6 +24262,12 @@
       "reflexive": false,
       "gloss": "to close, shut",
       "tier": 2,
+      "sentence": {
+        "id": 573776,
+        "author": "Shishir",
+        "es": "No cierres los ojos.",
+        "en": "Don't shut your eyes."
+      },
       "forms": {
         "presente": [
           [
@@ -23818,6 +24484,12 @@
       "reflexive": false,
       "gloss": "to buy",
       "tier": 2,
+      "sentence": {
+        "id": 1248485,
+        "author": "Shishir",
+        "es": "¿Compraste un perro?",
+        "en": "Did you buy a dog?"
+      },
       "forms": {
         "presente": [
           [
@@ -24034,6 +24706,12 @@
       "reflexive": false,
       "gloss": "to sell, vend",
       "tier": 2,
+      "sentence": {
+        "id": 2416342,
+        "author": "Shishir",
+        "es": "No te vendo mi coche.",
+        "en": "I'm not selling you my car."
+      },
       "forms": {
         "presente": [
           [
@@ -24250,6 +24928,12 @@
       "reflexive": false,
       "gloss": "to rise, climb, go up, board",
       "tier": 2,
+      "sentence": {
+        "id": 330624,
+        "author": "tatoerique",
+        "es": "No te subas al muro.",
+        "en": "Don't climb up the wall."
+      },
       "forms": {
         "presente": [
           [
@@ -24466,6 +25150,12 @@
       "reflexive": false,
       "gloss": "to lower, go down",
       "tier": 2,
+      "sentence": {
+        "id": 1296913,
+        "author": "marcelostockle",
+        "es": "Tom se bajó del bus.",
+        "en": "Tom got off the bus."
+      },
       "forms": {
         "presente": [
           [
@@ -24682,6 +25372,12 @@
       "reflexive": false,
       "gloss": "to walk",
       "tier": 2,
+      "sentence": {
+        "id": 792241,
+        "author": "Shishir",
+        "es": "Tom camina despacio.",
+        "en": "Tom walks slowly."
+      },
       "forms": {
         "presente": [
           [
@@ -24898,6 +25594,12 @@
       "reflexive": false,
       "gloss": "to sleep",
       "tier": 2,
+      "sentence": {
+        "id": 1562284,
+        "author": "marcelostockle",
+        "es": "Se me durmió el pie.",
+        "en": "My foot fell asleep."
+      },
       "forms": {
         "presente": [
           [
@@ -25114,6 +25816,12 @@
       "reflexive": false,
       "gloss": "to awaken, wake up",
       "tier": 2,
+      "sentence": {
+        "id": 5750922,
+        "author": "arh",
+        "es": "Tom despertó a Mary.",
+        "en": "Tom woke Mary up."
+      },
       "forms": {
         "presente": [
           [
@@ -25330,6 +26038,12 @@
       "reflexive": false,
       "gloss": "to bathe, wash, rinse",
       "tier": 2,
+      "sentence": {
+        "id": 1163497,
+        "author": "nancy",
+        "es": "Tom bañó a su perro.",
+        "en": "Tom gave his dog a bath."
+      },
       "forms": {
         "presente": [
           [
@@ -25546,6 +26260,12 @@
       "reflexive": false,
       "gloss": "to wash",
       "tier": 2,
+      "sentence": {
+        "id": 3039928,
+        "author": "hayastan",
+        "es": "Tom se lavó la cara.",
+        "en": "Tom washed his face."
+      },
       "forms": {
         "presente": [
           [
@@ -25762,6 +26482,12 @@
       "reflexive": false,
       "gloss": "to cook",
       "tier": 2,
+      "sentence": {
+        "id": 506051,
+        "author": "Shishir",
+        "es": "Mi madre cocina bien.",
+        "en": "My mother cooks well."
+      },
       "forms": {
         "presente": [
           [
@@ -25978,6 +26704,12 @@
       "reflexive": false,
       "gloss": "to clean, wipe",
       "tier": 2,
+      "sentence": {
+        "id": 9183437,
+        "author": "ignacio",
+        "es": "Tom limpió la playa.",
+        "en": "Tom cleaned the beach."
+      },
       "forms": {
         "presente": [
           [
@@ -26194,6 +26926,12 @@
       "reflexive": false,
       "gloss": "to drive, manage, handle, operate (vehicle)",
       "tier": 2,
+      "sentence": {
+        "id": 5115127,
+        "author": "don_ramon",
+        "es": "La próxima manejo yo.",
+        "en": "Next time, I'll drive."
+      },
       "forms": {
         "presente": [
           [
@@ -26410,6 +27148,12 @@
       "reflexive": false,
       "gloss": "to travel, take a trip",
       "tier": 2,
+      "sentence": {
+        "id": 2278245,
+        "author": "marcelostockle",
+        "es": "Yo nunca viajo solo.",
+        "en": "I never travel alone."
+      },
       "forms": {
         "presente": [
           [
@@ -26626,6 +27370,12 @@
       "reflexive": false,
       "gloss": "to visit",
       "tier": 2,
+      "sentence": {
+        "id": 3147823,
+        "author": "marcelostockle",
+        "es": "Ella me visitó ayer.",
+        "en": "She paid me a visit yesterday."
+      },
       "forms": {
         "presente": [
           [
@@ -26842,6 +27592,12 @@
       "reflexive": false,
       "gloss": "to invite",
       "tier": 2,
+      "sentence": {
+        "id": 4078675,
+        "author": "gianich73",
+        "es": "¿A quién invitarían?",
+        "en": "Who'd you invite?"
+      },
       "forms": {
         "presente": [
           [
@@ -27058,6 +27814,12 @@
       "reflexive": false,
       "gloss": "to dance",
       "tier": 2,
+      "sentence": {
+        "id": 1721539,
+        "author": "marcelostockle",
+        "es": "Bailé toda la noche.",
+        "en": "I danced all night long."
+      },
       "forms": {
         "presente": [
           [
@@ -27274,6 +28036,12 @@
       "reflexive": false,
       "gloss": "to sing, chant",
       "tier": 2,
+      "sentence": {
+        "id": 567891,
+        "author": "Shishir",
+        "es": "Ella canta muy bien.",
+        "en": "She sings very well."
+      },
       "forms": {
         "presente": [
           [
@@ -27490,6 +28258,12 @@
       "reflexive": false,
       "gloss": "to laugh",
       "tier": 2,
+      "sentence": {
+        "id": 1993775,
+        "author": "marcelostockle",
+        "es": "¿Quién se ríe ahora?",
+        "en": "Who's laughing now?"
+      },
       "forms": {
         "presente": [
           [
@@ -27706,6 +28480,12 @@
       "reflexive": false,
       "gloss": "to cry, weep",
       "tier": 2,
+      "sentence": {
+        "id": 360093,
+        "author": "tatoerique",
+        "es": "Lloré toda la noche.",
+        "en": "I cried all night."
+      },
       "forms": {
         "presente": [
           [
@@ -27922,6 +28702,12 @@
       "reflexive": false,
       "gloss": "to scream, shout, yell",
       "tier": 2,
+      "sentence": {
+        "id": 4191264,
+        "author": "hayastan",
+        "es": "Tom le gritó a Mary.",
+        "en": "Tom shouted at Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -28138,6 +28924,12 @@
       "reflexive": false,
       "gloss": "to answer, respond, reply",
       "tier": 2,
+      "sentence": {
+        "id": 973042,
+        "author": "Shishir",
+        "es": "Contestaré en tres días.",
+        "en": "I will answer within three days."
+      },
       "forms": {
         "presente": [
           [
@@ -28354,6 +29146,12 @@
       "reflexive": false,
       "gloss": "to respond",
       "tier": 2,
+      "sentence": {
+        "id": 2240466,
+        "author": "marcelostockle",
+        "es": "Te responderé mañana.",
+        "en": "I'll answer you tomorrow."
+      },
       "forms": {
         "presente": [
           [
@@ -28570,6 +29368,12 @@
       "reflexive": false,
       "gloss": "to greet, say hello",
       "tier": 2,
+      "sentence": {
+        "id": 1627411,
+        "author": "marcelostockle",
+        "es": "Él saludó a la dama.",
+        "en": "He greeted the lady."
+      },
       "forms": {
         "presente": [
           [
@@ -28786,6 +29590,12 @@
       "reflexive": false,
       "gloss": "to thank",
       "tier": 2,
+      "sentence": {
+        "id": 10247905,
+        "author": "Seael",
+        "es": "Agradezco la oferta.",
+        "en": "I appreciate the offer."
+      },
       "forms": {
         "presente": [
           [
@@ -29002,6 +29812,12 @@
       "reflexive": false,
       "gloss": "to excuse",
       "tier": 2,
+      "sentence": {
+        "id": 354938,
+        "author": "tatoerique",
+        "es": "Disculpe un momento.",
+        "en": "Pardon me for a moment."
+      },
       "forms": {
         "presente": [
           [
@@ -29218,6 +30034,12 @@
       "reflexive": false,
       "gloss": "to pardon, excuse, forgive",
       "tier": 2,
+      "sentence": {
+        "id": 10097413,
+        "author": "manufrutos",
+        "es": "Que Dios me perdone.",
+        "en": "God forgive me."
+      },
       "forms": {
         "presente": [
           [
@@ -29434,6 +30256,12 @@
       "reflexive": false,
       "gloss": "to promise",
       "tier": 2,
+      "sentence": {
+        "id": 2624552,
+        "author": "Shishir",
+        "es": "Se lo prometí a Tom.",
+        "en": "I promised Tom."
+      },
       "forms": {
         "presente": [
           [
@@ -29650,6 +30478,12 @@
       "reflexive": false,
       "gloss": "to lie, tell an untruth",
       "tier": 2,
+      "sentence": {
+        "id": 3167792,
+        "author": "Shishir",
+        "es": "Uno de ellos miente.",
+        "en": "One of them is lying."
+      },
       "forms": {
         "presente": [
           [
@@ -29866,6 +30700,12 @@
       "reflexive": false,
       "gloss": "to fight",
       "tier": 2,
+      "sentence": {
+        "id": 1903565,
+        "author": "marcelostockle",
+        "es": "No peleen, por favor.",
+        "en": "Please don't fight."
+      },
       "forms": {
         "presente": [
           [
@@ -30082,6 +30922,12 @@
       "reflexive": false,
       "gloss": "to discuss",
       "tier": 2,
+      "sentence": {
+        "id": 7536693,
+        "author": "arh",
+        "es": "Siempre discutíamos.",
+        "en": "We always argued."
+      },
       "forms": {
         "presente": [
           [
@@ -30298,6 +31144,12 @@
       "reflexive": false,
       "gloss": "to anger, make mad, madden",
       "tier": 2,
+      "sentence": {
+        "id": 9689667,
+        "author": "arh",
+        "es": "No te enojes conmigo.",
+        "en": "Don't be mad at me."
+      },
       "forms": {
         "presente": [
           [
@@ -30514,6 +31366,12 @@
       "reflexive": false,
       "gloss": "to worry",
       "tier": 2,
+      "sentence": {
+        "id": 3691525,
+        "author": "Shishir",
+        "es": "Me preocupo por Tom.",
+        "en": "I'm worried about Tom."
+      },
       "forms": {
         "presente": [
           [
@@ -30730,6 +31588,12 @@
       "reflexive": false,
       "gloss": "to scare, frighten",
       "tier": 2,
+      "sentence": {
+        "id": 331770,
+        "author": "danilo",
+        "es": "Ella asustó al gato.",
+        "en": "She scared the cat away."
+      },
       "forms": {
         "presente": [
           [
@@ -30946,6 +31810,12 @@
       "reflexive": false,
       "gloss": "to make glad",
       "tier": 2,
+      "sentence": {
+        "id": 1325648,
+        "author": "Htomayor",
+        "es": "Me alegra oír tu voz.",
+        "en": "I am happy to hear your voice."
+      },
       "forms": {
         "presente": [
           [
@@ -31162,6 +32032,12 @@
       "reflexive": false,
       "gloss": "to miss",
       "tier": 2,
+      "sentence": {
+        "id": 1120670,
+        "author": "hayastan",
+        "es": "Te extrañamos mucho.",
+        "en": "We miss you very much."
+      },
       "forms": {
         "presente": [
           [
@@ -31378,6 +32254,12 @@
       "reflexive": false,
       "gloss": "to love",
       "tier": 2,
+      "sentence": {
+        "id": 1007025,
+        "author": "dexiee",
+        "es": "Amo las matemáticas.",
+        "en": "I love math."
+      },
       "forms": {
         "presente": [
           [
@@ -31594,6 +32476,12 @@
       "reflexive": false,
       "gloss": "to hate",
       "tier": 2,
+      "sentence": {
+        "id": 399589,
+        "author": "catakaoe",
+        "es": "Ellos odiaban a Tom.",
+        "en": "They hated Tom."
+      },
       "forms": {
         "presente": [
           [
@@ -31810,6 +32698,12 @@
       "reflexive": false,
       "gloss": "to prefer",
       "tier": 2,
+      "sentence": {
+        "id": 1202984,
+        "author": "cariito",
+        "es": "Prefiero ir a nadar.",
+        "en": "I prefer to go swimming."
+      },
       "forms": {
         "presente": [
           [
@@ -32026,6 +32920,12 @@
       "reflexive": false,
       "gloss": "to elect, select, choose",
       "tier": 2,
+      "sentence": {
+        "id": 1357562,
+        "author": "marcelostockle",
+        "es": "Elige a una persona.",
+        "en": "Choose one person."
+      },
       "forms": {
         "presente": [
           [
@@ -32242,6 +33142,12 @@
       "reflexive": false,
       "gloss": "to lack, miss, be missing",
       "tier": 2,
+      "sentence": {
+        "id": 1387985,
+        "author": "marcelostockle",
+        "es": "Él faltó al colegio.",
+        "en": "He was absent from school."
+      },
       "forms": {
         "presente": [
           [
@@ -32458,6 +33364,12 @@
       "reflexive": false,
       "gloss": "to be left over",
       "tier": 2,
+      "sentence": {
+        "id": 5889383,
+        "author": "albrusgher",
+        "es": "Fantaseo sobre ello.",
+        "en": "I daydream about it."
+      },
       "forms": {
         "presente": [
           [
@@ -32674,6 +33586,12 @@
       "reflexive": false,
       "gloss": "to be enough",
       "tier": 2,
+      "sentence": {
+        "id": 9452827,
+        "author": "ignacio",
+        "es": "Basta de corregirme.",
+        "en": "Stop correcting me."
+      },
       "forms": {
         "presente": [
           [
@@ -32890,6 +33808,12 @@
       "reflexive": false,
       "gloss": "to last",
       "tier": 2,
+      "sentence": {
+        "id": 969860,
+        "author": "hundo",
+        "es": "¿Cuánto tiempo dura?",
+        "en": "How long does it take?"
+      },
       "forms": {
         "presente": [
           [
@@ -33106,6 +34030,12 @@
       "reflexive": false,
       "gloss": "to take time",
       "tier": 2,
+      "sentence": {
+        "id": 7412180,
+        "author": "arh",
+        "es": "Hagámoslo más tarde.",
+        "en": "Let's do this later."
+      },
       "forms": {
         "presente": [
           [
@@ -33322,6 +34252,12 @@
       "reflexive": false,
       "gloss": "to hurry",
       "tier": 2,
+      "sentence": {
+        "id": 1338718,
+        "author": "marcelostockle",
+        "es": "No necesitas ir tan apurado.",
+        "en": "You don't need to go in such a hurry."
+      },
       "forms": {
         "presente": [
           [
@@ -33538,6 +34474,12 @@
       "reflexive": false,
       "gloss": "to stand, come to a stand-still, stop",
       "tier": 2,
+      "sentence": {
+        "id": 539906,
+        "author": "Shishir",
+        "es": "Ella paró de hablar.",
+        "en": "She stopped talking."
+      },
       "forms": {
         "presente": [
           [
@@ -33754,6 +34696,12 @@
       "reflexive": false,
       "gloss": "to push",
       "tier": 2,
+      "sentence": {
+        "id": 6859579,
+        "author": "albrusgher",
+        "es": "Él me empujó al pasar.",
+        "en": "He pushed past me."
+      },
       "forms": {
         "presente": [
           [
@@ -33970,6 +34918,12 @@
       "reflexive": false,
       "gloss": "to throw, pull, draw",
       "tier": 2,
+      "sentence": {
+        "id": 1426317,
+        "author": "marcelostockle",
+        "es": "No tires basura aquí.",
+        "en": "Don't dump garbage here."
+      },
       "forms": {
         "presente": [
           [
@@ -34186,6 +35140,12 @@
       "reflexive": false,
       "gloss": "to grab, seize, grasp, get hold of",
       "tier": 2,
+      "sentence": {
+        "id": 330629,
+        "author": "tatoerique",
+        "es": "Él agarró la cuerda.",
+        "en": "He caught hold of the rope."
+      },
       "forms": {
         "presente": [
           [
@@ -34402,6 +35362,12 @@
       "reflexive": false,
       "gloss": "to loosen, let go",
       "tier": 2,
+      "sentence": {
+        "id": 3836249,
+        "author": "cueyayotl",
+        "es": "Tom soltó un erupto.",
+        "en": "Tom let out a belch."
+      },
       "forms": {
         "presente": [
           [
@@ -34618,6 +35584,12 @@
       "reflexive": false,
       "gloss": "to hug, embrace, clasp, cling",
       "tier": 2,
+      "sentence": {
+        "id": 1548600,
+        "author": "marcelostockle",
+        "es": "La abracé firmemente.",
+        "en": "I hugged her tightly."
+      },
       "forms": {
         "presente": [
           [
@@ -34834,6 +35806,12 @@
       "reflexive": false,
       "gloss": "to kiss",
       "tier": 2,
+      "sentence": {
+        "id": 1329266,
+        "author": "marcelostockle",
+        "es": "Ella me besó, no él.",
+        "en": "She kissed me, not him."
+      },
       "forms": {
         "presente": [
           [
@@ -35050,6 +36028,12 @@
       "reflexive": false,
       "gloss": "to note",
       "tier": 2,
+      "sentence": {
+        "id": 10104852,
+        "author": "Eremon",
+        "es": "Pronto noté su ausencia.",
+        "en": "I soon noticed his absence."
+      },
       "forms": {
         "presente": [
           [
@@ -35266,6 +36250,12 @@
       "reflexive": false,
       "gloss": "to observe",
       "tier": 2,
+      "sentence": {
+        "id": 1296698,
+        "author": "marcelostockle",
+        "es": "Ella lo observó comer.",
+        "en": "She watched him eat."
+      },
       "forms": {
         "presente": [
           [
@@ -35482,6 +36472,12 @@
       "reflexive": false,
       "gloss": "to fix, focus",
       "tier": 2,
+      "sentence": {
+        "id": 1258367,
+        "author": "marcelostockle",
+        "es": "Ella fijó su mirada en mí.",
+        "en": "She stared at me."
+      },
       "forms": {
         "presente": [
           [
@@ -35698,6 +36694,12 @@
       "reflexive": false,
       "gloss": "to imagine",
       "tier": 2,
+      "sentence": {
+        "id": 1151877,
+        "author": "nancy",
+        "es": "Jamás me imaginé una cosa así.",
+        "en": "I never imagined anything like this."
+      },
       "forms": {
         "presente": [
           [
@@ -35914,6 +36916,12 @@
       "reflexive": false,
       "gloss": "to dream",
       "tier": 2,
+      "sentence": {
+        "id": 977162,
+        "author": "Shishir",
+        "es": "Anoche soñé contigo.",
+        "en": "Last night, I dreamed about you."
+      },
       "forms": {
         "presente": [
           [
@@ -36130,6 +37138,12 @@
       "reflexive": false,
       "gloss": "to wish, desire",
       "tier": 2,
+      "sentence": {
+        "id": 1418908,
+        "author": "marcelostockle",
+        "es": "¿Tanto deseas verla?",
+        "en": "Do you want to see her very much?"
+      },
       "forms": {
         "presente": [
           [
@@ -36346,6 +37360,12 @@
       "reflexive": false,
       "gloss": "to put up with",
       "tier": 2,
+      "sentence": {
+        "id": 1803718,
+        "author": "marcelostockle",
+        "es": "No soporto el dolor.",
+        "en": "I can't bear the pain."
+      },
       "forms": {
         "presente": [
           [
@@ -36562,6 +37582,12 @@
       "reflexive": false,
       "gloss": "to enjoy, take enjoyment in",
       "tier": 2,
+      "sentence": {
+        "id": 6681512,
+        "author": "arh",
+        "es": "Disfruto la soledad.",
+        "en": "I enjoy solitude."
+      },
       "forms": {
         "presente": [
           [
@@ -36778,6 +37804,12 @@
       "reflexive": false,
       "gloss": "to rest",
       "tier": 2,
+      "sentence": {
+        "id": 970762,
+        "author": "hayastan",
+        "es": "Descansemos un rato.",
+        "en": "Let's take a rest for a while."
+      },
       "forms": {
         "presente": [
           [
@@ -36994,6 +38026,12 @@
       "reflexive": false,
       "gloss": "to relax",
       "tier": 2,
+      "sentence": {
+        "id": 6861946,
+        "author": "arh",
+        "es": "¿Cómo te relajas tras las clases?",
+        "en": "How do you relax after school?"
+      },
       "forms": {
         "presente": [
           [
@@ -37210,6 +38248,12 @@
       "reflexive": false,
       "gloss": "to have fun",
       "tier": 2,
+      "sentence": {
+        "id": 1915050,
+        "author": "hayastan",
+        "es": "¿Te divertiste ayer?",
+        "en": "Did you have a good time yesterday?"
+      },
       "forms": {
         "presente": [
           [
@@ -37426,6 +38470,12 @@
       "reflexive": false,
       "gloss": "to bore, be boring",
       "tier": 2,
+      "sentence": {
+        "id": 3602069,
+        "author": "marcelostockle",
+        "es": "El colegio me aburre.",
+        "en": "School bores me."
+      },
       "forms": {
         "presente": [
           [
@@ -37642,6 +38692,12 @@
       "reflexive": false,
       "gloss": "to tire",
       "tier": 2,
+      "sentence": {
+        "id": 2219464,
+        "author": "Shishir",
+        "es": "Me cansé de esperar.",
+        "en": "I got tired of waiting."
+      },
       "forms": {
         "presente": [
           [
@@ -37858,6 +38914,12 @@
       "reflexive": false,
       "gloss": "to get sick",
       "tier": 2,
+      "sentence": {
+        "id": 2259358,
+        "author": "hayastan",
+        "es": "El enfermo se agravó.",
+        "en": "The patient got worse."
+      },
       "forms": {
         "presente": [
           [
@@ -38074,6 +39136,12 @@
       "reflexive": false,
       "gloss": "to cure, heal",
       "tier": 2,
+      "sentence": {
+        "id": 620316,
+        "author": "Shishir",
+        "es": "El cura nos bendijo.",
+        "en": "The priest blessed us."
+      },
       "forms": {
         "presente": [
           [
@@ -38290,6 +39358,12 @@
       "reflexive": false,
       "gloss": "to hurt, be in pain",
       "tier": 2,
+      "sentence": {
+        "id": 929944,
+        "author": "Shishir",
+        "es": "Me duele la espalda.",
+        "en": "My back aches."
+      },
       "forms": {
         "presente": [
           [
@@ -38506,6 +39580,12 @@
       "reflexive": false,
       "gloss": "to recover",
       "tier": 2,
+      "sentence": {
+        "id": 2112080,
+        "author": "marcelostockle",
+        "es": "Las heridas sanan con el tiempo.",
+        "en": "Wounds heal as time passes."
+      },
       "forms": {
         "presente": [
           [
@@ -38722,6 +39802,12 @@
       "reflexive": false,
       "gloss": "to create, nurse, raise, rear, breed",
       "tier": 2,
+      "sentence": {
+        "id": 785213,
+        "author": "chinopinyin",
+        "es": "Se crio en Australia.",
+        "en": "He was brought up in Australia."
+      },
       "forms": {
         "presente": [
           [
@@ -38938,6 +40024,12 @@
       "reflexive": false,
       "gloss": "to grow",
       "tier": 2,
+      "sentence": {
+        "id": 5023093,
+        "author": "don_ramon",
+        "es": "¿Creciste en Boston?",
+        "en": "Did you grow up in Boston?"
+      },
       "forms": {
         "presente": [
           [
@@ -39154,6 +40246,12 @@
       "reflexive": false,
       "gloss": "to grow old",
       "tier": 2,
+      "sentence": {
+        "id": 2160504,
+        "author": "Shishir",
+        "es": "Las mujeres envejecen más rápido que los hombres.",
+        "en": "Women age faster than men."
+      },
       "forms": {
         "presente": [
           [
@@ -39370,6 +40468,12 @@
       "reflexive": false,
       "gloss": "to marry",
       "tier": 2,
+      "sentence": {
+        "id": 570885,
+        "author": "Shishir",
+        "es": "Ella se casó con él.",
+        "en": "She married him."
+      },
       "forms": {
         "presente": [
           [
@@ -39586,6 +40690,12 @@
       "reflexive": false,
       "gloss": "to separate",
       "tier": 2,
+      "sentence": {
+        "id": 4076908,
+        "author": "hayastan",
+        "es": "La muerte nos separó.",
+        "en": "Death separated us."
+      },
       "forms": {
         "presente": [
           [
@@ -39802,6 +40912,12 @@
       "reflexive": false,
       "gloss": "to arise",
       "tier": 2,
+      "sentence": {
+        "id": 3237627,
+        "author": "marcelostockle",
+        "es": "Algo importante surgió.",
+        "en": "Something important has come up."
+      },
       "forms": {
         "presente": [
           [
@@ -40018,6 +41134,12 @@
       "reflexive": false,
       "gloss": "to build",
       "tier": 2,
+      "sentence": {
+        "id": 775711,
+        "author": "chinopinyin",
+        "es": "¿Quién lo construyó?",
+        "en": "Who built it?"
+      },
       "forms": {
         "presente": [
           [
@@ -40234,6 +41356,12 @@
       "reflexive": false,
       "gloss": "to break, break up with, tear",
       "tier": 2,
+      "sentence": {
+        "id": 1548005,
+        "author": "marcelostockle",
+        "es": "El vidrio se rompió.",
+        "en": "The glass got broken."
+      },
       "forms": {
         "presente": [
           [
@@ -40450,6 +41578,12 @@
       "reflexive": false,
       "gloss": "to arrange, set in order, settle, repair, adjust",
       "tier": 2,
+      "sentence": {
+        "id": 3876789,
+        "author": "SrTortuga",
+        "es": "¿Cómo lo arreglarás?",
+        "en": "How will you fix it?"
+      },
       "forms": {
         "presente": [
           [
@@ -40666,6 +41800,12 @@
       "reflexive": false,
       "gloss": "to work, function",
       "tier": 2,
+      "sentence": {
+        "id": 1022225,
+        "author": "Shishir",
+        "es": "El otro no funciona.",
+        "en": "The other one doesn't work."
+      },
       "forms": {
         "presente": [
           [
@@ -40882,6 +42022,12 @@
       "reflexive": false,
       "gloss": "to go, be",
       "tier": 2,
+      "sentence": {
+        "id": 3748296,
+        "author": "cueyayotl",
+        "es": "Tom anda en canicas.",
+        "en": "Tom is naked."
+      },
       "forms": {
         "presente": [
           [
@@ -41098,6 +42244,12 @@
       "reflexive": false,
       "gloss": "to test, prove, taste",
       "tier": 2,
+      "sentence": {
+        "id": 1236830,
+        "author": "Shishir",
+        "es": "Probemos esta tarta.",
+        "en": "Let's try this cake."
+      },
       "forms": {
         "presente": [
           [
@@ -41314,6 +42466,12 @@
       "reflexive": false,
       "gloss": "to plan",
       "tier": 2,
+      "sentence": {
+        "id": 5660999,
+        "author": "arh",
+        "es": "Planeo vivir cien años.",
+        "en": "I plan to live to be a hundred."
+      },
       "forms": {
         "presente": [
           [
@@ -41530,6 +42688,12 @@
       "reflexive": false,
       "gloss": "to organize",
       "tier": 2,
+      "sentence": {
+        "id": 2056220,
+        "author": "lazarus1907",
+        "es": "¿Quién organizó esa reunión?",
+        "en": "Who organized that meeting?"
+      },
       "forms": {
         "presente": [
           [
@@ -41746,6 +42910,12 @@
       "reflexive": false,
       "gloss": "to prepare, fix, get ready",
       "tier": 2,
+      "sentence": {
+        "id": 712058,
+        "author": "Shishir",
+        "es": "Él prepara galletas.",
+        "en": "He is making cookies."
+      },
       "forms": {
         "presente": [
           [
@@ -41962,6 +43132,12 @@
       "reflexive": false,
       "gloss": "to arm",
       "tier": 2,
+      "sentence": {
+        "id": 1411038,
+        "author": "marcelostockle",
+        "es": "Tom recargó su arma.",
+        "en": "Tom reloaded his gun."
+      },
       "forms": {
         "presente": [
           [
@@ -42178,6 +43354,12 @@
       "reflexive": false,
       "gloss": "to join, bring together, gather",
       "tier": 2,
+      "sentence": {
+        "id": 1247698,
+        "author": "marcelostockle",
+        "es": "Siéntate junto a mí.",
+        "en": "Sit beside me."
+      },
       "forms": {
         "presente": [
           [
@@ -42394,6 +43576,12 @@
       "reflexive": false,
       "gloss": "to meet",
       "tier": 2,
+      "sentence": {
+        "id": 1498852,
+        "author": "marcelostockle",
+        "es": "Tom se reunió con su padre.",
+        "en": "Tom was reunited with his father."
+      },
       "forms": {
         "presente": [
           [
@@ -42610,6 +43798,12 @@
       "reflexive": false,
       "gloss": "to accompany, go along",
       "tier": 2,
+      "sentence": {
+        "id": 7923432,
+        "author": "arh",
+        "es": "Alguien me acompañó.",
+        "en": "Someone accompanied me."
+      },
       "forms": {
         "presente": [
           [
@@ -42826,6 +44020,12 @@
       "reflexive": false,
       "gloss": "to chat, talk",
       "tier": 2,
+      "sentence": {
+        "id": 5704677,
+        "author": "arh",
+        "es": "Tom charló con Mary.",
+        "en": "Tom chatted with Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -43042,6 +44242,12 @@
       "reflexive": false,
       "gloss": "to converse, have a conversation",
       "tier": 2,
+      "sentence": {
+        "id": 1706314,
+        "author": "marcelostockle",
+        "es": "Conversamos harto rato.",
+        "en": "We talked for a long time."
+      },
       "forms": {
         "presente": [
           [
@@ -43258,6 +44464,12 @@
       "reflexive": false,
       "gloss": "to let know",
       "tier": 2,
+      "sentence": {
+        "id": 1543365,
+        "author": "hayastan",
+        "es": "¿Por qué no me avisaste?",
+        "en": "Why didn't you let me know?"
+      },
       "forms": {
         "presente": [
           [
@@ -43474,6 +44686,12 @@
       "reflexive": false,
       "gloss": "to signify, mean, be of importance",
       "tier": 2,
+      "sentence": {
+        "id": 995332,
+        "author": "colonqn",
+        "es": "¿Qué significa URSS?",
+        "en": "What does USSR stand for?"
+      },
       "forms": {
         "presente": [
           [
@@ -43690,6 +44908,12 @@
       "reflexive": false,
       "gloss": "to translate",
       "tier": 2,
+      "sentence": {
+        "id": 726087,
+        "author": "arashi_29",
+        "es": "Tradujeron el texto.",
+        "en": "They translated the text."
+      },
       "forms": {
         "presente": [
           [
@@ -43906,6 +45130,12 @@
       "reflexive": false,
       "gloss": "to pronounce",
       "tier": 2,
+      "sentence": {
+        "id": 2823010,
+        "author": "teskmon",
+        "es": "No pronuncies su nombre.",
+        "en": "Don't say his name."
+      },
       "forms": {
         "presente": [
           [
@@ -44122,6 +45352,12 @@
       "reflexive": false,
       "gloss": "to spell",
       "tier": 2,
+      "sentence": {
+        "id": 2340073,
+        "author": "marcelostockle",
+        "es": "Deletrearon mal su nombre.",
+        "en": "Her name was spelled wrong."
+      },
       "forms": {
         "presente": [
           [
@@ -44338,6 +45574,12 @@
       "reflexive": false,
       "gloss": "to learn",
       "tier": 2,
+      "sentence": {
+        "id": 731537,
+        "author": "Shishir",
+        "es": "Él aprendió a nadar.",
+        "en": "He learned to swim."
+      },
       "forms": {
         "presente": [
           [
@@ -44554,6 +45796,12 @@
       "reflexive": false,
       "gloss": "to show, teach",
       "tier": 2,
+      "sentence": {
+        "id": 2097487,
+        "author": "Shishir",
+        "es": "Tú nos lo enseñaste.",
+        "en": "You taught us that."
+      },
       "forms": {
         "presente": [
           [
@@ -44770,6 +46018,12 @@
       "reflexive": false,
       "gloss": "to practice",
       "tier": 2,
+      "sentence": {
+        "id": 1508855,
+        "author": "marcelostockle",
+        "es": "¿Practicas algún deporte?",
+        "en": "Do you play any sports?"
+      },
       "forms": {
         "presente": [
           [
@@ -44986,6 +46240,12 @@
       "reflexive": false,
       "gloss": "to make better, get better",
       "tier": 2,
+      "sentence": {
+        "id": 9885316,
+        "author": "Teiruzu",
+        "es": "Tom nunca se mejoró.",
+        "en": "Tom never got better."
+      },
       "forms": {
         "presente": [
           [
@@ -45202,6 +46462,12 @@
       "reflexive": false,
       "gloss": "to worsen, make worse, deteriorate",
       "tier": 2,
+      "sentence": {
+        "id": 875205,
+        "author": "Shishir",
+        "es": "La situación empeoró.",
+        "en": "The situation worsened."
+      },
       "forms": {
         "presente": [
           [
@@ -45418,6 +46684,12 @@
       "reflexive": false,
       "gloss": "to correct",
       "tier": 2,
+      "sentence": {
+        "id": 1427951,
+        "author": "marcelostockle",
+        "es": "Corrija eso por favor.",
+        "en": "Please correct that."
+      },
       "forms": {
         "presente": [
           [
@@ -45634,6 +46906,12 @@
       "reflexive": false,
       "gloss": "to err, make a mistake, get mixed up, be mistaken, take wrongly",
       "tier": 2,
+      "sentence": {
+        "id": 1801658,
+        "author": "Shishir",
+        "es": "¿Y si os equivocáis?",
+        "en": "What if you're wrong?"
+      },
       "forms": {
         "presente": [
           [
@@ -45850,6 +47128,12 @@
       "reflexive": false,
       "gloss": "to fail, miss, be deficient",
       "tier": 2,
+      "sentence": {
+        "id": 2828783,
+        "author": "marcelostockle",
+        "es": "Esta vez no fallaré.",
+        "en": "I won't fail this time."
+      },
       "forms": {
         "presente": [
           [
@@ -46066,6 +47350,12 @@
       "reflexive": false,
       "gloss": "to cost",
       "tier": 2,
+      "sentence": {
+        "id": 7997593,
+        "author": "Seael",
+        "es": "Cuesta tres dólares.",
+        "en": "It costs three dollars."
+      },
       "forms": {
         "presente": [
           [
@@ -46282,6 +47572,12 @@
       "reflexive": false,
       "gloss": "to spend (money)",
       "tier": 2,
+      "sentence": {
+        "id": 1568924,
+        "author": "hayastan",
+        "es": "Gasté todo el dinero.",
+        "en": "I've spent all the money."
+      },
       "forms": {
         "presente": [
           [
@@ -46498,6 +47794,12 @@
       "reflexive": false,
       "gloss": "to save (not waste)",
       "tier": 2,
+      "sentence": {
+        "id": 693856,
+        "author": "Shishir",
+        "es": "Él ahorró cien dólares.",
+        "en": "He saved a hundred dollars."
+      },
       "forms": {
         "presente": [
           [
@@ -46714,6 +48016,12 @@
       "reflexive": false,
       "gloss": "to lend, let borrow, loan",
       "tier": 2,
+      "sentence": {
+        "id": 867511,
+        "author": "felipeselles",
+        "es": "¿Me prestas tu boli?",
+        "en": "Can I borrow your pen?"
+      },
       "forms": {
         "presente": [
           [
@@ -46930,6 +48238,12 @@
       "reflexive": false,
       "gloss": "to charge",
       "tier": 2,
+      "sentence": {
+        "id": 1313005,
+        "author": "marcelostockle",
+        "es": "El tifón cobró muchas vidas.",
+        "en": "The typhoon claimed many lives."
+      },
       "forms": {
         "presente": [
           [
@@ -47146,6 +48460,12 @@
       "reflexive": false,
       "gloss": "to rent, hire",
       "tier": 2,
+      "sentence": {
+        "id": 619599,
+        "author": "Shishir",
+        "es": "Alquilamos una canoa.",
+        "en": "We rented a canoe."
+      },
       "forms": {
         "presente": [
           [
@@ -47362,6 +48682,12 @@
       "reflexive": false,
       "gloss": "to sign",
       "tier": 2,
+      "sentence": {
+        "id": 1151881,
+        "author": "Shishir",
+        "es": "Firmé el formulario.",
+        "en": "I signed the form."
+      },
       "forms": {
         "presente": [
           [
@@ -47578,6 +48904,12 @@
       "reflexive": false,
       "gloss": "to return, give back, turn in",
       "tier": 2,
+      "sentence": {
+        "id": 1199037,
+        "author": "rafmagon",
+        "es": "Le entregué un mapa.",
+        "en": "I handed a map to him."
+      },
       "forms": {
         "presente": [
           [
@@ -47794,6 +49126,12 @@
       "reflexive": false,
       "gloss": "to pick up",
       "tier": 2,
+      "sentence": {
+        "id": 1406585,
+        "author": "marcelostockle",
+        "es": "Ella recogió flores.",
+        "en": "She picked flowers."
+      },
       "forms": {
         "presente": [
           [
@@ -48010,6 +49348,12 @@
       "reflexive": false,
       "gloss": "to send",
       "tier": 2,
+      "sentence": {
+        "id": 925583,
+        "author": "Shishir",
+        "es": "Le envié una muñeca.",
+        "en": "I sent her a doll."
+      },
       "forms": {
         "presente": [
           [
@@ -48226,6 +49570,12 @@
       "reflexive": false,
       "gloss": "to send, order, command",
       "tier": 2,
+      "sentence": {
+        "id": 4413647,
+        "author": "cueyayotl",
+        "es": "No mandes esa carta.",
+        "en": "Don't send that letter."
+      },
       "forms": {
         "presente": [
           [
@@ -48442,6 +49792,12 @@
       "reflexive": false,
       "gloss": "to return, give back",
       "tier": 2,
+      "sentence": {
+        "id": 3113382,
+        "author": "marcelostockle",
+        "es": "Me devuelvo a dormir.",
+        "en": "I'm going back to sleep."
+      },
       "forms": {
         "presente": [
           [
@@ -48658,6 +50014,12 @@
       "reflexive": false,
       "gloss": "to keep",
       "tier": 2,
+      "sentence": {
+        "id": 1672401,
+        "author": "teskmon",
+        "es": "No te guardo rencor.",
+        "en": "I bear no grudge against you."
+      },
       "forms": {
         "presente": [
           [
@@ -48874,6 +50236,12 @@
       "reflexive": false,
       "gloss": "to hide",
       "tier": 2,
+      "sentence": {
+        "id": 5132031,
+        "author": "albrusgher",
+        "es": "No escondas tu cara.",
+        "en": "Don't hide your face."
+      },
       "forms": {
         "presente": [
           [
@@ -49090,6 +50458,12 @@
       "reflexive": false,
       "gloss": "to eat breakfast",
       "tier": 2,
+      "sentence": {
+        "id": 623394,
+        "author": "clerval",
+        "es": "Desayuné a las 7:30.",
+        "en": "I had breakfast at 7:30."
+      },
       "forms": {
         "presente": [
           [
@@ -49306,6 +50680,12 @@
       "reflexive": false,
       "gloss": "to eat lunch",
       "tier": 2,
+      "sentence": {
+        "id": 1372017,
+        "author": "marcelostockle",
+        "es": "¿Qué almorzaste hoy?",
+        "en": "What did you eat for lunch today?"
+      },
       "forms": {
         "presente": [
           [
@@ -49522,6 +50902,12 @@
       "reflexive": false,
       "gloss": "to eat dinner, supper",
       "tier": 2,
+      "sentence": {
+        "id": 1901467,
+        "author": "marcelostockle",
+        "es": "Gracias por la cena.",
+        "en": "Thanks for dinner."
+      },
       "forms": {
         "presente": [
           [
@@ -49738,6 +51124,12 @@
       "reflexive": false,
       "gloss": "to snack, have a snack",
       "tier": 2,
+      "sentence": {
+        "id": 1260702,
+        "author": "hayastan",
+        "es": "Los niños están merendando en el patio.",
+        "en": "The children are having a snack on the patio."
+      },
       "forms": {
         "presente": [
           [
@@ -49954,6 +51346,12 @@
       "reflexive": false,
       "gloss": "to drink, sip",
       "tier": 2,
+      "sentence": {
+        "id": 1386612,
+        "author": "marcelostockle",
+        "es": "Tom no bebe cerveza.",
+        "en": "Tom doesn't drink beer."
+      },
       "forms": {
         "presente": [
           [
@@ -50170,6 +51568,12 @@
       "reflexive": false,
       "gloss": "to burn, light, turn on",
       "tier": 2,
+      "sentence": {
+        "id": 2259051,
+        "author": "cueyayotl",
+        "es": "Encienda la candela.",
+        "en": "Light the candle."
+      },
       "forms": {
         "presente": [
           [
@@ -50386,6 +51790,12 @@
       "reflexive": false,
       "gloss": "to turn off",
       "tier": 2,
+      "sentence": {
+        "id": 493492,
+        "author": "Shishir",
+        "es": "Ella apagó la radio.",
+        "en": "She turned off the radio."
+      },
       "forms": {
         "presente": [
           [
@@ -50602,6 +52012,12 @@
       "reflexive": false,
       "gloss": "to switch on, grab, seize",
       "tier": 2,
+      "sentence": {
+        "id": 1443630,
+        "author": "hayastan",
+        "es": "Él prendió la radio.",
+        "en": "He turned on the radio."
+      },
       "forms": {
         "presente": [
           [
@@ -50818,6 +52234,12 @@
       "reflexive": false,
       "gloss": "to connect",
       "tier": 2,
+      "sentence": {
+        "id": 1174925,
+        "author": "marcelostockle",
+        "es": "Tom conectó la televisión.",
+        "en": "Tom plugged in the TV."
+      },
       "forms": {
         "presente": [
           [
@@ -51034,6 +52456,12 @@
       "reflexive": false,
       "gloss": "to charge, load",
       "tier": 2,
+      "sentence": {
+        "id": 4149024,
+        "author": "Leono",
+        "es": "Hazte cargo de esto.",
+        "en": "Take care of this."
+      },
       "forms": {
         "presente": [
           [
@@ -51250,6 +52678,12 @@
       "reflexive": false,
       "gloss": "to download",
       "tier": 2,
+      "sentence": {
+        "id": 2835439,
+        "author": "marcelostockle",
+        "es": "Estoy descargando libros.",
+        "en": "I am downloading books."
+      },
       "forms": {
         "presente": [
           [
@@ -51466,6 +52900,12 @@
       "reflexive": false,
       "gloss": "to install",
       "tier": 2,
+      "sentence": {
+        "id": 4502432,
+        "author": "rsarias",
+        "es": "Tom instaló una cámara de vigilancia.",
+        "en": "Tom installed a surveillance camera."
+      },
       "forms": {
         "presente": [
           [
@@ -51682,6 +53122,12 @@
       "reflexive": false,
       "gloss": "to erase",
       "tier": 2,
+      "sentence": {
+        "id": 3886466,
+        "author": "cueyayotl",
+        "es": "¿Quién borró el archivo?",
+        "en": "Who deleted the file?"
+      },
       "forms": {
         "presente": [
           [
@@ -51898,6 +53344,12 @@
       "reflexive": false,
       "gloss": "to record",
       "tier": 2,
+      "sentence": {
+        "id": 9230140,
+        "author": "emigonza",
+        "es": "Grabé nuestra conversación.",
+        "en": "I recorded our conversation."
+      },
       "forms": {
         "presente": [
           [
@@ -52114,6 +53566,12 @@
       "reflexive": false,
       "gloss": "to print",
       "tier": 2,
+      "sentence": {
+        "id": 11375640,
+        "author": "NicoLXVI",
+        "es": "Mi impresora solo imprime en blanco y negro.",
+        "en": "My printer only prints in black and white."
+      },
       "forms": {
         "presente": [
           [
@@ -52331,6 +53789,12 @@
       "reflexive": false,
       "gloss": "to update, realize, make happen, come to fruition",
       "tier": 2,
+      "sentence": {
+        "id": 3684869,
+        "author": "Seael",
+        "es": "Lo actualizaré pronto.",
+        "en": "I'll update it soon."
+      },
       "forms": {
         "presente": [
           [
@@ -52547,6 +54011,12 @@
       "reflexive": false,
       "gloss": "to drive",
       "tier": 2,
+      "sentence": {
+        "id": 1354726,
+        "author": "marcelostockle",
+        "es": "Ella conduce un BMW.",
+        "en": "She drives a BMW."
+      },
       "forms": {
         "presente": [
           [
@@ -52763,6 +54233,12 @@
       "reflexive": false,
       "gloss": "to park",
       "tier": 2,
+      "sentence": {
+        "id": 6092108,
+        "author": "AbMichael",
+        "es": "Tom estacionó su auto.",
+        "en": "Tom parked his car."
+      },
       "forms": {
         "presente": [
           [
@@ -52979,6 +54455,12 @@
       "reflexive": false,
       "gloss": "to root up, pull up, pull away, tear off, snatch",
       "tier": 2,
+      "sentence": {
+        "id": 344099,
+        "author": "tatoerique",
+        "es": "El motor no arranca.",
+        "en": "The engine won't start."
+      },
       "forms": {
         "presente": [
           [
@@ -53195,6 +54677,12 @@
       "reflexive": false,
       "gloss": "to brake",
       "tier": 2,
+      "sentence": {
+        "id": 2871210,
+        "author": "cueyayotl",
+        "es": "No frenes de repente.",
+        "en": "Don't brake suddenly."
+      },
       "forms": {
         "presente": [
           [
@@ -53411,6 +54899,12 @@
       "reflexive": false,
       "gloss": "to cross, traverse",
       "tier": 2,
+      "sentence": {
+        "id": 4757193,
+        "author": "DarkHollow",
+        "es": "Ella cruzó la calle.",
+        "en": "She crossed the street."
+      },
       "forms": {
         "presente": [
           [
@@ -53627,6 +55121,12 @@
       "reflexive": false,
       "gloss": "to double, fold, bend",
       "tier": 2,
+      "sentence": {
+        "id": 1254546,
+        "author": "marcelostockle",
+        "es": "Él dobló en esa esquina.",
+        "en": "He turned the corner."
+      },
       "forms": {
         "presente": [
           [
@@ -53843,6 +55343,12 @@
       "reflexive": false,
       "gloss": "to return, go back, give back",
       "tier": 2,
+      "sentence": {
+        "id": 1031885,
+        "author": "jayefes65",
+        "es": "Yo regresaré pronto.",
+        "en": "I will be back soon."
+      },
       "forms": {
         "presente": [
           [
@@ -54059,6 +55565,12 @@
       "reflexive": false,
       "gloss": "to take off",
       "tier": 2,
+      "sentence": {
+        "id": 3705394,
+        "author": "cueyayotl",
+        "es": "La estampilla se despegó.",
+        "en": "The stamp came off."
+      },
       "forms": {
         "presente": [
           [
@@ -54275,6 +55787,12 @@
       "reflexive": false,
       "gloss": "to land",
       "tier": 2,
+      "sentence": {
+        "id": 817786,
+        "author": "Shishir",
+        "es": "El avión aterrizará en una hora.",
+        "en": "The plane will land in an hour."
+      },
       "forms": {
         "presente": [
           [
@@ -54491,6 +56009,12 @@
       "reflexive": false,
       "gloss": "to book",
       "tier": 2,
+      "sentence": {
+        "id": 3390110,
+        "author": "marcelostockle",
+        "es": "Cancelen sus reservas.",
+        "en": "Cancel your reservations."
+      },
       "forms": {
         "presente": [
           [
@@ -54707,6 +56231,12 @@
       "reflexive": false,
       "gloss": "to attend, pay attention, heed",
       "tier": 2,
+      "sentence": {
+        "id": 11784898,
+        "author": "Masatami",
+        "es": "¿Por qué no atendías?",
+        "en": "Why didn't you answer?"
+      },
       "forms": {
         "presente": [
           [
@@ -54923,6 +56453,12 @@
       "reflexive": false,
       "gloss": "to order, tidy",
       "tier": 2,
+      "sentence": {
+        "id": 1321806,
+        "author": "marcelostockle",
+        "es": "Él ordenó su cuarto.",
+        "en": "He put his room in order."
+      },
       "forms": {
         "presente": [
           [
@@ -55139,6 +56675,12 @@
       "reflexive": false,
       "gloss": "to contract for, hire, engage",
       "tier": 2,
+      "sentence": {
+        "id": 5750913,
+        "author": "arh",
+        "es": "Tom contrató a Mary.",
+        "en": "Tom hired Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -55355,6 +56897,12 @@
       "reflexive": false,
       "gloss": "to resign",
       "tier": 2,
+      "sentence": {
+        "id": 6938800,
+        "author": "Eremon",
+        "es": "Él renunció al plan.",
+        "en": "He abandoned the plan."
+      },
       "forms": {
         "presente": [
           [
@@ -55571,6 +57119,12 @@
       "reflexive": false,
       "gloss": "to retire",
       "tier": 2,
+      "sentence": {
+        "id": 3280845,
+        "author": "Shishir",
+        "es": "¿Cuándo te jubilaste?",
+        "en": "When did you retire?"
+      },
       "forms": {
         "presente": [
           [
@@ -55787,6 +57341,12 @@
       "reflexive": false,
       "gloss": "to negotiate",
       "tier": 2,
+      "sentence": {
+        "id": 5042177,
+        "author": "don_ramon",
+        "es": "Me encanta este negocio.",
+        "en": "I love this store."
+      },
       "forms": {
         "presente": [
           [
@@ -56003,6 +57563,12 @@
       "reflexive": false,
       "gloss": "to remember, resolve, decide, agree upon",
       "tier": 2,
+      "sentence": {
+        "id": 3696250,
+        "author": "marcelostockle",
+        "es": "No me acuerdo de ti.",
+        "en": "I don't remember you."
+      },
       "forms": {
         "presente": [
           [
@@ -56219,6 +57785,12 @@
       "reflexive": false,
       "gloss": "to invoice",
       "tier": 2,
+      "sentence": {
+        "id": 1591016,
+        "author": "teskmon",
+        "es": "La factura ascendía a 500 dólares.",
+        "en": "The bill amounted to 500 dollars."
+      },
       "forms": {
         "presente": [
           [
@@ -56435,6 +58007,12 @@
       "reflexive": false,
       "gloss": "to prohibit, forbid, ban",
       "tier": 2,
+      "sentence": {
+        "id": 1212771,
+        "author": "nancy",
+        "es": "Prohibido pisar el césped.",
+        "en": "Keep off the grass."
+      },
       "forms": {
         "presente": [
           [
@@ -56651,6 +58229,12 @@
       "reflexive": false,
       "gloss": "to oblige, obligate",
       "tier": 2,
+      "sentence": {
+        "id": 2420591,
+        "author": "cueyayotl",
+        "es": "Me obligan a hacerlo.",
+        "en": "I am forced to do it."
+      },
       "forms": {
         "presente": [
           [
@@ -56867,6 +58451,12 @@
       "reflexive": false,
       "gloss": "to demand",
       "tier": 2,
+      "sentence": {
+        "id": 7929299,
+        "author": "arh",
+        "es": "Exigimos un recuento.",
+        "en": "We demanded a recount."
+      },
       "forms": {
         "presente": [
           [
@@ -57083,6 +58673,12 @@
       "reflexive": false,
       "gloss": "to suggest",
       "tier": 2,
+      "sentence": {
+        "id": 856496,
+        "author": "Rafp",
+        "es": "Sugirió un plan similar al mío.",
+        "en": "He suggested a plan similar to mine."
+      },
       "forms": {
         "presente": [
           [
@@ -57299,6 +58895,12 @@
       "reflexive": false,
       "gloss": "to recommend",
       "tier": 2,
+      "sentence": {
+        "id": 3696835,
+        "author": "cueyayotl",
+        "es": "Tom recomendó a Mary.",
+        "en": "Tom recommended Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -57515,6 +59117,12 @@
       "reflexive": false,
       "gloss": "to counsel, advise",
       "tier": 2,
+      "sentence": {
+        "id": 2828777,
+        "author": "marcelostockle",
+        "es": "Yo no aconsejaría eso.",
+        "en": "I wouldn't advise that."
+      },
       "forms": {
         "presente": [
           [
@@ -57731,6 +59339,12 @@
       "reflexive": false,
       "gloss": "to advise, give notice, give warning, warn",
       "tier": 2,
+      "sentence": {
+        "id": 5750921,
+        "author": "arh",
+        "es": "Tom advirtió a Mary.",
+        "en": "Tom warned Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -57947,6 +59561,12 @@
       "reflexive": false,
       "gloss": "to inform",
       "tier": 2,
+      "sentence": {
+        "id": 5048549,
+        "author": "don_ramon",
+        "es": "Manteneme informado.",
+        "en": "Keep me informed."
+      },
       "forms": {
         "presente": [
           [
@@ -58163,6 +59783,12 @@
       "reflexive": false,
       "gloss": "to announce, foretell, proclaim",
       "tier": 2,
+      "sentence": {
+        "id": 1788708,
+        "author": "Shishir",
+        "es": "Tom anunció ayer su dimisión.",
+        "en": "Tom announced his resignation yesterday."
+      },
       "forms": {
         "presente": [
           [
@@ -58379,6 +60005,12 @@
       "reflexive": false,
       "gloss": "to confess",
       "tier": 2,
+      "sentence": {
+        "id": 4524335,
+        "author": "cueyayotl",
+        "es": "El sospechoso confesó.",
+        "en": "The suspect confessed."
+      },
       "forms": {
         "presente": [
           [
@@ -58595,6 +60227,12 @@
       "reflexive": false,
       "gloss": "to admit, grant, permit",
       "tier": 2,
+      "sentence": {
+        "id": 9706757,
+        "author": "Shishir",
+        "es": "Admitió sus errores.",
+        "en": "He admitted his mistakes."
+      },
       "forms": {
         "presente": [
           [
@@ -58811,6 +60449,12 @@
       "reflexive": false,
       "gloss": "to negate, say no",
       "tier": 2,
+      "sentence": {
+        "id": 2014576,
+        "author": "Joseshka",
+        "es": "Me niego a responder.",
+        "en": "I refuse to answer."
+      },
       "forms": {
         "presente": [
           [
@@ -59027,6 +60671,12 @@
       "reflexive": false,
       "gloss": "to reject, push back, repel, scorn",
       "tier": 2,
+      "sentence": {
+        "id": 1200922,
+        "author": "cariito",
+        "es": "Rechacé la propuesta.",
+        "en": "I rejected the offer."
+      },
       "forms": {
         "presente": [
           [
@@ -59243,6 +60893,12 @@
       "reflexive": false,
       "gloss": "to doubt",
       "tier": 2,
+      "sentence": {
+        "id": 1390143,
+        "author": "wallebot",
+        "es": "Él dudaba qué hacer.",
+        "en": "He was unsure of what to do."
+      },
       "forms": {
         "presente": [
           [
@@ -59459,6 +61115,12 @@
       "reflexive": false,
       "gloss": "to confide, trust, rely",
       "tier": 2,
+      "sentence": {
+        "id": 1687680,
+        "author": "marcelostockle",
+        "es": "Ella confiaba en ti.",
+        "en": "She trusted you."
+      },
       "forms": {
         "presente": [
           [
@@ -59675,6 +61337,12 @@
       "reflexive": false,
       "gloss": "to suspect",
       "tier": 2,
+      "sentence": {
+        "id": 1497001,
+        "author": "marcelostockle",
+        "es": "¿De quién sospechas?",
+        "en": "Who do you suspect?"
+      },
       "forms": {
         "presente": [
           [
@@ -59891,6 +61559,12 @@
       "reflexive": false,
       "gloss": "to accuse",
       "tier": 2,
+      "sentence": {
+        "id": 344055,
+        "author": "tatoerique",
+        "es": "La policía lo acusó.",
+        "en": "The police accused him."
+      },
       "forms": {
         "presente": [
           [
@@ -60107,6 +61781,12 @@
       "reflexive": false,
       "gloss": "to blame",
       "tier": 2,
+      "sentence": {
+        "id": 1433800,
+        "author": "marcelostockle",
+        "es": "Tom merece la culpa.",
+        "en": "Tom deserves to be blamed."
+      },
       "forms": {
         "presente": [
           [
@@ -60323,6 +62003,12 @@
       "reflexive": false,
       "gloss": "to defend",
       "tier": 2,
+      "sentence": {
+        "id": 2444369,
+        "author": "fgreco",
+        "es": "Defendieron su país.",
+        "en": "They defended their country."
+      },
       "forms": {
         "presente": [
           [
@@ -60539,6 +62225,12 @@
       "reflexive": false,
       "gloss": "to protect",
       "tier": 2,
+      "sentence": {
+        "id": 2068538,
+        "author": "marcelostockle",
+        "es": "Te protegeré del peligro.",
+        "en": "I will protect you from danger."
+      },
       "forms": {
         "presente": [
           [
@@ -60755,6 +62447,12 @@
       "reflexive": false,
       "gloss": "to guard, take care of",
       "tier": 2,
+      "sentence": {
+        "id": 941036,
+        "author": "Shishir",
+        "es": "Ella cuidó del niño.",
+        "en": "She looked after the child."
+      },
       "forms": {
         "presente": [
           [
@@ -60971,6 +62669,12 @@
       "reflexive": false,
       "gloss": "to control",
       "tier": 2,
+      "sentence": {
+        "id": 1388338,
+        "author": "marcelostockle",
+        "es": "España controlaba Florida.",
+        "en": "Spain controlled Florida."
+      },
       "forms": {
         "presente": [
           [
@@ -61187,6 +62891,12 @@
       "reflexive": false,
       "gloss": "to obey",
       "tier": 2,
+      "sentence": {
+        "id": 5750915,
+        "author": "arh",
+        "es": "Tom obedeció a Mary.",
+        "en": "Tom obeyed Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -61403,6 +63113,12 @@
       "reflexive": false,
       "gloss": "to respect",
       "tier": 2,
+      "sentence": {
+        "id": 3791821,
+        "author": "cueyayotl",
+        "es": "Tom respetaba a Mary.",
+        "en": "Tom respected Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -61619,6 +63335,12 @@
       "reflexive": false,
       "gloss": "to admire",
       "tier": 2,
+      "sentence": {
+        "id": 5750902,
+        "author": "arh",
+        "es": "Tom admiraba a Mary.",
+        "en": "Tom admired Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -61835,6 +63557,12 @@
       "reflexive": false,
       "gloss": "to criticize",
       "tier": 2,
+      "sentence": {
+        "id": 1392263,
+        "author": "marcelostockle",
+        "es": "Tú siempre me criticas.",
+        "en": "You're always criticizing me."
+      },
       "forms": {
         "presente": [
           [
@@ -62051,6 +63779,12 @@
       "reflexive": false,
       "gloss": "to congratulate",
       "tier": 2,
+      "sentence": {
+        "id": 5085403,
+        "author": "cueyayotl",
+        "es": "Tom felicitó a Mary.",
+        "en": "Tom congratulated Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -62267,6 +64001,12 @@
       "reflexive": false,
       "gloss": "to celebrate",
       "tier": 2,
+      "sentence": {
+        "id": 13462271,
+        "author": "Seael",
+        "es": "Yo no lo celebraría aún.",
+        "en": "I wouldn't celebrate just yet."
+      },
       "forms": {
         "presente": [
           [
@@ -62483,6 +64223,12 @@
       "reflexive": false,
       "gloss": "to celebrate",
       "tier": 2,
+      "sentence": {
+        "id": 6080858,
+        "author": "JRB",
+        "es": "Festejamos toda la noche.",
+        "en": "We partied all night."
+      },
       "forms": {
         "presente": [
           [
@@ -62699,6 +64445,12 @@
       "reflexive": false,
       "gloss": "to toast, offer, present",
       "tier": 2,
+      "sentence": {
+        "id": 2259027,
+        "author": "cueyayotl",
+        "es": "¡Brindemos por su salud!",
+        "en": "Let's drink to your health!"
+      },
       "forms": {
         "presente": [
           [
@@ -62915,6 +64667,12 @@
       "reflexive": false,
       "gloss": "to analyze",
       "tier": 2,
+      "sentence": {
+        "id": 1510076,
+        "author": "marcelostockle",
+        "es": "¿Cómo analizarías la situación?",
+        "en": "How would you analyze the situation?"
+      },
       "forms": {
         "presente": [
           [
@@ -63131,6 +64889,12 @@
       "reflexive": false,
       "gloss": "to investigate, search, research",
       "tier": 2,
+      "sentence": {
+        "id": 8464265,
+        "author": "arh",
+        "es": "La policía investiga el crimen.",
+        "en": "The police are investigating the crime."
+      },
       "forms": {
         "presente": [
           [
@@ -63347,6 +65111,12 @@
       "reflexive": false,
       "gloss": "to find out",
       "tier": 2,
+      "sentence": {
+        "id": 2828828,
+        "author": "marcelostockle",
+        "es": "Lo averiguaré mañana.",
+        "en": "I'll find out tomorrow."
+      },
       "forms": {
         "presente": [
           [
@@ -63563,6 +65333,12 @@
       "reflexive": false,
       "gloss": "to check",
       "tier": 2,
+      "sentence": {
+        "id": 2834471,
+        "author": "teskmon",
+        "es": "Comprobaré de nuevo.",
+        "en": "I'll check again."
+      },
       "forms": {
         "presente": [
           [
@@ -63779,6 +65555,12 @@
       "reflexive": false,
       "gloss": "to verify",
       "tier": 2,
+      "sentence": {
+        "id": 7028989,
+        "author": "Schuager",
+        "es": "Verifique sus datos.",
+        "en": "Check your facts."
+      },
       "forms": {
         "presente": [
           [
@@ -63995,6 +65777,12 @@
       "reflexive": false,
       "gloss": "to confirm",
       "tier": 2,
+      "sentence": {
+        "id": 5566806,
+        "author": "swyter",
+        "es": "Tom confirmó sus temores.",
+        "en": "Tom admitted that he was afraid."
+      },
       "forms": {
         "presente": [
           [
@@ -64211,6 +65999,12 @@
       "reflexive": false,
       "gloss": "to assure, affirm, insure, assert",
       "tier": 2,
+      "sentence": {
+        "id": 1313009,
+        "author": "marcelostockle",
+        "es": "Él asegura ser honesto.",
+        "en": "He claims that he is honest."
+      },
       "forms": {
         "presente": [
           [
@@ -64427,6 +66221,12 @@
       "reflexive": false,
       "gloss": "to guarantee",
       "tier": 2,
+      "sentence": {
+        "id": 6853443,
+        "author": "arh",
+        "es": "El amor no garantiza un matrimonio exitoso.",
+        "en": "Love doesn't guarantee a successful marriage."
+      },
       "forms": {
         "presente": [
           [
@@ -64643,6 +66443,12 @@
       "reflexive": false,
       "gloss": "to demonstrate",
       "tier": 2,
+      "sentence": {
+        "id": 1334885,
+        "author": "hayastan",
+        "es": "Demostró ser honesto.",
+        "en": "He proved to be honest."
+      },
       "forms": {
         "presente": [
           [
@@ -64859,6 +66665,12 @@
       "reflexive": false,
       "gloss": "to explain, clarify, make clear",
       "tier": 2,
+      "sentence": {
+        "id": 2024797,
+        "author": "topofabi",
+        "es": "Él se aclaró la garganta.",
+        "en": "He cleared his throat."
+      },
       "forms": {
         "presente": [
           [
@@ -65075,6 +66887,12 @@
       "reflexive": false,
       "gloss": "to summarise",
       "tier": 2,
+      "sentence": {
+        "id": 5227765,
+        "author": "albrusgher",
+        "es": "Por favor, resume tu idea.",
+        "en": "Please sum up your idea."
+      },
       "forms": {
         "presente": [
           [
@@ -65291,6 +67109,12 @@
       "reflexive": false,
       "gloss": "to conclude",
       "tier": 2,
+      "sentence": {
+        "id": 7964774,
+        "author": "Seael",
+        "es": "El proyecto nunca se concluyó.",
+        "en": "The project was never completed."
+      },
       "forms": {
         "presente": [
           [
@@ -65507,6 +67331,12 @@
       "reflexive": false,
       "gloss": "to assume",
       "tier": 2,
+      "sentence": {
+        "id": 1220353,
+        "author": "marcelostockle",
+        "es": "Él asumió una nueva identidad.",
+        "en": "He assumed a new identity."
+      },
       "forms": {
         "presente": [
           [
@@ -65723,6 +67553,12 @@
       "reflexive": false,
       "gloss": "to move (emotionally)",
       "tier": 2,
+      "sentence": {
+        "id": 6634322,
+        "author": "UsuarioX",
+        "es": "¡No te emociones tanto!",
+        "en": "Don't get so excited!"
+      },
       "forms": {
         "presente": [
           [
@@ -65939,6 +67775,12 @@
       "reflexive": false,
       "gloss": "to surprise",
       "tier": 2,
+      "sentence": {
+        "id": 1879467,
+        "author": "marcelostockle",
+        "es": "Eso me sorprendería.",
+        "en": "That would surprise me."
+      },
       "forms": {
         "presente": [
           [
@@ -66155,6 +67997,12 @@
       "reflexive": false,
       "gloss": "to impress, affect, influence",
       "tier": 2,
+      "sentence": {
+        "id": 7859546,
+        "author": "arh",
+        "es": "Impresionó a los jóvenes.",
+        "en": "It impressed the young people."
+      },
       "forms": {
         "presente": [
           [
@@ -66371,6 +68219,12 @@
       "reflexive": false,
       "gloss": "to disappoint",
       "tier": 2,
+      "sentence": {
+        "id": 1771583,
+        "author": "Shishir",
+        "es": "Él no me decepcionó.",
+        "en": "He did not disappoint me."
+      },
       "forms": {
         "presente": [
           [
@@ -66587,6 +68441,12 @@
       "reflexive": false,
       "gloss": "to frustrate",
       "tier": 2,
+      "sentence": {
+        "id": 1296904,
+        "author": "marcelostockle",
+        "es": "Tom se sintió frustrado.",
+        "en": "Tom felt frustrated."
+      },
       "forms": {
         "presente": [
           [
@@ -66803,6 +68663,12 @@
       "reflexive": false,
       "gloss": "to annoy, bother, disturb, bug",
       "tier": 2,
+      "sentence": {
+        "id": 3285277,
+        "author": "Kary",
+        "es": "¿Le molesto a usted?",
+        "en": "Am I disturbing you?"
+      },
       "forms": {
         "presente": [
           [
@@ -67019,6 +68885,12 @@
       "reflexive": false,
       "gloss": "to bug, annoy, bother",
       "tier": 2,
+      "sentence": {
+        "id": 7778539,
+        "author": "arh",
+        "es": "Me fastidia no poder ir.",
+        "en": "I'm annoyed that I can't go."
+      },
       "forms": {
         "presente": [
           [
@@ -67235,6 +69107,12 @@
       "reflexive": false,
       "gloss": "to calm down, pacify",
       "tier": 2,
+      "sentence": {
+        "id": 4778992,
+        "author": "alegarvid",
+        "es": "Tomémoslo con calma.",
+        "en": "Let's take it easy."
+      },
       "forms": {
         "presente": [
           [
@@ -67451,6 +69329,12 @@
       "reflexive": false,
       "gloss": "to encourage",
       "tier": 2,
+      "sentence": {
+        "id": 1280048,
+        "author": "marcelostockle",
+        "es": "Las flores la animaron.",
+        "en": "The flowers cheered her up."
+      },
       "forms": {
         "presente": [
           [
@@ -67667,6 +69551,12 @@
       "reflexive": false,
       "gloss": "to support, back, favor, lean on",
       "tier": 2,
+      "sentence": {
+        "id": 1167473,
+        "author": "marcelostockle",
+        "es": "Tom apoyó la moción.",
+        "en": "Tom seconded the motion."
+      },
       "forms": {
         "presente": [
           [
@@ -67883,6 +69773,12 @@
       "reflexive": false,
       "gloss": "to be accustomed, be in the habit of",
       "tier": 2,
+      "sentence": {
+        "id": 7192821,
+        "author": "arh",
+        "es": "Acostumbro a hacerlo solo.",
+        "en": "I'm used to doing that alone."
+      },
       "forms": {
         "presente": [
           [
@@ -68099,6 +69995,12 @@
       "reflexive": false,
       "gloss": "to adapt",
       "tier": 2,
+      "sentence": {
+        "id": 1073848,
+        "author": "hayastan",
+        "es": "Él se adaptó a su nueva vida.",
+        "en": "He adapted himself to his new life."
+      },
       "forms": {
         "presente": [
           [
@@ -68315,6 +70217,12 @@
       "reflexive": false,
       "gloss": "to move house",
       "tier": 2,
+      "sentence": {
+        "id": 358561,
+        "author": "tatoerique",
+        "es": "Él se mudó al barrio.",
+        "en": "He moved into my neighborhood."
+      },
       "forms": {
         "presente": [
           [
@@ -68531,6 +70439,12 @@
       "reflexive": false,
       "gloss": "to establish",
       "tier": 2,
+      "sentence": {
+        "id": 2264592,
+        "author": "cueyayotl",
+        "es": "Se estableció un puerto franco.",
+        "en": "A free port was established."
+      },
       "forms": {
         "presente": [
           [
@@ -68747,6 +70661,12 @@
       "reflexive": false,
       "gloss": "to belong",
       "tier": 2,
+      "sentence": {
+        "id": 5569044,
+        "author": "swyter",
+        "es": "Ahora me perteneces.",
+        "en": "You're mine now."
+      },
       "forms": {
         "presente": [
           [
@@ -68963,6 +70883,12 @@
       "reflexive": false,
       "gloss": "to depend",
       "tier": 2,
+      "sentence": {
+        "id": 1296887,
+        "author": "marcelostockle",
+        "es": "Tom depende de Mary.",
+        "en": "Tom relies on Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -69179,6 +71105,12 @@
       "reflexive": false,
       "gloss": "to import, be important",
       "tier": 2,
+      "sentence": {
+        "id": 347001,
+        "author": "tatoerique",
+        "es": "¿Le importa si fumo?",
+        "en": "Would you mind if I smoke?"
+      },
       "forms": {
         "presente": [
           [
@@ -69395,6 +71327,12 @@
       "reflexive": false,
       "gloss": "to interest",
       "tier": 2,
+      "sentence": {
+        "id": 2258117,
+        "author": "hayastan",
+        "es": "¿Le interesa el arte?",
+        "en": "Are you interested in art?"
+      },
       "forms": {
         "presente": [
           [
@@ -69611,6 +71549,12 @@
       "reflexive": false,
       "gloss": "to convene",
       "tier": 2,
+      "sentence": {
+        "id": 4557269,
+        "author": "swyter",
+        "es": "Tom convino aquiescente.",
+        "en": "Tom agreed."
+      },
       "forms": {
         "presente": [
           [
@@ -69827,6 +71771,12 @@
       "reflexive": false,
       "gloss": "to refer",
       "tier": 2,
+      "sentence": {
+        "id": 5877913,
+        "author": "albrusgher",
+        "es": "Nos referimos a negocios.",
+        "en": "We mean business."
+      },
       "forms": {
         "presente": [
           [
@@ -70043,6 +71993,12 @@
       "reflexive": false,
       "gloss": "to occupy",
       "tier": 2,
+      "sentence": {
+        "id": 8448327,
+        "author": "arh",
+        "es": "Yo me ocuparé de eso.",
+        "en": "I'll handle that."
+      },
       "forms": {
         "presente": [
           [
@@ -70259,6 +72215,12 @@
       "reflexive": false,
       "gloss": "to fill, make full",
       "tier": 2,
+      "sentence": {
+        "id": 2077756,
+        "author": "lazarus1907",
+        "es": "Llenó el vaso de agua.",
+        "en": "She filled the vase with water."
+      },
       "forms": {
         "presente": [
           [
@@ -70475,6 +72437,12 @@
       "reflexive": false,
       "gloss": "to empty",
       "tier": 2,
+      "sentence": {
+        "id": 5057079,
+        "author": "don_ramon",
+        "es": "¡Vacía tus bolsillos!",
+        "en": "Empty your pockets."
+      },
       "forms": {
         "presente": [
           [
@@ -70691,6 +72659,12 @@
       "reflexive": false,
       "gloss": "to hang",
       "tier": 2,
+      "sentence": {
+        "id": 5809690,
+        "author": "arh",
+        "es": "Tom le colgó a Mary.",
+        "en": "Tom hung up on Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -70907,6 +72881,12 @@
       "reflexive": false,
       "gloss": "to insert, put in",
       "tier": 2,
+      "sentence": {
+        "id": 692724,
+        "author": "Shishir",
+        "es": "Lo metí en el cajón.",
+        "en": "I put it in the drawer."
+      },
       "forms": {
         "presente": [
           [
@@ -71123,6 +73103,12 @@
       "reflexive": false,
       "gloss": "to mix",
       "tier": 2,
+      "sentence": {
+        "id": 2265846,
+        "author": "cueyayotl",
+        "es": "No se mezcle usted en eso.",
+        "en": "Don't get mixed up in that."
+      },
       "forms": {
         "presente": [
           [
@@ -71339,6 +73325,12 @@
       "reflexive": false,
       "gloss": "to cut",
       "tier": 2,
+      "sentence": {
+        "id": 6588244,
+        "author": "arh",
+        "es": "¿Quién corta el pan?",
+        "en": "Who cut the bread?"
+      },
       "forms": {
         "presente": [
           [
@@ -71555,6 +73547,12 @@
       "reflexive": false,
       "gloss": "to boil",
       "tier": 2,
+      "sentence": {
+        "id": 1331342,
+        "author": "marcelostockle",
+        "es": "Tom hirvió las papas.",
+        "en": "Tom boiled the potatoes."
+      },
       "forms": {
         "presente": [
           [
@@ -71771,6 +73769,12 @@
       "reflexive": false,
       "gloss": "to fry",
       "tier": 2,
+      "sentence": {
+        "id": 725514,
+        "author": "arashi_29",
+        "es": "Agua fría, por favor.",
+        "en": "Cold water, please."
+      },
       "forms": {
         "presente": [
           [
@@ -71988,6 +73992,12 @@
       "reflexive": false,
       "gloss": "to heat up, warm, warm up",
       "tier": 2,
+      "sentence": {
+        "id": 5048185,
+        "author": "don_ramon",
+        "es": "Manténgase caliente.",
+        "en": "Keep warm."
+      },
       "forms": {
         "presente": [
           [
@@ -72204,6 +74214,12 @@
       "reflexive": false,
       "gloss": "to cool, make cool, get chilled",
       "tier": 2,
+      "sentence": {
+        "id": 1539838,
+        "author": "marcelostockle",
+        "es": "Cómete tu sopa antes que se enfríe.",
+        "en": "Eat your soup before it gets cold."
+      },
       "forms": {
         "presente": [
           [
@@ -72420,6 +74436,12 @@
       "reflexive": false,
       "gloss": "to freeze",
       "tier": 2,
+      "sentence": {
+        "id": 1581887,
+        "author": "marcelostockle",
+        "es": "El estanque se congeló.",
+        "en": "The pond froze over."
+      },
       "forms": {
         "presente": [
           [
@@ -72636,6 +74658,12 @@
       "reflexive": false,
       "gloss": "to chew, masticate",
       "tier": 2,
+      "sentence": {
+        "id": 2182491,
+        "author": "marcelostockle",
+        "es": "Mastica bien tu comida.",
+        "en": "Chew your food well."
+      },
       "forms": {
         "presente": [
           [
@@ -72852,6 +74880,12 @@
       "reflexive": false,
       "gloss": "to swallow, gulp",
       "tier": 2,
+      "sentence": {
+        "id": 3135468,
+        "author": "marcelostockle",
+        "es": "Gracias por el trago.",
+        "en": "Thanks for the drink."
+      },
       "forms": {
         "presente": [
           [
@@ -73068,6 +75102,12 @@
       "reflexive": false,
       "gloss": "to weigh, be weighty",
       "tier": 2,
+      "sentence": {
+        "id": 3602953,
+        "author": "ficion",
+        "es": "¿Qué tanto pesa Tom?",
+        "en": "How much does Tom weigh?"
+      },
       "forms": {
         "presente": [
           [
@@ -73284,6 +75324,12 @@
       "reflexive": false,
       "gloss": "to measure",
       "tier": 2,
+      "sentence": {
+        "id": 1600615,
+        "author": "marcelostockle",
+        "es": "Mido lo mismo que tú.",
+        "en": "I'm as tall as you."
+      },
       "forms": {
         "presente": [
           [
@@ -73500,6 +75546,12 @@
       "reflexive": false,
       "gloss": "to add",
       "tier": 2,
+      "sentence": {
+        "id": 2252892,
+        "author": "cueyayotl",
+        "es": "Sume usted esta columna de cifras.",
+        "en": "Add up this column of figures."
+      },
       "forms": {
         "presente": [
           [
@@ -73716,6 +75768,12 @@
       "reflexive": false,
       "gloss": "to subtract",
       "tier": 2,
+      "sentence": {
+        "id": 2090291,
+        "author": "hayastan",
+        "es": "¿No querés escuchar el resto?",
+        "en": "Don't you want to hear the rest?"
+      },
       "forms": {
         "presente": [
           [
@@ -73932,6 +75990,12 @@
       "reflexive": false,
       "gloss": "to multiply",
       "tier": 2,
+      "sentence": {
+        "id": 580552,
+        "author": "Shishir",
+        "es": "Por lo que sé, este compuesto químico impedirá que los gérmenes se multipliquen.",
+        "en": "To the best of my knowledge, this chemical will prevent germs from breeding."
+      },
       "forms": {
         "presente": [
           [
@@ -74148,6 +76212,12 @@
       "reflexive": false,
       "gloss": "to divide",
       "tier": 2,
+      "sentence": {
+        "id": 1386080,
+        "author": "marcelostockle",
+        "es": "¿Quién dividió primero el átomo?",
+        "en": "Who first split the atom?"
+      },
       "forms": {
         "presente": [
           [
@@ -74364,6 +76434,12 @@
       "reflexive": false,
       "gloss": "to share out",
       "tier": 2,
+      "sentence": {
+        "id": 1963178,
+        "author": "hayastan",
+        "es": "Repartamos el dinero.",
+        "en": "Let's share the money."
+      },
       "forms": {
         "presente": [
           [
@@ -74580,6 +76656,12 @@
       "reflexive": false,
       "gloss": "to share",
       "tier": 2,
+      "sentence": {
+        "id": 1603607,
+        "author": "Alba",
+        "es": "Comparto su opinión.",
+        "en": "I share his opinion."
+      },
       "forms": {
         "presente": [
           [
@@ -74796,6 +76878,12 @@
       "reflexive": false,
       "gloss": "to make the most of",
       "tier": 2,
+      "sentence": {
+        "id": 7786266,
+        "author": "arh",
+        "es": "Aprovecha la ocasión.",
+        "en": "Seize the opportunity."
+      },
       "forms": {
         "presente": [
           [
@@ -75012,6 +77100,12 @@
       "reflexive": false,
       "gloss": "to waste",
       "tier": 2,
+      "sentence": {
+        "id": 3805509,
+        "author": "cueyayotl",
+        "es": "No desperdicies mi tiempo.",
+        "en": "Don't waste my time."
+      },
       "forms": {
         "presente": [
           [
@@ -75228,6 +77322,12 @@
       "reflexive": false,
       "gloss": "to fit",
       "tier": 2,
+      "sentence": {
+        "id": 4988587,
+        "author": "swyter",
+        "es": "Cabe dentro de lo normal.",
+        "en": "I think it's a possibility."
+      },
       "forms": {
         "presente": [
           [
@@ -75444,6 +77544,12 @@
       "reflexive": false,
       "gloss": "to bring close, place close by, approach",
       "tier": 2,
+      "sentence": {
+        "id": 1619570,
+        "author": "Shishir",
+        "es": "Se acerca el verano.",
+        "en": "Summer is coming."
+      },
       "forms": {
         "presente": [
           [
@@ -75660,6 +77766,12 @@
       "reflexive": false,
       "gloss": "to move away",
       "tier": 2,
+      "sentence": {
+        "id": 4557358,
+        "author": "swyter",
+        "es": "No te alejes de aquí.",
+        "en": "Stay close."
+      },
       "forms": {
         "presente": [
           [
@@ -75876,6 +77988,12 @@
       "reflexive": false,
       "gloss": "to put to bed, lay down, stretch",
       "tier": 2,
+      "sentence": {
+        "id": 509568,
+        "author": "Shishir",
+        "es": "Me acuesto a las 11.",
+        "en": "I go to bed at eleven."
+      },
       "forms": {
         "presente": [
           [
@@ -76092,6 +78210,12 @@
       "reflexive": false,
       "gloss": "to seat, sit",
       "tier": 2,
+      "sentence": {
+        "id": 864263,
+        "author": "Shishir",
+        "es": "Se sentó en la cama.",
+        "en": "He sat on the bed."
+      },
       "forms": {
         "presente": [
           [
@@ -76308,6 +78432,12 @@
       "reflexive": true,
       "gloss": "to put on",
       "tier": 2,
+      "sentence": {
+        "id": 1240335,
+        "author": "Shishir",
+        "es": "Póngase en mi lugar.",
+        "en": "Put yourself in my place."
+      },
       "forms": {
         "presente": [
           [
@@ -76524,6 +78654,12 @@
       "reflexive": false,
       "gloss": "to remove, take off, take away",
       "tier": 2,
+      "sentence": {
+        "id": 1524246,
+        "author": "marcelostockle",
+        "es": "Tom se quitó la vida.",
+        "en": "Tom took his own life."
+      },
       "forms": {
         "presente": [
           [
@@ -76740,6 +78876,12 @@
       "reflexive": false,
       "gloss": "to dress, get dressed",
       "tier": 2,
+      "sentence": {
+        "id": 5940152,
+        "author": "arh",
+        "es": "Evita que te vistan.",
+        "en": "Try not to let them see you."
+      },
       "forms": {
         "presente": [
           [
@@ -76956,6 +79098,12 @@
       "reflexive": false,
       "gloss": "to comb",
       "tier": 2,
+      "sentence": {
+        "id": 1296882,
+        "author": "marcelostockle",
+        "es": "Tom se peinó el pelo.",
+        "en": "Tom combed his hair."
+      },
       "forms": {
         "presente": [
           [
@@ -77172,6 +79320,12 @@
       "reflexive": false,
       "gloss": "to shave",
       "tier": 2,
+      "sentence": {
+        "id": 838824,
+        "author": "Munia",
+        "es": "Se afeitó el bigote.",
+        "en": "He shaved his mustache off."
+      },
       "forms": {
         "presente": [
           [
@@ -77388,6 +79542,12 @@
       "reflexive": false,
       "gloss": "to rain",
       "tier": 2,
+      "sentence": {
+        "id": 623950,
+        "author": "clerval",
+        "es": "Anoche llovió mucho.",
+        "en": "We had a heavy rain last night."
+      },
       "forms": {
         "presente": [
           [
@@ -77604,6 +79764,12 @@
       "reflexive": false,
       "gloss": "to snow",
       "tier": 2,
+      "sentence": {
+        "id": 740939,
+        "author": "Shishir",
+        "es": "Me encanta la nieve.",
+        "en": "I love snow."
+      },
       "forms": {
         "presente": [
           [
@@ -77820,6 +79986,12 @@
       "reflexive": false,
       "gloss": "to thunder",
       "tier": 2,
+      "sentence": {
+        "id": 1207284,
+        "author": "Shishir",
+        "es": "El rayo precede al trueno.",
+        "en": "Lightning precedes thunder."
+      },
       "forms": {
         "presente": [
           [
@@ -78036,6 +80208,12 @@
       "reflexive": false,
       "gloss": "to blow",
       "tier": 2,
+      "sentence": {
+        "id": 1337925,
+        "author": "Shishir",
+        "es": "El viento sopla del este.",
+        "en": "The wind is blowing from the east."
+      },
       "forms": {
         "presente": [
           [
@@ -78252,6 +80430,12 @@
       "reflexive": false,
       "gloss": "to dawn",
       "tier": 2,
+      "sentence": {
+        "id": 8749831,
+        "author": "gianich73",
+        "es": "Amanecí con malestar de estómago.",
+        "en": "I woke up with an upset stomach."
+      },
       "forms": {
         "presente": [
           [
@@ -78468,6 +80652,12 @@
       "reflexive": false,
       "gloss": "to get dark",
       "tier": 2,
+      "sentence": {
+        "id": 2258957,
+        "author": "hayastan",
+        "es": "Ahora anochece a las cinco.",
+        "en": "It gets dark at five now."
+      },
       "forms": {
         "presente": [
           [
@@ -78684,6 +80874,12 @@
       "reflexive": false,
       "gloss": "to flood",
       "tier": 2,
+      "sentence": {
+        "id": 2268645,
+        "author": "hayastan",
+        "es": "El agua inundó las calles.",
+        "en": "The water flooded the streets."
+      },
       "forms": {
         "presente": [
           [
@@ -78900,6 +81096,12 @@
       "reflexive": false,
       "gloss": "to dry",
       "tier": 2,
+      "sentence": {
+        "id": 980309,
+        "author": "Shishir",
+        "es": "El estanque se secó.",
+        "en": "The pond has dried up."
+      },
       "forms": {
         "presente": [
           [
@@ -79116,6 +81318,12 @@
       "reflexive": false,
       "gloss": "to moisten, wet, make wet",
       "tier": 2,
+      "sentence": {
+        "id": 1352328,
+        "author": "AMIKEMA",
+        "es": "Mojó la toalla con agua.",
+        "en": "He wet the towel with water."
+      },
       "forms": {
         "presente": [
           [
@@ -79332,6 +81540,12 @@
       "reflexive": false,
       "gloss": "to water, irrigate, wash, sprinkle, spray",
       "tier": 2,
+      "sentence": {
+        "id": 1418982,
+        "author": "marcelostockle",
+        "es": "Tom regó las flores.",
+        "en": "Tom watered the flowers."
+      },
       "forms": {
         "presente": [
           [
@@ -79548,6 +81762,12 @@
       "reflexive": false,
       "gloss": "to plant, sow, seed",
       "tier": 2,
+      "sentence": {
+        "id": 6837518,
+        "author": "albrusgher",
+        "es": "El granjero sembró su campo con trigo.",
+        "en": "The farmer sowed his field with wheat."
+      },
       "forms": {
         "presente": [
           [
@@ -79764,6 +81984,12 @@
       "reflexive": false,
       "gloss": "to harvest",
       "tier": 2,
+      "sentence": {
+        "id": 398319,
+        "author": "mane",
+        "es": "¿Cuándo cosecharás el trigo?",
+        "en": "When will you harvest your wheat?"
+      },
       "forms": {
         "presente": [
           [
@@ -79980,6 +82206,12 @@
       "reflexive": false,
       "gloss": "to prune",
       "tier": 2,
+      "sentence": {
+        "id": 4633264,
+        "author": "AucaCoyan",
+        "es": "¿Podes simular que querés estar aquí?",
+        "en": "Can you at least pretend you want to be here?"
+      },
       "forms": {
         "presente": [
           [
@@ -80196,6 +82428,12 @@
       "reflexive": false,
       "gloss": "to bloom",
       "tier": 2,
+      "sentence": {
+        "id": 1349429,
+        "author": "marcelostockle",
+        "es": "Distintas flores florecen en cada temporada.",
+        "en": "Different flowers bloom in each season."
+      },
       "forms": {
         "presente": [
           [
@@ -80412,6 +82650,12 @@
       "reflexive": false,
       "gloss": "to rot, putrefy, decay",
       "tier": 2,
+      "sentence": {
+        "id": 1267832,
+        "author": "arashi_29",
+        "es": "Algo me huele a podrido.",
+        "en": "I smell something rotten."
+      },
       "forms": {
         "presente": [
           [
@@ -80655,6 +82899,12 @@
       "reflexive": false,
       "gloss": "to mature, ripen",
       "tier": 2,
+      "sentence": {
+        "id": 2266068,
+        "author": "cueyayotl",
+        "es": "Maduró con los años.",
+        "en": "He became more mature with the passing of the years."
+      },
       "forms": {
         "presente": [
           [
@@ -80871,6 +83121,12 @@
       "reflexive": false,
       "gloss": "to bark, howl",
       "tier": 2,
+      "sentence": {
+        "id": 986172,
+        "author": "hayastan",
+        "es": "Este perro ladra mucho.",
+        "en": "This dog barks a lot."
+      },
       "forms": {
         "presente": [
           [
@@ -81087,6 +83343,12 @@
       "reflexive": false,
       "gloss": "to bite",
       "tier": 2,
+      "sentence": {
+        "id": 1008940,
+        "author": "hayastan",
+        "es": "Aquel perro no muerde.",
+        "en": "That dog doesn't bite."
+      },
       "forms": {
         "presente": [
           [
@@ -81303,6 +83565,12 @@
       "reflexive": false,
       "gloss": "to sting, bite, pierce, prick, puncture",
       "tier": 2,
+      "sentence": {
+        "id": 5976026,
+        "author": "albrusgher",
+        "es": "Tom picó la lechuga.",
+        "en": "Tom shredded the lettuce."
+      },
       "forms": {
         "presente": [
           [
@@ -81519,6 +83787,12 @@
       "reflexive": false,
       "gloss": "to scratch",
       "tier": 2,
+      "sentence": {
+        "id": 5115542,
+        "author": "don_ramon",
+        "es": "Tomás se rascó la cabeza.",
+        "en": "Tom scratched his head."
+      },
       "forms": {
         "presente": [
           [
@@ -81735,6 +84009,12 @@
       "reflexive": false,
       "gloss": "to fly",
       "tier": 2,
+      "sentence": {
+        "id": 1156097,
+        "author": "marcelostockle",
+        "es": "Los precios volaron.",
+        "en": "Prices have jumped."
+      },
       "forms": {
         "presente": [
           [
@@ -81951,6 +84231,12 @@
       "reflexive": false,
       "gloss": "to swim",
       "tier": 2,
+      "sentence": {
+        "id": 520543,
+        "author": "Shishir",
+        "es": "Nado todos los días.",
+        "en": "I swim every day."
+      },
       "forms": {
         "presente": [
           [
@@ -82167,6 +84453,12 @@
       "reflexive": false,
       "gloss": "to fish",
       "tier": 2,
+      "sentence": {
+        "id": 4638106,
+        "author": "lawka",
+        "es": "Me encanta el pescado.",
+        "en": "I love fish."
+      },
       "forms": {
         "presente": [
           [
@@ -82383,6 +84675,12 @@
       "reflexive": false,
       "gloss": "to hunt",
       "tier": 2,
+      "sentence": {
+        "id": 1147916,
+        "author": "Shishir",
+        "es": "Ellos cazaban zorros.",
+        "en": "They hunted foxes."
+      },
       "forms": {
         "presente": [
           [
@@ -82599,6 +84897,12 @@
       "reflexive": false,
       "gloss": "to climb",
       "tier": 2,
+      "sentence": {
+        "id": 686879,
+        "author": "Shishir",
+        "es": "El gato trepó al árbol.",
+        "en": "The cat climbed up the tree."
+      },
       "forms": {
         "presente": [
           [
@@ -82815,6 +85119,12 @@
       "reflexive": false,
       "gloss": "to jump",
       "tier": 2,
+      "sentence": {
+        "id": 1235220,
+        "author": "hayastan",
+        "es": "Tom saltó del árbol.",
+        "en": "Tom jumped out of the tree."
+      },
       "forms": {
         "presente": [
           [
@@ -83031,6 +85341,12 @@
       "reflexive": false,
       "gloss": "to kick",
       "tier": 2,
+      "sentence": {
+        "id": 1296938,
+        "author": "marcelostockle",
+        "es": "Tom pateó la pelota.",
+        "en": "Tom kicked the ball."
+      },
       "forms": {
         "presente": [
           [
@@ -83247,6 +85563,12 @@
       "reflexive": false,
       "gloss": "to launch, throw, hurl, cast, fling",
       "tier": 2,
+      "sentence": {
+        "id": 6827407,
+        "author": "diegohn",
+        "es": "Se lanzaron al agua.",
+        "en": "They jumped into the water."
+      },
       "forms": {
         "presente": [
           [
@@ -83463,6 +85785,12 @@
       "reflexive": false,
       "gloss": "to overtake, catch",
       "tier": 2,
+      "sentence": {
+        "id": 1296878,
+        "author": "marcelostockle",
+        "es": "Tom atrapó la pelota.",
+        "en": "Tom caught the ball."
+      },
       "forms": {
         "presente": [
           [
@@ -83679,6 +86007,12 @@
       "reflexive": false,
       "gloss": "to train",
       "tier": 2,
+      "sentence": {
+        "id": 1132670,
+        "author": "Shishir",
+        "es": "Me entreno dos horas al día.",
+        "en": "I train two hours a day."
+      },
       "forms": {
         "presente": [
           [
@@ -83895,6 +86229,12 @@
       "reflexive": false,
       "gloss": "to compete",
       "tier": 2,
+      "sentence": {
+        "id": 1386281,
+        "author": "marcelostockle",
+        "es": "Tom compite en carreras de esquí.",
+        "en": "Tom competes in ski races."
+      },
       "forms": {
         "presente": [
           [
@@ -84111,6 +86451,12 @@
       "reflexive": false,
       "gloss": "to draw",
       "tier": 2,
+      "sentence": {
+        "id": 1920413,
+        "author": "marcelostockle",
+        "es": "El juego terminó en un empate.",
+        "en": "The game ended in a draw."
+      },
       "forms": {
         "presente": [
           [
@@ -84327,6 +86673,12 @@
       "reflexive": false,
       "gloss": "to cough",
       "tier": 2,
+      "sentence": {
+        "id": 2152587,
+        "author": "Shishir",
+        "es": "Las dos chicas tosieron al mismo tiempo.",
+        "en": "Both girls coughed at the same time."
+      },
       "forms": {
         "presente": [
           [
@@ -84543,6 +86895,12 @@
       "reflexive": false,
       "gloss": "to sneeze",
       "tier": 2,
+      "sentence": {
+        "id": 6308991,
+        "author": "marcelostockle",
+        "es": "Tom estornudó con fuerza.",
+        "en": "Tom sneezed violently."
+      },
       "forms": {
         "presente": [
           [
@@ -84759,6 +87117,12 @@
       "reflexive": false,
       "gloss": "to breathe",
       "tier": 2,
+      "sentence": {
+        "id": 13559892,
+        "author": "Seael",
+        "es": "Ahora respira hondo.",
+        "en": "Now, take a deep breath."
+      },
       "forms": {
         "presente": [
           [
@@ -84975,6 +87339,12 @@
       "reflexive": false,
       "gloss": "to sweat",
       "tier": 2,
+      "sentence": {
+        "id": 2379358,
+        "author": "marcelostockle",
+        "es": "Comúnmente no sudo así.",
+        "en": "I don't usually sweat like this."
+      },
       "forms": {
         "presente": [
           [
@@ -85191,6 +87561,12 @@
       "reflexive": false,
       "gloss": "to tremble, shake",
       "tier": 2,
+      "sentence": {
+        "id": 1325113,
+        "author": "marcelostockle",
+        "es": "Ella tembló de miedo.",
+        "en": "She trembled with fear."
+      },
       "forms": {
         "presente": [
           [
@@ -85407,6 +87783,12 @@
       "reflexive": false,
       "gloss": "to bleed",
       "tier": 2,
+      "sentence": {
+        "id": 5566365,
+        "author": "swyter",
+        "es": "Tom sangra otra vez.",
+        "en": "Tom is bleeding again."
+      },
       "forms": {
         "presente": [
           [
@@ -85623,6 +88005,12 @@
       "reflexive": false,
       "gloss": "to swell up, become swollen",
       "tier": 2,
+      "sentence": {
+        "id": 5124617,
+        "author": "don_ramon",
+        "es": "¡Qué hincha pelotas!",
+        "en": "How annoying!"
+      },
       "forms": {
         "presente": [
           [
@@ -85839,6 +88227,12 @@
       "reflexive": false,
       "gloss": "to twist, sprain, strain",
       "tier": 2,
+      "sentence": {
+        "id": 1243012,
+        "author": "marcelostockle",
+        "es": "Me torcí el tobillo.",
+        "en": "I twisted my ankle."
+      },
       "forms": {
         "presente": [
           [
@@ -86055,6 +88449,12 @@
       "reflexive": false,
       "gloss": "to prescribe",
       "tier": 2,
+      "sentence": {
+        "id": 2003588,
+        "author": "camilou",
+        "es": "Déjame ver tu receta médica.",
+        "en": "Let me see your prescription."
+      },
       "forms": {
         "presente": [
           [
@@ -86271,6 +88671,12 @@
       "reflexive": false,
       "gloss": "to operate, run",
       "tier": 2,
+      "sentence": {
+        "id": 2756645,
+        "author": "marcelostockle",
+        "es": "La máquina opera a toda hora.",
+        "en": "The machine operates around the clock."
+      },
       "forms": {
         "presente": [
           [
@@ -86487,6 +88893,12 @@
       "reflexive": false,
       "gloss": "to admit (hospital)",
       "tier": 2,
+      "sentence": {
+        "id": 7863670,
+        "author": "Seael",
+        "es": "No se interne en la jungla solo.",
+        "en": "Don't go into the jungle alone."
+      },
       "forms": {
         "presente": [
           [
@@ -86703,6 +89115,12 @@
       "reflexive": false,
       "gloss": "to deposit",
       "tier": 2,
+      "sentence": {
+        "id": 10112833,
+        "author": "manufrutos",
+        "es": "Tom depositó su taza.",
+        "en": "Tom set down his mug."
+      },
       "forms": {
         "presente": [
           [
@@ -86919,6 +89337,12 @@
       "reflexive": false,
       "gloss": "to withdraw",
       "tier": 2,
+      "sentence": {
+        "id": 4993366,
+        "author": "albrusgher",
+        "es": "Tom finalmente se retiró.",
+        "en": "Tom eventually retired."
+      },
       "forms": {
         "presente": [
           [
@@ -87135,6 +89559,12 @@
       "reflexive": false,
       "gloss": "to transfer",
       "tier": 2,
+      "sentence": {
+        "id": 7982764,
+        "author": "pchamorro",
+        "es": "Ella le transfirió el dinero a su hija.",
+        "en": "She signed over the money to her daughter."
+      },
       "forms": {
         "presente": [
           [
@@ -87351,6 +89781,12 @@
       "reflexive": false,
       "gloss": "to invest",
       "tier": 2,
+      "sentence": {
+        "id": 7551088,
+        "author": "arh",
+        "es": "Invertí mucho tiempo en ello.",
+        "en": "I put a lot of time into it."
+      },
       "forms": {
         "presente": [
           [
@@ -87783,6 +90219,12 @@
       "reflexive": false,
       "gloss": "to renovate, renew",
       "tier": 2,
+      "sentence": {
+        "id": 10082263,
+        "author": "Shishir",
+        "es": "¿Has renovado tu suscripción?",
+        "en": "Have you renewed your subscription?"
+      },
       "forms": {
         "presente": [
           [
@@ -87999,6 +90441,12 @@
       "reflexive": false,
       "gloss": "to expire",
       "tier": 2,
+      "sentence": {
+        "id": 5692342,
+        "author": "arh",
+        "es": "Te vencí sin artimañas.",
+        "en": "I beat you fair and square."
+      },
       "forms": {
         "presente": [
           [
@@ -88215,6 +90663,12 @@
       "reflexive": false,
       "gloss": "to register",
       "tier": 2,
+      "sentence": {
+        "id": 1859967,
+        "author": "Shishir",
+        "es": "A mí que me registren.",
+        "en": "Search me."
+      },
       "forms": {
         "presente": [
           [
@@ -88431,6 +90885,12 @@
       "reflexive": false,
       "gloss": "to inscribe",
       "tier": 2,
+      "sentence": {
+        "id": 496807,
+        "author": "Shishir",
+        "es": "Ella se inscribió en un curso de español.",
+        "en": "She signed up for a Spanish course."
+      },
       "forms": {
         "presente": [
           [
@@ -88648,6 +91108,12 @@
       "reflexive": false,
       "gloss": "to certify",
       "tier": 2,
+      "sentence": {
+        "id": 330151,
+        "author": "tatoerique",
+        "es": "Esto por correo certificado, por favor.",
+        "en": "I'd like to send this by registered mail."
+      },
       "forms": {
         "presente": [
           [
@@ -88864,6 +91330,12 @@
       "reflexive": false,
       "gloss": "to stamp",
       "tier": 2,
+      "sentence": {
+        "id": 2268548,
+        "author": "cueyayotl",
+        "es": "El sello se despegó.",
+        "en": "The stamp came off."
+      },
       "forms": {
         "presente": [
           [
@@ -89080,6 +91552,12 @@
       "reflexive": false,
       "gloss": "to denounce",
       "tier": 2,
+      "sentence": {
+        "id": 1332397,
+        "author": "Shishir",
+        "es": "¿Cómo denuncio un robo?",
+        "en": "How do I report a theft?"
+      },
       "forms": {
         "presente": [
           [
@@ -89296,6 +91774,12 @@
       "reflexive": false,
       "gloss": "to demand",
       "tier": 2,
+      "sentence": {
+        "id": 1321851,
+        "author": "marcelostockle",
+        "es": "Cedí a sus demandas.",
+        "en": "I gave in to her demands."
+      },
       "forms": {
         "presente": [
           [
@@ -89512,6 +91996,12 @@
       "reflexive": false,
       "gloss": "to judge",
       "tier": 2,
+      "sentence": {
+        "id": 1606324,
+        "author": "teskmon",
+        "es": "Déjame que juzgue eso yo.",
+        "en": "Let me be the judge of that."
+      },
       "forms": {
         "presente": [
           [
@@ -89728,6 +92218,12 @@
       "reflexive": false,
       "gloss": "to inherit",
       "tier": 2,
+      "sentence": {
+        "id": 1820311,
+        "author": "marcelostockle",
+        "es": "Él heredará el trono.",
+        "en": "He will succeed to the throne."
+      },
       "forms": {
         "presente": [
           [
@@ -89944,6 +92440,12 @@
       "reflexive": false,
       "gloss": "to own, possess, hold",
       "tier": 2,
+      "sentence": {
+        "id": 888573,
+        "author": "sarostegui",
+        "es": "Nadie posee la luna.",
+        "en": "Nobody owns the moon."
+      },
       "forms": {
         "presente": [
           [
@@ -90160,6 +92662,12 @@
       "reflexive": false,
       "gloss": "to obtain, acquire",
       "tier": 2,
+      "sentence": {
+        "id": 10082376,
+        "author": "saverius",
+        "es": "Adquirimos sabiduría con la edad.",
+        "en": "We gain wisdom with age."
+      },
       "forms": {
         "presente": [
           [
@@ -90376,6 +92884,12 @@
       "reflexive": false,
       "gloss": "to paint",
       "tier": 2,
+      "sentence": {
+        "id": 1298254,
+        "author": "marcelostockle",
+        "es": "Pinté el portón azul.",
+        "en": "I painted the gate blue."
+      },
       "forms": {
         "presente": [
           [
@@ -90592,6 +93106,12 @@
       "reflexive": false,
       "gloss": "to nail",
       "tier": 2,
+      "sentence": {
+        "id": 1367241,
+        "author": "marcelostockle",
+        "es": "Un clavo pinchó el neumático.",
+        "en": "A nail penetrated the car tire."
+      },
       "forms": {
         "presente": [
           [
@@ -91024,6 +93544,12 @@
       "reflexive": false,
       "gloss": "to hit, strike",
       "tier": 2,
+      "sentence": {
+        "id": 5427291,
+        "author": "Omnivoro",
+        "es": "¿Por qué me pegaste?",
+        "en": "Why did you hit me?"
+      },
       "forms": {
         "presente": [
           [
@@ -91240,6 +93766,12 @@
       "reflexive": false,
       "gloss": "to weld, solder",
       "tier": 2,
+      "sentence": {
+        "id": 1455750,
+        "author": "marcelostockle",
+        "es": "El soldado gemía de dolor.",
+        "en": "The soldier groaned with pain."
+      },
       "forms": {
         "presente": [
           [
@@ -91456,6 +93988,12 @@
       "reflexive": false,
       "gloss": "to dig",
       "tier": 2,
+      "sentence": {
+        "id": 1263602,
+        "author": "marcelostockle",
+        "es": "Se excavó una antigua vasija.",
+        "en": "An antique pot was dug out."
+      },
       "forms": {
         "presente": [
           [
@@ -91672,6 +94210,12 @@
       "reflexive": false,
       "gloss": "to demolish",
       "tier": 2,
+      "sentence": {
+        "id": 2347431,
+        "author": "marcelostockle",
+        "es": "Demolieron la vieja casa.",
+        "en": "The old house was demolished."
+      },
       "forms": {
         "presente": [
           [
@@ -91888,6 +94432,12 @@
       "reflexive": false,
       "gloss": "to renovate",
       "tier": 2,
+      "sentence": {
+        "id": 1386529,
+        "author": "marcelostockle",
+        "es": "¿La prisión reforma a los criminales?",
+        "en": "Does prison reform criminals?"
+      },
       "forms": {
         "presente": [
           [
@@ -92104,6 +94654,12 @@
       "reflexive": false,
       "gloss": "to decorate",
       "tier": 2,
+      "sentence": {
+        "id": 2394303,
+        "author": "hayastan",
+        "es": "Decoré mi habitación.",
+        "en": "I decorated my room."
+      },
       "forms": {
         "presente": [
           [
@@ -92320,6 +94876,12 @@
       "reflexive": false,
       "gloss": "to program",
       "tier": 2,
+      "sentence": {
+        "id": 856892,
+        "author": "zorder",
+        "es": "Solía escuchar programas en inglés.",
+        "en": "I used to listen to English programs."
+      },
       "forms": {
         "presente": [
           [
@@ -92536,6 +95098,12 @@
       "reflexive": false,
       "gloss": "to restart",
       "tier": 2,
+      "sentence": {
+        "id": 3307515,
+        "author": "gianich73",
+        "es": "Reinician las clases.",
+        "en": "School is starting up again."
+      },
       "forms": {
         "presente": [
           [
@@ -92752,6 +95320,12 @@
       "reflexive": false,
       "gloss": "to back up",
       "tier": 2,
+      "sentence": {
+        "id": 1388350,
+        "author": "marcelostockle",
+        "es": "Su coraje la respaldaba.",
+        "en": "Her courage supported her."
+      },
       "forms": {
         "presente": [
           [
@@ -92968,6 +95542,12 @@
       "reflexive": false,
       "gloss": "to restore",
       "tier": 2,
+      "sentence": {
+        "id": 5699232,
+        "author": "albrusgher",
+        "es": "Tom compró un teléfono restaurado.",
+        "en": "Tom bought a refurbished phone."
+      },
       "forms": {
         "presente": [
           [
@@ -93184,6 +95764,12 @@
       "reflexive": false,
       "gloss": "to navigate, sail, set out",
       "tier": 2,
+      "sentence": {
+        "id": 7929297,
+        "author": "arh",
+        "es": "Navegamos rumbo sur.",
+        "en": "We're sailing southward."
+      },
       "forms": {
         "presente": [
           [
@@ -93400,6 +95986,12 @@
       "reflexive": false,
       "gloss": "to tag",
       "tier": 2,
+      "sentence": {
+        "id": 5748513,
+        "author": "arh",
+        "es": "El precio en la etiqueta es alto.",
+        "en": "The price tag is high."
+      },
       "forms": {
         "presente": [
           [
@@ -93616,6 +96208,12 @@
       "reflexive": false,
       "gloss": "to block",
       "tier": 2,
+      "sentence": {
+        "id": 1386188,
+        "author": "marcelostockle",
+        "es": "El árbol bloqueó la calle.",
+        "en": "The tree blocked the road."
+      },
       "forms": {
         "presente": [
           [
@@ -93832,6 +96430,12 @@
       "reflexive": false,
       "gloss": "to mute",
       "tier": 2,
+      "sentence": {
+        "id": 4557178,
+        "author": "swyter",
+        "es": "Túmbate en silencio.",
+        "en": "Lie still."
+      },
       "forms": {
         "presente": [
           [
@@ -94048,6 +96652,12 @@
       "reflexive": false,
       "gloss": "to draw",
       "tier": 2,
+      "sentence": {
+        "id": 3418101,
+        "author": "cueyayotl",
+        "es": "Dibuja un círculo pequeño.",
+        "en": "Draw a small circle."
+      },
       "forms": {
         "presente": [
           [
@@ -94264,6 +96874,12 @@
       "reflexive": false,
       "gloss": "to photograph, take pictures",
       "tier": 2,
+      "sentence": {
+        "id": 1481616,
+        "author": "marcelostockle",
+        "es": "¡Enséñame la fotografía!",
+        "en": "Show me the photo."
+      },
       "forms": {
         "presente": [
           [
@@ -94480,6 +97096,12 @@
       "reflexive": false,
       "gloss": "to film",
       "tier": 2,
+      "sentence": {
+        "id": 2270715,
+        "author": "Shishir",
+        "es": "Filmaron toda la ceremonia.",
+        "en": "They filmed the entire ceremony."
+      },
       "forms": {
         "presente": [
           [
@@ -94696,6 +97318,12 @@
       "reflexive": false,
       "gloss": "to edit",
       "tier": 2,
+      "sentence": {
+        "id": 860298,
+        "author": "opor",
+        "es": "¿Con qué frecuencia editas tu perfil?",
+        "en": "How often do you edit your profile?"
+      },
       "forms": {
         "presente": [
           [
@@ -94912,6 +97540,12 @@
       "reflexive": false,
       "gloss": "to publish",
       "tier": 2,
+      "sentence": {
+        "id": 2693910,
+        "author": "marcelostockle",
+        "es": "Al fin publicamos el libro.",
+        "en": "We finally published the book."
+      },
       "forms": {
         "presente": [
           [
@@ -95128,6 +97762,12 @@
       "reflexive": false,
       "gloss": "to compose",
       "tier": 2,
+      "sentence": {
+        "id": 1538799,
+        "author": "marcelostockle",
+        "es": "Tom compuso un soneto.",
+        "en": "Tom composed a sonnet."
+      },
       "forms": {
         "presente": [
           [
@@ -95344,6 +97984,12 @@
       "reflexive": false,
       "gloss": "to rehearse",
       "tier": 2,
+      "sentence": {
+        "id": 7151600,
+        "author": "arh",
+        "es": "Hoy es el ensayo general.",
+        "en": "Today is the dress rehearsal."
+      },
       "forms": {
         "presente": [
           [
@@ -95560,6 +98206,12 @@
       "reflexive": false,
       "gloss": "to act",
       "tier": 2,
+      "sentence": {
+        "id": 3659646,
+        "author": "hayastan",
+        "es": "Tom actuó sin pensar.",
+        "en": "Tom acted without thinking."
+      },
       "forms": {
         "presente": [
           [
@@ -95776,6 +98428,12 @@
       "reflexive": false,
       "gloss": "to interpret",
       "tier": 2,
+      "sentence": {
+        "id": 11943358,
+        "author": "Eremon",
+        "es": "Ella interpreta a Bach.",
+        "en": "She plays Bach."
+      },
       "forms": {
         "presente": [
           [
@@ -95992,6 +98650,12 @@
       "reflexive": false,
       "gloss": "to premiere, use for the first time",
       "tier": 2,
+      "sentence": {
+        "id": 1695552,
+        "author": "marcelostockle",
+        "es": "¿Cuándo se estrenará la película?",
+        "en": "When will the film be released?"
+      },
       "forms": {
         "presente": [
           [
@@ -96208,6 +98872,12 @@
       "reflexive": false,
       "gloss": "to applaud",
       "tier": 2,
+      "sentence": {
+        "id": 1256803,
+        "author": "marcelostockle",
+        "es": "Nosotros aplaudimos.",
+        "en": "We clapped our hands."
+      },
       "forms": {
         "presente": [
           [
@@ -96424,6 +99094,12 @@
       "reflexive": false,
       "gloss": "to flirt",
       "tier": 2,
+      "sentence": {
+        "id": 1270617,
+        "author": "marcelostockle",
+        "es": "Tom coqueteó con Mary.",
+        "en": "Tom flirted with Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -96640,6 +99316,12 @@
       "reflexive": false,
       "gloss": "to fall in love",
       "tier": 2,
+      "sentence": {
+        "id": 769707,
+        "author": "Shishir",
+        "es": "Él se enamoró de ella.",
+        "en": "He fell in love with her."
+      },
       "forms": {
         "presente": [
           [
@@ -96856,6 +99538,12 @@
       "reflexive": false,
       "gloss": "to divorce",
       "tier": 2,
+      "sentence": {
+        "id": 1181139,
+        "author": "marcelostockle",
+        "es": "Ella se divorció de él.",
+        "en": "She divorced him."
+      },
       "forms": {
         "presente": [
           [
@@ -97072,6 +99760,12 @@
       "reflexive": false,
       "gloss": "to give birth",
       "tier": 2,
+      "sentence": {
+        "id": 2721434,
+        "author": "Shishir",
+        "es": "Por favor, no pares.",
+        "en": "Please don't stop."
+      },
       "forms": {
         "presente": [
           [
@@ -97288,6 +99982,12 @@
       "reflexive": false,
       "gloss": "to adopt",
       "tier": 2,
+      "sentence": {
+        "id": 1332488,
+        "author": "Shishir",
+        "es": "Adoptamos a un niño.",
+        "en": "We adopted a child."
+      },
       "forms": {
         "presente": [
           [
@@ -97504,6 +100204,12 @@
       "reflexive": false,
       "gloss": "to educate, teach",
       "tier": 2,
+      "sentence": {
+        "id": 5129981,
+        "author": "don_ramon",
+        "es": "Tenés que ser más educado.",
+        "en": "You must be more polite."
+      },
       "forms": {
         "presente": [
           [
@@ -97720,6 +100426,12 @@
       "reflexive": false,
       "gloss": "to spoil (a person)",
       "tier": 2,
+      "sentence": {
+        "id": 1496812,
+        "author": "marcelostockle",
+        "es": "Tom es un niño mimado.",
+        "en": "Tom is a spoiled child."
+      },
       "forms": {
         "presente": [
           [
@@ -97936,6 +100648,12 @@
       "reflexive": false,
       "gloss": "to nag, gripe, snarl (dog)",
       "tier": 2,
+      "sentence": {
+        "id": 9177169,
+        "author": "ignacio",
+        "es": "El director regañó a Tom.",
+        "en": "The director reprimanded Tom."
+      },
       "forms": {
         "presente": [
           [
@@ -98152,6 +100870,12 @@
       "reflexive": false,
       "gloss": "to punish",
       "tier": 2,
+      "sentence": {
+        "id": 1005178,
+        "author": "hayastan",
+        "es": "Se merece el castigo.",
+        "en": "He deserves the punishment."
+      },
       "forms": {
         "presente": [
           [
@@ -98368,6 +101092,12 @@
       "reflexive": false,
       "gloss": "to reward",
       "tier": 2,
+      "sentence": {
+        "id": 512409,
+        "author": "Shishir",
+        "es": "Te mereces el premio.",
+        "en": "You deserve the prize."
+      },
       "forms": {
         "presente": [
           [
@@ -98584,6 +101314,12 @@
       "reflexive": false,
       "gloss": "to reflect",
       "tier": 2,
+      "sentence": {
+        "id": 7451768,
+        "author": "arh",
+        "es": "Reflexiona antes de actuar.",
+        "en": "Think before you act."
+      },
       "forms": {
         "presente": [
           [
@@ -98800,6 +101536,12 @@
       "reflexive": false,
       "gloss": "to meditate",
       "tier": 2,
+      "sentence": {
+        "id": 2590640,
+        "author": "marcelostockle",
+        "es": "Ella meditó por unos minutos.",
+        "en": "She thought for a few minutes."
+      },
       "forms": {
         "presente": [
           [
@@ -99016,6 +101758,12 @@
       "reflexive": false,
       "gloss": "to concentrate",
       "tier": 2,
+      "sentence": {
+        "id": 1202933,
+        "author": "cariito",
+        "es": "Él se concentró en sus estudios.",
+        "en": "He concentrated on his studies."
+      },
       "forms": {
         "presente": [
           [
@@ -99232,6 +101980,12 @@
       "reflexive": false,
       "gloss": "to distract",
       "tier": 2,
+      "sentence": {
+        "id": 2267874,
+        "author": "hayastan",
+        "es": "Ese ruido me distrae.",
+        "en": "That noise distracts me."
+      },
       "forms": {
         "presente": [
           [
@@ -99448,6 +102202,12 @@
       "reflexive": false,
       "gloss": "to confuse, confound, mess things up royally",
       "tier": 2,
+      "sentence": {
+        "id": 5750934,
+        "author": "arh",
+        "es": "Tom confundió a Mary.",
+        "en": "Tom misled Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -99664,6 +102424,12 @@
       "reflexive": false,
       "gloss": "to deduce",
       "tier": 2,
+      "sentence": {
+        "id": 2314549,
+        "author": "marcelostockle",
+        "es": "Asumo que me lo dices ahora porque dedujiste que lo averiguaría de cualquier forma.",
+        "en": "I assume you're telling me now because you figured I'd find out anyway."
+      },
       "forms": {
         "presente": [
           [
@@ -99880,6 +102646,12 @@
       "reflexive": false,
       "gloss": "to predict, foretell, forecast",
       "tier": 2,
+      "sentence": {
+        "id": 1231108,
+        "author": "marcelostockle",
+        "es": "Tom predijo nuestro éxito.",
+        "en": "Tom predicted our success."
+      },
       "forms": {
         "presente": [
           [
@@ -100108,6 +102880,12 @@
       "reflexive": false,
       "gloss": "to guess, divine, foretell",
       "tier": 2,
+      "sentence": {
+        "id": 4557822,
+        "author": "swyter",
+        "es": "Lo adiviné correctamente.",
+        "en": "I guessed right."
+      },
       "forms": {
         "presente": [
           [
@@ -100324,6 +103102,12 @@
       "reflexive": false,
       "gloss": "to hit the mark, hit upon, succeed, do right",
       "tier": 2,
+      "sentence": {
+        "id": 357499,
+        "author": "tatoerique",
+        "es": "Acerté en la diana con la flecha.",
+        "en": "I hit the mark with the arrow."
+      },
       "forms": {
         "presente": [
           [
@@ -100540,6 +103324,12 @@
       "reflexive": false,
       "gloss": "to advance, go forward",
       "tier": 2,
+      "sentence": {
+        "id": 791705,
+        "author": "Shishir",
+        "es": "Avanzaron lentamente.",
+        "en": "They moved ahead slowly."
+      },
       "forms": {
         "presente": [
           [
@@ -100756,6 +103546,12 @@
       "reflexive": false,
       "gloss": "to go back",
       "tier": 2,
+      "sentence": {
+        "id": 1308688,
+        "author": "marcelostockle",
+        "es": "Por favor, retroceda.",
+        "en": "Please step back."
+      },
       "forms": {
         "presente": [
           [
@@ -100972,6 +103768,12 @@
       "reflexive": false,
       "gloss": "to turn, spin",
       "tier": 2,
+      "sentence": {
+        "id": 571832,
+        "author": "Shishir",
+        "es": "Gira a la izquierda.",
+        "en": "Turn to the left."
+      },
       "forms": {
         "presente": [
           [
@@ -101188,6 +103990,12 @@
       "reflexive": false,
       "gloss": "to surround",
       "tier": 2,
+      "sentence": {
+        "id": 5464505,
+        "author": "albrusgher",
+        "es": "Ellos rodearon a Tom.",
+        "en": "They surrounded Tom."
+      },
       "forms": {
         "presente": [
           [
@@ -101404,6 +104212,12 @@
       "reflexive": false,
       "gloss": "to go through, cross, run through",
       "tier": 2,
+      "sentence": {
+        "id": 1435941,
+        "author": "marcelostockle",
+        "es": "Tom atravesó el túnel.",
+        "en": "Tom went through the tunnel."
+      },
       "forms": {
         "presente": [
           [
@@ -101620,6 +104434,12 @@
       "reflexive": false,
       "gloss": "to travel around",
       "tier": 2,
+      "sentence": {
+        "id": 5568043,
+        "author": "swyter",
+        "es": "¿Cuánta distancia recorriste?",
+        "en": "How far did you go?"
+      },
       "forms": {
         "presente": [
           [
@@ -101836,6 +104656,12 @@
       "reflexive": false,
       "gloss": "to pursue, chase, hunt down, persecute",
       "tier": 2,
+      "sentence": {
+        "id": 2043942,
+        "author": "marcelostockle",
+        "es": "El oso me persiguió.",
+        "en": "The bear ran after me."
+      },
       "forms": {
         "presente": [
           [
@@ -102052,6 +104878,12 @@
       "reflexive": false,
       "gloss": "to escape",
       "tier": 2,
+      "sentence": {
+        "id": 13471286,
+        "author": "Seael",
+        "es": "Escapamos de prisión.",
+        "en": "We broke out of prison."
+      },
       "forms": {
         "presente": [
           [
@@ -102268,6 +105100,12 @@
       "reflexive": false,
       "gloss": "to flee",
       "tier": 2,
+      "sentence": {
+        "id": 3016075,
+        "author": "marcelostockle",
+        "es": "Tom huyó de prisión.",
+        "en": "Tom escaped from prison."
+      },
       "forms": {
         "presente": [
           [
@@ -102484,6 +105322,12 @@
       "reflexive": false,
       "gloss": "to disappear",
       "tier": 2,
+      "sentence": {
+        "id": 1768610,
+        "author": "marcelostockle",
+        "es": "El dolor desapareció.",
+        "en": "The pain has gone."
+      },
       "forms": {
         "presente": [
           [
@@ -102700,6 +105544,12 @@
       "reflexive": false,
       "gloss": "to stroll",
       "tier": 2,
+      "sentence": {
+        "id": 775727,
+        "author": "Shishir",
+        "es": "Pasea todos los días.",
+        "en": "Take a walk every day."
+      },
       "forms": {
         "presente": [
           [
@@ -102916,6 +105766,12 @@
       "reflexive": false,
       "gloss": "to transform",
       "tier": 2,
+      "sentence": {
+        "id": 2740674,
+        "author": "nancy",
+        "es": "Darwin transformó el mundo.",
+        "en": "Darwin changed the world."
+      },
       "forms": {
         "presente": [
           [
@@ -103132,6 +105988,12 @@
       "reflexive": false,
       "gloss": "to reduce",
       "tier": 2,
+      "sentence": {
+        "id": 1717530,
+        "author": "marcelostockle",
+        "es": "El remedio redujo su dolor.",
+        "en": "The medicine decreased his pain."
+      },
       "forms": {
         "presente": [
           [
@@ -103348,6 +106210,12 @@
       "reflexive": false,
       "gloss": "to augment, increase, magnify, gain weight",
       "tier": 2,
+      "sentence": {
+        "id": 967104,
+        "author": "hundo",
+        "es": "La población aumenta.",
+        "en": "The population is growing."
+      },
       "forms": {
         "presente": [
           [
@@ -103564,6 +106432,12 @@
       "reflexive": false,
       "gloss": "to decrease",
       "tier": 2,
+      "sentence": {
+        "id": 1943574,
+        "author": "camilou",
+        "es": "Una bolsa con hielo disminuirá el dolor.",
+        "en": "An ice pack will numb the pain."
+      },
       "forms": {
         "presente": [
           [
@@ -103780,6 +106654,12 @@
       "reflexive": false,
       "gloss": "to double",
       "tier": 2,
+      "sentence": {
+        "id": 2267704,
+        "author": "cueyayotl",
+        "es": "Envíelo por duplicado.",
+        "en": "Send it in duplicate."
+      },
       "forms": {
         "presente": [
           [
@@ -104212,6 +107092,12 @@
       "reflexive": false,
       "gloss": "to shrink",
       "tier": 2,
+      "sentence": {
+        "id": 886050,
+        "author": "Shishir",
+        "es": "Él se encogió de hombros.",
+        "en": "He shrugged his shoulders."
+      },
       "forms": {
         "presente": [
           [
@@ -104428,6 +107314,12 @@
       "reflexive": false,
       "gloss": "to stretch",
       "tier": 2,
+      "sentence": {
+        "id": 11932355,
+        "author": "Seael",
+        "es": "Estiremos las piernas.",
+        "en": "Let's stretch our legs."
+      },
       "forms": {
         "presente": [
           [
@@ -104644,6 +107536,12 @@
       "reflexive": false,
       "gloss": "to melt, liquefy, thaw",
       "tier": 2,
+      "sentence": {
+        "id": 795643,
+        "author": "Shishir",
+        "es": "El hielo se derritió.",
+        "en": "The ice melted."
+      },
       "forms": {
         "presente": [
           [
@@ -104860,6 +107758,12 @@
       "reflexive": false,
       "gloss": "to evaporate",
       "tier": 2,
+      "sentence": {
+        "id": 5270775,
+        "author": "albrusgher",
+        "es": "El rocío se evaporó cuando el sol se elevó.",
+        "en": "The dew evaporated when the sun rose."
+      },
       "forms": {
         "presente": [
           [
@@ -105076,6 +107980,12 @@
       "reflexive": false,
       "gloss": "to rust",
       "tier": 2,
+      "sentence": {
+        "id": 10559700,
+        "author": "Seael",
+        "es": "Tu cuchillo está oxidado.",
+        "en": "Your knife is rusty."
+      },
       "forms": {
         "presente": [
           [
@@ -105292,6 +108202,12 @@
       "reflexive": false,
       "gloss": "to affirm",
       "tier": 2,
+      "sentence": {
+        "id": 1608695,
+        "author": "teskmon",
+        "es": "Estás simplemente afirmando lo obvio.",
+        "en": "You're just stating the obvious."
+      },
       "forms": {
         "presente": [
           [
@@ -105508,6 +108424,12 @@
       "reflexive": false,
       "gloss": "to swear, take an oath",
       "tier": 2,
+      "sentence": {
+        "id": 1174933,
+        "author": "marcelostockle",
+        "es": "Tom juró su inocencia.",
+        "en": "Tom pleaded not guilty."
+      },
       "forms": {
         "presente": [
           [
@@ -105724,6 +108646,12 @@
       "reflexive": false,
       "gloss": "to threaten, menace, warn",
       "tier": 2,
+      "sentence": {
+        "id": 1439563,
+        "author": "marcelostockle",
+        "es": "Tom amenazó con matar a Mary.",
+        "en": "Tom threatened to kill Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -105940,6 +108868,12 @@
       "reflexive": false,
       "gloss": "to insult",
       "tier": 2,
+      "sentence": {
+        "id": 738530,
+        "author": "chinopinyin",
+        "es": "Me insultó sin motivo.",
+        "en": "He insulted me without reason."
+      },
       "forms": {
         "presente": [
           [
@@ -106156,6 +109090,12 @@
       "reflexive": false,
       "gloss": "to praise",
       "tier": 2,
+      "sentence": {
+        "id": 454599,
+        "author": "Shishir",
+        "es": "Su profesor la elogió.",
+        "en": "Her teacher praised her."
+      },
       "forms": {
         "presente": [
           [
@@ -106372,6 +109312,12 @@
       "reflexive": false,
       "gloss": "to mock",
       "tier": 2,
+      "sentence": {
+        "id": 561050,
+        "author": "Shishir",
+        "es": "Se burlaron de Mary.",
+        "en": "They made fun of Mary."
+      },
       "forms": {
         "presente": [
           [
@@ -106588,6 +109534,12 @@
       "reflexive": false,
       "gloss": "to joke",
       "tier": 2,
+      "sentence": {
+        "id": 669685,
+        "author": "leoruilova",
+        "es": "Él bromeó al respecto.",
+        "en": "He made a joke about it."
+      },
       "forms": {
         "presente": [
           [
@@ -106804,6 +109756,12 @@
       "reflexive": false,
       "gloss": "to exaggerate",
       "tier": 2,
+      "sentence": {
+        "id": 9443880,
+        "author": "ignacio",
+        "es": "Tom siempre exagera.",
+        "en": "Tom always exaggerates."
+      },
       "forms": {
         "presente": [
           [
@@ -107020,6 +109978,12 @@
       "reflexive": false,
       "gloss": "to whisper",
       "tier": 2,
+      "sentence": {
+        "id": 1360909,
+        "author": "Shishir",
+        "es": "Ella le susurró algo.",
+        "en": "She whispered something to him."
+      },
       "forms": {
         "presente": [
           [
@@ -107236,6 +110200,12 @@
       "reflexive": false,
       "gloss": "to mutter",
       "tier": 2,
+      "sentence": {
+        "id": 2298191,
+        "author": "marcelostockle",
+        "es": "No murmures, por favor.",
+        "en": "Please don't mumble."
+      },
       "forms": {
         "presente": [
           [
@@ -107452,6 +110422,12 @@
       "reflexive": false,
       "gloss": "to stutter",
       "tier": 2,
+      "sentence": {
+        "id": 4765889,
+        "author": "alegarvid",
+        "es": "¿Por qué tartamudeas?",
+        "en": "Why are you stuttering?"
+      },
       "forms": {
         "presente": [
           [
@@ -107668,6 +110644,12 @@
       "reflexive": false,
       "gloss": "to sigh",
       "tier": 2,
+      "sentence": {
+        "id": 1602967,
+        "author": "marcelostockle",
+        "es": "Su madre suspiró de alivio.",
+        "en": "His mother sighed with relief."
+      },
       "forms": {
         "presente": [
           [
@@ -107884,6 +110866,12 @@
       "reflexive": false,
       "gloss": "to complain",
       "tier": 2,
+      "sentence": {
+        "id": 2871451,
+        "author": "nancy",
+        "es": "Tom se queja de todo.",
+        "en": "Tom complains about everything."
+      },
       "forms": {
         "presente": [
           [
@@ -108100,6 +111088,12 @@
       "reflexive": true,
       "gloss": "to be called",
       "tier": 2,
+      "sentence": {
+        "id": 1344329,
+        "author": "wallebot",
+        "es": "¿Cómo se llama esto?",
+        "en": "What's this called?"
+      },
       "forms": {
         "presente": [
           [

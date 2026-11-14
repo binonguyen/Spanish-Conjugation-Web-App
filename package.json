@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "test": "vitest run",
-    "data": "node scripts/build-verbs.ts"
+    "data": "node scripts/build-verbs.ts",
+    "data:sentences": "node scripts/build-sentences.ts"
   },
   "dependencies": {
     "react": "^19.3.1",

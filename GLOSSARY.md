@@ -16,6 +16,10 @@ _Avoid_: Base form, root
 The set of verbs a session may draw from: a frequency tier (top 100 / top 500 / all), plus whichever verbs were added by hand.
 _Avoid_: Deck, library, word list
 
+**Example sentence**:
+One short Tatoeba pair — a Spanish sentence containing a form of the verb, its English translation, and the Tatoeba id and author that credit it. Shown only on the reveal; a verb with no suitable pair simply has none.
+_Avoid_: Quote, sample, example
+
 **Tense**:
 A named paradigm of forms, one per grammatical person, with a mood and an aspect (e.g. _pretérito indefinido_, _presente de subjuntivo_). The unit selected when building a session.
 _Avoid_: Conjugation, timeframe, ending set

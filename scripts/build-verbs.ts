@@ -13,6 +13,15 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join } from 'node:path'
 import { gzipSync } from 'node:zlib'
 import { conjuego } from 'conjuego/por-defecto'
+import {
+  buildFormIndex,
+  matchVerbs,
+  MIN_TOP_SENTENCE_COVERAGE,
+  parseSentenceTsv,
+  SENTENCE_MAX_LENGTH,
+  TOP_VERB_COUNT,
+  type TatoebaPair,
+} from './sentences.ts'
 
 type Person = 'yo' | 'tu' | '3sg' | 'nosotros' | 'vosotros' | '3pl'
 type ImperativePerson = Exclude<Person, 'yo'>
@@ -30,6 +39,7 @@ interface VerbRecord {
   reflexive: boolean
   gloss: string
   tier: 1 | 2
+  sentence?: TatoebaPair
   forms: Forms
   nonFinite: { gerundio: string[]; participio: string[] }
 }
@@ -39,8 +49,9 @@ type Cell = string | readonly string[] | null | undefined
 const ROOT = process.cwd()
 const LIST_PATH = join(ROOT, 'scripts', 'data', 'top-verbs.tsv')
 const OVERRIDES_PATH = join(ROOT, 'scripts', 'data', 'gloss-overrides.tsv')
+const SENTENCES_PATH = join(ROOT, 'scripts', 'data', 'sentences.tsv')
 const OUT_PATH = join(ROOT, 'src', 'data', 'verbs.json')
-const GZIP_LIMIT = 110 * 1024
+const GZIP_LIMIT = 130 * 1024
 const TIER_1_SIZE = 100
 const MIN_VERB_COUNT = 500
 
@@ -173,6 +184,13 @@ function loadOverrides(): Map<string, string> {
   return overrides
 }
 
+function loadSentences(): Map<string, TatoebaPair> {
+  if (!existsSync(SENTENCES_PATH)) {
+    fail(`missing ${SENTENCES_PATH}; run \`npm run data:sentences\` to build the selection`)
+  }
+  return parseSentenceTsv(readFileSync(SENTENCES_PATH, 'utf8'))
+}
+
 /** One gloss string, senses comma-joined rather than slash-joined. */
 function normalizeGloss(gloss: string): string {
   return gloss
@@ -258,7 +276,7 @@ function assertForms(infinitive: string, forms: Forms) {
   }
 }
 
-function buildVerbRecord(row: VerbListRow, tier: 1 | 2, gloss: string): VerbRecord {
+function buildVerbRecord(row: VerbListRow, tier: 1 | 2, gloss: string, sentence?: TatoebaPair): VerbRecord {
   const table = conjuego(row.infinitive)
   const forms = buildVerbForms(table)
   assertForms(row.infinitive, forms)
@@ -267,6 +285,7 @@ function buildVerbRecord(row: VerbListRow, tier: 1 | 2, gloss: string): VerbReco
     reflexive: row.infinitive.endsWith('se'),
     gloss,
     tier,
+    ...(sentence ? { sentence } : {}),
     forms,
     nonFinite: {
       gerundio: toArray(table.no_personal.gerundio),
@@ -275,16 +294,52 @@ function buildVerbRecord(row: VerbListRow, tier: 1 | 2, gloss: string): VerbReco
   }
 }
 
+/**
+ * A sentence without its id cannot be credited, so it must never ship. Also
+ * checks that each stored sentence actually contains a form of its verb and
+ * that enough of the top verbs have one at all.
+ */
+function assertSentences(verbs: VerbRecord[]) {
+  const index = buildFormIndex(verbs)
+  for (const verb of verbs) {
+    const sentence = verb.sentence
+    if (!sentence) continue
+    if (!Number.isInteger(sentence.id) || sentence.id < 1) fail(`${verb.infinitive} sentence has no id`)
+    if (!sentence.author.trim()) fail(`${verb.infinitive} sentence has no author`)
+    if (!sentence.en.trim()) fail(`${verb.infinitive} sentence has no English translation`)
+    if (!sentence.es.trim()) fail(`${verb.infinitive} sentence is empty`)
+    if (sentence.es.length > SENTENCE_MAX_LENGTH) {
+      fail(`${verb.infinitive} sentence is ${sentence.es.length} chars, over ${SENTENCE_MAX_LENGTH}`)
+    }
+    if (!matchVerbs(sentence.es, index).has(verb.infinitive)) {
+      fail(`${verb.infinitive} sentence does not contain a form of the verb: ${sentence.es}`)
+    }
+  }
+
+  const top = verbs.slice(0, TOP_VERB_COUNT)
+  const covered = top.filter((verb) => verb.sentence).length
+  const coverage = covered / top.length
+  if (coverage < MIN_TOP_SENTENCE_COVERAGE) {
+    fail(`only ${(coverage * 100).toFixed(1)}% of the top ${top.length} verbs have a sentence`)
+  }
+}
+
 function main() {
   const rows = parseVerbList()
   const conjugatorGlosses = loadConjugatorGlosses()
   const overrides = loadOverrides()
+  const sentences = loadSentences()
+  const known = new Set(rows.map((row) => row.infinitive))
+  for (const infinitive of sentences.keys()) {
+    if (!known.has(infinitive)) fail(`sentence file names unknown verb ${infinitive}`)
+  }
 
   const verbs = rows.map((row, index) => {
     const gloss = overrides.get(row.infinitive) ?? conjugatorGlosses.get(row.infinitive) ?? row.fallbackGloss
     if (!gloss) fail(`no gloss for ${row.infinitive}`)
-    return buildVerbRecord(row, index < TIER_1_SIZE ? 1 : 2, normalizeGloss(gloss))
+    return buildVerbRecord(row, index < TIER_1_SIZE ? 1 : 2, normalizeGloss(gloss), sentences.get(row.infinitive))
   })
+  assertSentences(verbs)
 
   const artifact = {
     generatedAt: new Date().toISOString(),
@@ -311,6 +366,12 @@ function main() {
         license: 'MIT',
         url: 'https://github.com/fuzzy-logic/2000-verbos',
         use: 'frequency order and fallback glosses',
+      },
+      {
+        name: 'Tatoeba',
+        license: 'CC BY 2.0 FR',
+        url: 'https://tatoeba.org',
+        use: 'example sentences and translations (manythings.org aligned export)',
       },
     ],
     verbs,

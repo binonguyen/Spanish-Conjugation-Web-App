@@ -34,7 +34,7 @@ Generated at **build time** into a committed `src/data/verbs.json`; the app neve
 
 **Sources** - forms from `conjuego` (ISC) or `@jirimracek/conjugate-esp` (MIT); English glosses joined from `conjugator`'s Apache-2.0 TSVs, with the frequency list's own gloss as a fallback where it has no entry; verb order from `fuzzy-logic/2000-verbos` (MIT, see [ADR-0003](../adr/0003-verb-frequency-list.md)); one example sentence per verb from Tatoeba (CC BY 2.0 FR), with attribution metadata baked into the artifact. Verb list: top 500 by frequency (plus the curated reflexive fixture `llamarse`), tiered (1 = top 100, 2 = top 500).
 
-**Stored tenses are simple paradigms only.** Perfect tenses are composed at runtime from `haber` + participle, which keeps the artifact around 100 KB gzip for 500 verbs instead of storing a second copy of every paradigm, and removes a class of data bugs.
+**Stored tenses are simple paradigms only.** Perfect tenses are composed at runtime from `haber` + participle, which keeps the artifact around 120 KB gzip for 500 verbs (including one example sentence each) instead of storing a second copy of every paradigm, and removes a class of data bugs.
 
 ```jsonc
 {
@@ -51,6 +51,7 @@ Generated at **build time** into a committed `src/data/verbs.json`; the app neve
       "reflexive": false,
       "gloss": "to speak, to talk",
       "tier": 1,
+      "sentence": { "es": "Hablo español todos los días.", "en": "I speak Spanish every day.", "id": 12345, "author": "tatoeba_user" },
       "forms": {
         "presente": [["hablo"], ["hablas"], ["habla"], ["hablamos"], ["habláis"], ["hablan"]],
         "imperfecto_subjuntivo": [["hablara", "hablase"], ["hablaras", "hablases"], "…"],
@@ -63,7 +64,7 @@ Generated at **build time** into a committed `src/data/verbs.json`; the app neve
 }
 ```
 
-Each tense is an array of cells in `personOrder`; each cell is an array of accepted forms. Positional arrays rather than person-keyed objects keep the commit under the gzip budget without weakening the "one cell, many accepted forms" rule. `nonFinite` carries what perfect-tense composition needs; the example-sentence ticket adds `sentence` to each verb later.
+Each tense is an array of cells in `personOrder`; each cell is an array of accepted forms. Positional arrays rather than person-keyed objects keep the commit under the gzip budget without weakening the "one cell, many accepted forms" rule. `nonFinite` carries what perfect-tense composition needs. `sentence` is one short Tatoeba pair: the Spanish sentence, its English translation, and the Spanish sentence's Tatoeba id and author for attribution. A verb with no suitable pair simply omits the field, so the reveal has nothing to show and hides the block.
 
 Every cell is an **array of accepted forms**, so `-ra`/`-se` and clitic variants are data, not checker rules.
 
@@ -71,7 +72,7 @@ Every cell is an **array of accepted forms**, so `-ra`/`-se` and clitic variants
 
 **Tense ids** (stable, ASCII): `presente`, `preterito_imperfecto`, `preterito_indefinido`, `futuro_simple`, `condicional_simple`, `preterito_perfecto`, `pluscuamperfecto`, `futuro_perfecto`, `condicional_perfecto`, `presente_subjuntivo`, `imperfecto_subjuntivo`, `perfecto_subjuntivo`, `pluscuamperfecto_subjuntivo`, `imperativo_afirmativo`, `imperativo_negativo`. Archaic, off by default in the picker: `preterito_anterior`, `futuro_subjuntivo`, `futuro_perfecto_subjuntivo`.
 
-**Build assertions (CI, not eyeballs):** `hablar`, `ir`, `ser`, `tener`, `decir`, `llamarse`; both imperfect-subjunctive endings present; every tense × available person cell non-empty; no cell contains a placeholder; every verb has a gloss; vosotros present wherever the form exists.
+**Build assertions (CI, not eyeballs):** `hablar`, `ir`, `ser`, `tener`, `decir`, `llamarse`; both imperfect-subjunctive endings present; every tense × available person cell non-empty; no cell contains a placeholder; every verb has a gloss; vosotros present wherever the form exists; every example sentence has a Tatoeba `id` and author, fits in 90 characters, contains a form of its verb, and at least 90% of the top 500 verbs have one.
 
 ## Session
 

@@ -1,0 +1,7 @@
+# Forced Tatoeba picks, by Spanish sentence id, where the automatic choice
+# matched a noun or a misleading translation. Applied by build-sentences.ts.
+# Columns: infinitive, Spanish sentence id
+partir	1229317
+ayudar	1493195
+sacar	2197665
+leer	6853445
