@@ -1,6 +1,6 @@
 import type { Verdict } from '../domain/check'
 import type { Verb } from '../data/verbs'
-import { canonicalVerb, resolveVerbs } from './customVerbs'
+import { canonicalVerb, normalizeInfinitive, resolveVerbs } from './customVerbs'
 import {
   DATABASE_NAME,
   openDatabase,
@@ -10,12 +10,13 @@ import {
   transactionDone,
   type StoreName,
 } from './db'
-import { downloadJson, parseExportText, serializeExport } from './transfer'
+import { parseExportText, saveExportFile, serializeExport } from './transfer'
 import {
   APP_ID,
   defaultSettings,
   EXPORT_VERSION,
   fail,
+  IMPORT_CONFIRMATION,
   MESSAGES,
   nextProgress,
   ok,
@@ -32,8 +33,7 @@ import {
 
 export * from './types'
 
-/** Turn a thrown IndexedDB write failure into a result the UI can show. */
-function asWriteFailure<T>(error: unknown): StoreResult<T> {
+/** Turn a thrown IndexedDB write failure into a result the UI can show. */function asWriteFailure<T>(error: unknown): StoreResult<T> {
   if (error instanceof DOMException && error.name === 'QuotaExceededError') {
     return fail('quota', MESSAGES.quota)
   }
@@ -52,16 +52,16 @@ export interface LocalStore {
   addCustomVerb(infinitive: string): Promise<StoreResult<string[]>>
   removeCustomVerb(infinitive: string): Promise<StoreResult<string[]>>
   resolveCustomVerbs(): Promise<Verb[]>
-  exportData(): Promise<StoreResult<ExportFile>>
   exportJson(): Promise<StoreResult<string>>
   downloadExport(): Promise<StoreResult<string>>
-  importJson(text: string): Promise<StoreResult<ImportSummary>>
+  importJson(text: string, confirmation: string): Promise<StoreResult<ImportSummary>>
   resetAll(confirmation: string): Promise<StoreResult<void>>
 }
 
 /**
  * Open the local store. The IndexedDB database is the only persistence in the app;
- * callers hold one store for the page's lifetime.
+ * callers hold one store for the page's lifetime. Opening is the one operation that
+ * rejects: without a database there is no store to report against.
  */
 export async function createStore(options: { name?: string } = {}): Promise<LocalStore> {
   const name = options.name ?? DATABASE_NAME
@@ -112,20 +112,24 @@ export async function createStore(options: { name?: string } = {}): Promise<Loca
     return progress
   }
 
-  async function buildExport(): Promise<ExportFile> {
-    const [settings, customVerbs, progress] = await Promise.all([
-      loadSettings(),
-      readAll<string>(STORE_NAMES.customVerbs),
-      loadProgress(),
-    ])
+  async function buildExport(): Promise<StoreResult<ExportFile>> {
+    try {
+      const [settings, customVerbs, progress] = await Promise.all([
+        loadSettings(),
+        readAll<string>(STORE_NAMES.customVerbs),
+        loadProgress(),
+      ])
 
-    return {
-      app: APP_ID,
-      version: EXPORT_VERSION,
-      exportedAt: new Date().toISOString(),
-      settings,
-      customVerbs,
-      progress,
+      return ok({
+        app: APP_ID,
+        version: EXPORT_VERSION,
+        exportedAt: new Date().toISOString(),
+        settings,
+        customVerbs,
+        progress,
+      })
+    } catch {
+      return fail('unavailable', MESSAGES.unavailable)
     }
   }
 
@@ -157,10 +161,10 @@ export async function createStore(options: { name?: string } = {}): Promise<Loca
 
     recordVerdict(key, verdict) {
       return write([STORE_NAMES.progress], async (transaction) => {
-        const store = transaction.objectStore(STORE_NAMES.progress)
-        const current = (await requestResult(store.get(key))) as ProgressRecord | undefined
+        const progressStore = transaction.objectStore(STORE_NAMES.progress)
+        const current = (await requestResult(progressStore.get(key))) as ProgressRecord | undefined
         const next = nextProgress(current, verdict)
-        store.put(next, key)
+        progressStore.put(next, key)
         return next
       })
     },
@@ -174,17 +178,17 @@ export async function createStore(options: { name?: string } = {}): Promise<Loca
       if (!verb) return Promise.resolve(fail<string[]>('unknown-verb', unknownVerbMessage(infinitive.trim())))
 
       return write([STORE_NAMES.customVerbs], (transaction) => {
-        const store = transaction.objectStore(STORE_NAMES.customVerbs)
-        store.put(verb.infinitive, verb.infinitive)
-        return requestResult<string[]>(store.getAll())
+        const customVerbStore = transaction.objectStore(STORE_NAMES.customVerbs)
+        customVerbStore.put(verb.infinitive, verb.infinitive)
+        return requestResult<string[]>(customVerbStore.getAll())
       })
     },
 
     removeCustomVerb(infinitive) {
       return write([STORE_NAMES.customVerbs], (transaction) => {
-        const store = transaction.objectStore(STORE_NAMES.customVerbs)
-        store.delete(canonicalVerb(infinitive)?.infinitive ?? infinitive.normalize('NFC').trim().toLowerCase())
-        return requestResult<string[]>(store.getAll())
+        const customVerbStore = transaction.objectStore(STORE_NAMES.customVerbs)
+        customVerbStore.delete(normalizeInfinitive(infinitive))
+        return requestResult<string[]>(customVerbStore.getAll())
       })
     },
 
@@ -192,33 +196,25 @@ export async function createStore(options: { name?: string } = {}): Promise<Loca
       return resolveVerbs(await readAll<string>(STORE_NAMES.customVerbs))
     },
 
-    async exportData() {
-      try {
-        return ok(await buildExport())
-      } catch {
-        return fail('unavailable', MESSAGES.unavailable)
-      }
-    },
-
     async exportJson() {
-      try {
-        return ok(serializeExport(await buildExport()))
-      } catch {
-        return fail('unavailable', MESSAGES.unavailable)
-      }
+      const exported = await buildExport()
+      if (!exported.ok) return exported
+      return ok(serializeExport(exported.value))
     },
 
     async downloadExport() {
       if (typeof document === 'undefined') return fail('unavailable', MESSAGES.unavailable)
 
-      try {
-        return ok(downloadJson(await buildExport()))
-      } catch {
-        return fail('unavailable', MESSAGES.unavailable)
-      }
+      const exported = await buildExport()
+      if (!exported.ok) return exported
+      return ok(saveExportFile(exported.value))
     },
 
-    importJson(text) {
+    importJson(text, confirmation) {
+      if (confirmation.normalize('NFC').trim().toLowerCase() !== IMPORT_CONFIRMATION) {
+        return Promise.resolve(fail<ImportSummary>('unconfirmed', MESSAGES.unconfirmedImport))
+      }
+
       const parsed = parseExportText(text)
       if (!parsed.ok) return Promise.resolve(parsed)
 

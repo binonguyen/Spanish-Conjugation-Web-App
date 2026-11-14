@@ -149,21 +149,31 @@ describe('export and import', () => {
     expect(await store.getCustomVerbs()).toEqual([])
     expect(await store.getSettings()).toEqual(defaultSettings())
 
-    expect(valueOf(await store.importJson(json))).toEqual({ progress: 2, customVerbs: 2 })
+    expect(valueOf(await store.importJson(json, 'replace'))).toEqual({ progress: 2, customVerbs: 2 })
     expect(await store.getAllProgress()).toEqual(progress)
     expect(await store.getSettings()).toEqual(settings)
     expect(await store.getCustomVerbs()).toEqual(['hablar', 'llamarse'])
   })
 
-  it('replaces state on import instead of merging it', async () => {
-    await seed(store)
+  it('needs the replace confirmation before touching state', async () => {
+    const { progress } = await seed(store)
+    const json = await exportedJson()
+
+    const result = await store.importJson(json, 'merge')
+
+    expect(result).toMatchObject({ ok: false, error: { code: 'unconfirmed' } })
+    expect(await store.getAllProgress()).toEqual(progress)
+    expect(await store.getCustomVerbs()).toEqual(['hablar', 'llamarse'])
+  })
+
+  it('replaces state on import instead of merging it', async () => {    await seed(store)
     const json = await exportedJson()
 
     await store.recordVerdict(makeVocabKey('llamarse'), 'correct')
     await store.saveSettings({ ...defaultSettings(), sessionLength: 50 })
     await store.removeCustomVerb('llamarse')
 
-    await store.importJson(json)
+    await store.importJson(json, 'replace')
 
     expect(await store.getProgress(makeVocabKey('llamarse'))).toBeUndefined()
     expect((await store.getSettings()).sessionLength).toBe(30)
@@ -177,7 +187,7 @@ describe('export and import', () => {
       file.progress = { 'hablar|vocab|': { attempts: 99, wrong: 0, accent: 0 } }
     })
 
-    const result = await store.importJson(json)
+    const result = await store.importJson(json, 'replace')
 
     expect(result).toMatchObject({ ok: false, error: { code: 'newer-version' } })
     expect(result.ok === false && result.error.message).toContain('version 2')
@@ -191,7 +201,7 @@ describe('export and import', () => {
       file.app = 'another-app'
     })
 
-    const result = await store.importJson(json)
+    const result = await store.importJson(json, 'replace')
 
     expect(result).toMatchObject({ ok: false, error: { code: 'wrong-app' } })
     expect(await store.getAllProgress()).toEqual(progress)
@@ -205,10 +215,14 @@ describe('export and import', () => {
       'a progress record with a negative count',
       '{"app":"conjugation-trainer","version":1,"exportedAt":"2026-11-14T00:00:00Z","settings":{},"customVerbs":[],"progress":{"hablar|presente|yo":{"attempts":-1,"wrong":0,"accent":0}}}',
     ],
+    [
+      'a session length outside 5–50',
+      '{"app":"conjugation-trainer","version":1,"exportedAt":"2026-11-14T00:00:00Z","settings":{"sessionLength":100},"customVerbs":[],"progress":{}}',
+    ],
   ])('refuses %s as corrupted', async (_label, json) => {
     await seed(store)
 
-    const result = await store.importJson(json)
+    const result = await store.importJson(json, 'replace')
 
     expect(result).toMatchObject({ ok: false, error: { code: 'corrupted' } })
     expect(await store.getAllProgress()).not.toEqual({})
@@ -220,7 +234,7 @@ describe('export and import', () => {
       file.customVerbs = ['hablar', 'verbogone']
     })
 
-    await store.importJson(json)
+    await store.importJson(json, 'replace')
 
     expect(await store.getCustomVerbs()).toEqual(['hablar', 'verbogone'])
     expect((await store.resolveCustomVerbs()).map((verb) => verb.infinitive)).toEqual(['hablar'])
@@ -232,7 +246,7 @@ describe('export and import', () => {
       delete (file.settings as Record<string, unknown>).archaicTenses
     })
 
-    expect((await store.importJson(json)).ok).toBe(true)
+    expect((await store.importJson(json, 'replace')).ok).toBe(true)
     expect((await store.getSettings()).archaicTenses).toBe(false)
   })
 })

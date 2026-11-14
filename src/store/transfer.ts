@@ -2,6 +2,7 @@ import {
   APP_ID,
   EXPORT_VERSION,
   fail,
+  isRecord,
   MESSAGES,
   newerVersionMessage,
   ok,
@@ -11,10 +12,6 @@ import {
   type ProgressRecord,
   type StoreResult,
 } from './types'
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value)
-}
 
 function isCount(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0
@@ -99,8 +96,8 @@ export function serializeExport(file: ExportFile): string {
   return JSON.stringify(file, null, 2)
 }
 
-/** Hand a JSON string to the browser as a download; returns the file name written. */
-export function downloadJson(file: ExportFile): string {
+/** Hand an export to the browser as a download; returns the file name written. */
+export function saveExportFile(file: ExportFile): string {
   const name = `conjugation-trainer-${file.exportedAt.slice(0, 10)}.json`
   const blob = new Blob([serializeExport(file)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)

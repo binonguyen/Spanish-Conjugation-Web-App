@@ -39,7 +39,7 @@ export function defaultSettings(): Settings {
   }
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
+export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
@@ -58,7 +58,8 @@ export function parseSettings(raw: unknown): Settings | undefined {
     parsed.vosotros = raw.vosotros
   }
   if (raw.sessionLength !== undefined) {
-    if (typeof raw.sessionLength !== 'number' || !Number.isFinite(raw.sessionLength)) return undefined
+    if (typeof raw.sessionLength !== 'number' || !Number.isInteger(raw.sessionLength)) return undefined
+    if (raw.sessionLength < 5 || raw.sessionLength > 50) return undefined
     parsed.sessionLength = raw.sessionLength
   }
   if (raw.verbTier !== undefined) {
@@ -70,10 +71,10 @@ export function parseSettings(raw: unknown): Settings | undefined {
     parsed.mode = raw.mode
   }
   if (raw.defaultTenses !== undefined) {
-    if (!Array.isArray(raw.defaultTenses) || raw.defaultTenses.some((tense) => typeof tense !== 'string')) {
-      return undefined
-    }
-    parsed.defaultTenses = [...raw.defaultTenses]
+    if (!Array.isArray(raw.defaultTenses)) return undefined
+    const tenses = raw.defaultTenses.filter((tense): tense is string => typeof tense === 'string')
+    if (tenses.length !== raw.defaultTenses.length) return undefined
+    parsed.defaultTenses = tenses
   }
   if (raw.archaicTenses !== undefined) {
     if (typeof raw.archaicTenses !== 'boolean') return undefined
@@ -130,6 +131,9 @@ export interface ImportSummary {
 /** The exact word a reset asks the learner to type. */
 export const RESET_CONFIRMATION = 'reset'
 
+/** Import replaces every count, so the caller must say so explicitly. */
+export const IMPORT_CONFIRMATION = 'replace'
+
 export type StoreErrorCode =
   | 'quota'
   | 'unavailable'
@@ -158,11 +162,12 @@ export function fail<T>(code: StoreErrorCode, message: string): StoreResult<T> {
 
 export const MESSAGES = {
   quota: 'Local storage is full. Export your progress, free some space, then try again.',
-  unavailable: 'Local storage is not available in this browser.',
+  unavailable: 'The app\u2019s local database is not available in this browser.',
   writeFailed: 'Could not save to local storage.',
   corrupted: 'That file is not a valid Conjugation Trainer export. Nothing was changed.',
   wrongApp: 'That file was exported by a different app. Nothing was changed.',
   unconfirmed: 'Reset needs the typed confirmation. Nothing was changed.',
+  unconfirmedImport: 'Import needs a confirmation. Nothing was changed.',
 } as const
 
 export function newerVersionMessage(version: number): string {
@@ -170,5 +175,5 @@ export function newerVersionMessage(version: number): string {
 }
 
 export function unknownVerbMessage(infinitive: string): string {
-  return `“${infinitive}” is not in the verb list. Check the spelling or pick a verb from search.`
+  return `“${infinitive}” is not in the verb pool. Check the spelling or pick a verb from search.`
 }
