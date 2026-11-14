@@ -81,6 +81,12 @@ export function visibleTenses(archaicTenses: boolean): TenseInfo[] {
   return TENSES.filter((tense) => !tense.archaic || archaicTenses)
 }
 
+/** Tenses in catalogue order, keeping only the ids the catalogue knows. */
+export function orderTenses(ids: Iterable<string>): TenseId[] {
+  const chosen = new Set(ids)
+  return TENSES.filter((tense) => chosen.has(tense.id)).map((tense) => tense.id)
+}
+
 export interface TenseGroup {
   mood: Mood
   label: string

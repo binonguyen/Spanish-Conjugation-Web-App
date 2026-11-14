@@ -91,6 +91,11 @@ export function isVerbTier(value: unknown): value is VerbTier {
 export const MIN_SESSION_LENGTH = 5
 export const MAX_SESSION_LENGTH = 50
 
+/** One length rule for the builder stepper and the saved default. */
+export function clampSessionLength(length: number): number {
+  return Math.min(MAX_SESSION_LENGTH, Math.max(MIN_SESSION_LENGTH, Math.round(length)))
+}
+
 /** Everything the draw needs to build one session. */
 export interface SessionConfig {
   mode: Mode
