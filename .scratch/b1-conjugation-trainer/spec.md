@@ -91,6 +91,8 @@ Reveal (manual advance, Enter again): the correct form large; your answer struck
 
 Spanish infinitive → pick one of four English glosses, distractors drawn from the same tier. This is the whole of a vocabulary-mode session, never an item inside a conjugation session. Progress is keyed under the reserved tense id `vocab`.
 
+The reveal is the correct gloss plus the example sentence — **no paradigm table**. Vocabulary mode asks what a verb means; forms belong to the other mode.
+
 ## Answer checking
 
 1. Normalize both sides: Unicode NFC, trim, collapse whitespace, lowercase, strip surrounding `¡!¿?` and trailing `.`.

@@ -15,6 +15,7 @@ The vocabulary mode: a whole session of meaning questions, never items sprinkled
 - Answer with `1`–`4` keys or tap; immediate verdict, then Enter to advance — same reveal rhythm as the drill.
 - Records under the reserved `vocab` tense id: `{ attempts, wrong, accent: 0 }` per verb.
 - A wrong answer shows which verb the chosen gloss belonged to, so the distractor teaches something.
+- The reveal is the correct gloss plus the example sentence when present. No paradigm table here — forms are the other mode's job.
 
 ## Done when
 
