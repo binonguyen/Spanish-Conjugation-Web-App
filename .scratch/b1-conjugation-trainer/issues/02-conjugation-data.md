@@ -1,8 +1,22 @@
 # 02 — Conjugation data generator
 
-Status: ready-for-agent
+Status: in-progress
 Type: task
 Blocked by: 01
+
+## Progress
+
+Resumable checkpoint list — on a fresh session, read the commits after this line and continue from the first unchecked step.
+
+- [x] Decide the permissive verb-frequency source (MIT `fuzzy-logic/2000-verbos`, deduplicated; see ADR-0003)
+- [x] Confirm `conjuego` produces all simple tenses, both imperfect-subjunctive endings, and reflexive pronouns
+- [x] Confirm gloss coverage from `conjugator` TSVs; fall back to the MIT list's glosses where absent
+- [ ] Vendor the ranked top-500 list into `scripts/data/`
+- [ ] `scripts/build-verbs.ts` + `npm run data`
+- [ ] Commit the generated `src/data/verbs.json` and check gzip size < 110 KB
+- [ ] CI fixture assertions against the committed artifact
+- [ ] Hand-review top-100 glosses and add overrides
+- [ ] Final review + commit
 
 ## Context
 

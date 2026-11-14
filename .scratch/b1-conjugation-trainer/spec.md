@@ -39,25 +39,31 @@ Generated at **build time** into a committed `src/data/verbs.json`; the app neve
 ```jsonc
 {
   "generatedAt": "2026-11-14T00:00:00Z",
+  "personOrder": {
+    "personal": ["yo", "tu", "3sg", "nosotros", "vosotros", "3pl"],
+    "imperative": ["tu", "3sg", "nosotros", "vosotros", "3pl"]
+  },
+  "tenses": ["presente", "preterito_imperfecto", "…"],
+  "sources": [{ "name": "conjuego 1.0.1", "license": "ISC", "url": "…", "use": "conjugated forms" }],
   "verbs": [
     {
       "infinitive": "hablar",
       "reflexive": false,
       "gloss": "to speak, to talk",
       "tier": 1,
-      "sentence": { "es": "…", "en": "…", "source": "tatoeba", "id": 12345, "author": "…" },
       "forms": {
-        "presente": { "yo": ["hablo"], "tu": ["hablas"], "3sg": ["habla"],
-                      "nosotros": ["hablamos"], "vosotros": ["habláis"], "3pl": ["hablan"] },
-        "imperfecto_subjuntivo": { "yo": ["hablara", "hablase"], "…": [] },
-        "imperativo_afirmativo": { "tu": ["habla"], "3sg": ["hable"],
-                                   "nosotros": ["hablemos"], "vosotros": ["hablad"], "3pl": ["hablen"] }
-      }
+        "presente": [["hablo"], ["hablas"], ["habla"], ["hablamos"], ["habláis"], ["hablan"]],
+        "imperfecto_subjuntivo": [["hablara", "hablase"], ["hablaras", "hablases"], "…"],
+        "imperativo_afirmativo": [["habla"], ["hable"], ["hablemos"], ["hablad"], ["hablen"]]
+      },
+      "nonFinite": { "gerundio": ["hablando"], "participio": ["hablado"] }
     }
   ],
-  "haber": { "presente": { "yo": ["he"], "…": [] } }
+  "haber": { "presente": [["he"], ["has"], ["ha"], ["hemos"], ["habéis"], ["han"]] }
 }
 ```
+
+Each tense is an array of cells in `personOrder`; each cell is an array of accepted forms. Positional arrays rather than person-keyed objects keep the commit under the gzip budget without weakening the "one cell, many accepted forms" rule. `nonFinite` carries what perfect-tense composition needs; the example-sentence ticket adds `sentence` to each verb later.
 
 Every cell is an **array of accepted forms**, so `-ra`/`-se` and clitic variants are data, not checker rules.
 
