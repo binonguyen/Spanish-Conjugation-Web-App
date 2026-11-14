@@ -11,16 +11,47 @@ export type Person = (typeof PERSONS)[number]
 /** Every tense has these slots; both imperatives drop `yo`. */
 const IMPERATIVE_PERSONS: readonly Person[] = ['tu', '3sg', 'nosotros', 'vosotros', '3pl']
 
+function usesImperativeSlots(tense: TenseId): boolean {
+  return tenseById(tense)?.mood === 'imperativo'
+}
+
 /**
- * The person slots a tense offers: an imperative has no `yo`, and the vosotros setting
- * removes that slot everywhere.
+ * The person slots a tense offers in the tense's own order; the artifact stores
+ * forms in the same order. An imperative has no `yo`.
+ */
+export function personSlots(tense: TenseId): readonly Person[] {
+  return usesImperativeSlots(tense) ? IMPERATIVE_PERSONS : PERSONS
+}
+
+/**
+ * The person slots a session drills: the tense's own order minus `vosotros` while
+ * that setting is off.
  */
 export function personsForTense(tense: TenseId, vosotros: boolean): Person[] {
-  const info = tenseById(tense)
-  if (!info) return []
+  if (!tenseById(tense)) return []
 
-  const slots = info.mood === 'imperativo' ? IMPERATIVE_PERSONS : PERSONS
-  return slots.filter((person) => vosotros || person !== 'vosotros')
+  return personSlots(tense).filter((person) => vosotros || person !== 'vosotros')
+}
+
+const PERSON_LABELS: Record<Person, string> = {
+  yo: 'yo',
+  tu: 'tú',
+  '3sg': 'él / ella / usted',
+  nosotros: 'nosotros',
+  vosotros: 'vosotros',
+  '3pl': 'ellos / ellas / ustedes',
+}
+
+/** An imperative addresses someone: its third persons are the usted forms. */
+const IMPERATIVE_PERSON_LABELS: Record<Person, string> = {
+  ...PERSON_LABELS,
+  '3sg': 'usted',
+  '3pl': 'ustedes',
+}
+
+/** How a person is named in a prompt or paradigm row. */
+export function personLabel(tense: TenseId, person: Person): string {
+  return usesImperativeSlots(tense) ? IMPERATIVE_PERSON_LABELS[person] : PERSON_LABELS[person]
 }
 
 /** Frequency tier of the verb pool: top 100, top 500, or the whole artifact. */
