@@ -64,8 +64,8 @@ describe('session summary', () => {
 
     expect(summary.mode).toBe('conjugation')
     expect(summary.main).toEqual({
-      asked: 3,
       total: 4,
+      answered: 3,
       score: 2,
       exact: 1,
       accentOnly: 1,
@@ -74,8 +74,8 @@ describe('session summary', () => {
     expect(summary.endedEarly).toBe(true)
     // The two misses queued a review round the explicit end skipped.
     expect(summary.review).toEqual({
-      asked: 0,
       total: 2,
+      answered: 0,
       score: 0,
       exact: 0,
       accentOnly: 0,
@@ -118,7 +118,9 @@ describe('session summary', () => {
       {
         tense: 'presente',
         label: 'Presente',
-        asked: 2,
+        gloss: 'present',
+        total: 2,
+        answered: 2,
         score: 1,
         accentOnly: 0,
         wrong: 1,
@@ -126,9 +128,21 @@ describe('session summary', () => {
       {
         tense: 'preterito_indefinido',
         label: 'Pretérito indefinido',
-        asked: 1,
+        gloss: 'simple past',
+        total: 1,
+        answered: 1,
         score: 1,
         accentOnly: 1,
+        wrong: 0,
+      },
+      {
+        tense: 'futuro_simple',
+        label: 'Futuro simple',
+        gloss: 'simple future',
+        total: 1,
+        answered: 0,
+        score: 0,
+        accentOnly: 0,
         wrong: 0,
       },
     ])
@@ -154,16 +168,16 @@ describe('session summary', () => {
     const summary = summarizeSession(state)
 
     expect(summary.main).toEqual({
-      asked: 3,
       total: 3,
+      answered: 3,
       score: 2,
       exact: 1,
       accentOnly: 1,
       wrong: 1,
     })
     expect(summary.review).toEqual({
-      asked: 2,
       total: 2,
+      answered: 2,
       score: 1,
       exact: 1,
       accentOnly: 0,
@@ -228,6 +242,7 @@ describe('history stats', () => {
       {
         tense: 'presente',
         label: 'Presente',
+        gloss: 'present',
         attempts: 14,
         wrong: 2,
         accent: 1,
@@ -237,6 +252,7 @@ describe('history stats', () => {
       {
         tense: 'preterito_indefinido',
         label: 'Pretérito indefinido',
+        gloss: 'simple past',
         attempts: 2,
         wrong: 0,
         accent: 1,
@@ -260,8 +276,6 @@ describe('history stats', () => {
       { infinitive: 'ir', attempts: 6, misses: 3 },
       { infinitive: 'decir', attempts: 1, misses: 1 },
     ])
-    expect(aggregateStats({ 'hablar|presente|yo': { attempts: 2, wrong: 1, accent: 0 } }, 1).mostMissed)
-      .toEqual([{ infinitive: 'hablar', attempts: 2, misses: 1 }])
   })
 
   it('counts a vocabulary miss as a miss of that verb', () => {

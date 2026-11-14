@@ -58,12 +58,12 @@ export function ResultsScreen({
       </header>
 
       <div className="results-score">
-        {summary.main.asked === 0 ? (
+        {summary.main.answered === 0 ? (
           <p className="results-score-value">No answers</p>
         ) : (
           <>
             <p className="results-score-value">
-              {summary.main.score} / {summary.main.asked}
+              {summary.main.score} / {summary.main.total}
             </p>
             <p className="results-score-label">first-try score</p>
           </>
@@ -72,8 +72,9 @@ export function ResultsScreen({
 
       {summary.endedEarly ? (
         <p className="field-note">
-          Ended early — {summary.main.asked} of {summary.main.total} main-round items were
-          answered. Unanswered items are not counted.
+          Ended early — {summary.main.answered} of {summary.main.total} main-round items{' '}
+          {summary.main.answered === 1 ? 'was' : 'were'} answered. Unanswered items are not
+          counted as correct.
         </p>
       ) : null}
 
@@ -95,8 +96,11 @@ export function ResultsScreen({
               <tbody>
                 {summary.byTense.map((tense) => (
                   <tr key={tense.tense}>
-                    <th scope="row">{tense.label}</th>
-                    <td>{scoreText(tense.score, tense.asked)}</td>
+                    <th scope="row">
+                      <span lang="es">{tense.label}</span>{' '}
+                      <span className="tense-gloss">({tense.gloss})</span>
+                    </th>
+                    <td>{scoreText(tense.score, tense.total)}</td>
                     <td>{tense.accentOnly}</td>
                     <td>{tense.wrong}</td>
                   </tr>
@@ -159,12 +163,7 @@ export function ResultsScreen({
         </button>
       </div>
 
-      <footer className="screen-footer">
-        <details className="about-disclosure">
-          <summary>About / data sources</summary>
-          <AboutPanel />
-        </details>
-      </footer>
+      <ResultsFooter />
     </section>
   )
 }
@@ -180,8 +179,8 @@ function ResultsFooter() {
   )
 }
 
-function scoreText(score: number, asked: number): string {
-  return `${score} / ${asked}`
+function scoreText(score: number, total: number): string {
+  return `${score} / ${total}`
 }
 
 function missTone(corrected: boolean, verdict: 'accent-only' | 'wrong'): string {
@@ -219,10 +218,16 @@ function ReviewOutcome({ summary }: { summary: SessionSummary }) {
   const { review } = summary
 
   if (review.total === 0) {
-    return <p className="field-note">No review round — the main round was clear.</p>
+    return (
+      <p className="field-note">
+        {summary.endedEarly
+          ? 'No review round — you ended early with no misses.'
+          : 'No review round — the main round was clear.'}
+      </p>
+    )
   }
 
-  if (review.asked === 0) {
+  if (review.answered === 0) {
     return <p className="field-note">Review round skipped — you ended the session early.</p>
   }
 
@@ -230,16 +235,16 @@ function ReviewOutcome({ summary }: { summary: SessionSummary }) {
     <div className="review-outcome">
       <p>
         <strong>
-          {review.score} of {review.asked}
+          {review.exact} of {review.total}
         </strong>{' '}
-        missed {review.asked === 1 ? 'item' : 'items'} corrected.
+        missed {review.total === 1 ? 'item' : 'items'} corrected.
       </p>
       <p className="field-note">
         {review.exact} exactly right
         {summary.mode === 'conjugation' ? ` · ${review.accentOnly} accent-only` : ''} ·{' '}
         {review.wrong} still wrong
-        {review.asked < review.total
-          ? ` · review ended after ${review.asked} of ${review.total} items`
+        {review.answered < review.total
+          ? ` · review ended after ${review.answered} of ${review.total} items`
           : ''}
       </p>
     </div>

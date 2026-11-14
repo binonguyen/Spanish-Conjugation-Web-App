@@ -131,7 +131,10 @@ export function StatsScreen({ store, onOpenBuilder }: StatsScreenProps) {
               <tbody>
                 {stats.byTense.map((tense) => (
                   <tr key={tense.tense}>
-                    <th scope="row">{tense.label}</th>
+                    <th scope="row">
+                      <span lang="es">{tense.label}</span>{' '}
+                      <span className="tense-gloss">({tense.gloss})</span>
+                    </th>
                     <td>{percent(tense.accuracy)}</td>
                     <td>{tense.attempts}</td>
                     <td>{tense.accent}</td>
@@ -145,6 +148,10 @@ export function StatsScreen({ store, onOpenBuilder }: StatsScreenProps) {
 
       <section className="result-block" aria-labelledby="stats-most-missed">
         <h3 id="stats-most-missed">Most-missed verbs</h3>
+        <p className="field-note">
+          Across conjugation and vocabulary checks. Misses count wrong and accent-only
+          answers.
+        </p>
         {stats.mostMissed.length === 0 ? (
           <p className="field-note">No missed verbs yet.</p>
         ) : (
@@ -173,7 +180,7 @@ export function StatsScreen({ store, onOpenBuilder }: StatsScreenProps) {
   )
 }
 
-/** One decimal is enough for a rate that is usually small. */
+/** Whole percent for accuracy; one decimal for the usually small accent rate. */
 function percent(value: number, digits = 0): string {
   return `${(value * 100).toFixed(digits)}%`
 }

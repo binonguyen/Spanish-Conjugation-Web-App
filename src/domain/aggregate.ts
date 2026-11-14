@@ -3,18 +3,18 @@ import type { Item } from './draw'
 import type { DrillState } from './drill'
 import { acceptedForms } from './forms'
 import { personLabel, type Mode, type Person } from './session'
-import { isTenseId, TENSES, tenseById, type TenseId } from './tenses'
-import type { ProgressMap } from '../store/types'
+import { isTenseId, TENSES, tenseById, type TenseId, type TenseInfo } from './tenses'
+import type { ProgressMap, ProgressRecord } from '../store/types'
 
 /** A miss is a verdict that was not exactly right; accent-only still misses the mark. */
 export type MissVerdict = Exclude<Verdict, 'correct'>
 
 /** One round's numbers. `score` counts accent-only as right, as the spec requires. */
 export interface RoundSummary {
-  /** Main items asked in the round; the denominator of the first-try score. */
-  asked: number
-  /** Items the round contained. A main round cut short by an explicit end asks fewer. */
+  /** Items the round contains: the denominator of its score. */
   total: number
+  /** Answers recorded before the session ended. */
+  answered: number
   /** Correct or accent-only: the form was produced. */
   score: number
   /** Exactly right, accents included. */
@@ -37,7 +37,7 @@ export interface MissedItem {
   person?: Person
   personLabel?: string
   verdict: MissVerdict
-  /** The review round asked this item and got its form right. */
+  /** The review round asked this item and got it exactly right. */
   correctedInReview: boolean
 }
 
@@ -45,7 +45,11 @@ export interface MissedItem {
 export interface TenseBreakdown {
   tense: TenseId
   label: string
-  asked: number
+  gloss: string
+  /** Main items of this tense in the drawn queue. */
+  total: number
+  /** Items of this tense answered before the session ended. */
+  answered: number
   score: number
   accentOnly: number
   wrong: number
@@ -67,32 +71,43 @@ export interface SessionSummary {
 export type CompletedSession = Pick<DrillState, 'items' | 'reviewItems' | 'answers'>
 
 interface RoundTally {
-  asked: number
+  answered: number
   exact: number
   accentOnly: number
   wrong: number
 }
 
-function emptyTally(): RoundTally {
-  return { asked: 0, exact: 0, accentOnly: 0, wrong: 0 }
-}
-
-function tallyVerdict(tally: RoundTally, verdict: Verdict): void {
-  tally.asked += 1
-  if (verdict === 'correct') tally.exact += 1
-  else if (verdict === 'accent-only') tally.accentOnly += 1
-  else tally.wrong += 1
+interface TenseTally extends RoundTally {
+  total: number
 }
 
 function roundSummary(tally: RoundTally, total: number): RoundSummary {
   return {
-    asked: tally.asked,
     total,
+    answered: tally.answered,
     score: tally.exact + tally.accentOnly,
     exact: tally.exact,
     accentOnly: tally.accentOnly,
     wrong: tally.wrong,
   }
+}
+
+function tallyVerdict(tally: RoundTally, verdict: Verdict): void {
+  tally.answered += 1
+  if (verdict === 'correct') tally.exact += 1
+  else if (verdict === 'accent-only') tally.accentOnly += 1
+  else tally.wrong += 1
+}
+
+/** Catalogue order, with only the tenses the map holds. */
+function orderedTenses<T, R>(
+  tallies: ReadonlyMap<TenseId, T>,
+  build: (tense: TenseInfo, tally: T) => R,
+): R[] {
+  return TENSES.flatMap((tense) => {
+    const tally = tallies.get(tense.id)
+    return tally ? [build(tense, tally)] : []
+  })
 }
 
 function missedItem(item: Item, verdict: MissVerdict, correctedInReview: boolean): MissedItem {
@@ -136,27 +151,42 @@ export function summarizeSession(state: CompletedSession): SessionSummary {
     state.items.length + state.reviewItems.length,
   )
 
-  const main = emptyTally()
-  const review = emptyTally()
-  const tenses = new Map<TenseId, RoundTally>()
+  const main: RoundTally = { answered: 0, exact: 0, accentOnly: 0, wrong: 0 }
+  const review: RoundTally = { answered: 0, exact: 0, accentOnly: 0, wrong: 0 }
+  const tenses = new Map<TenseId, TenseTally>()
+
+  // The per-tense denominator is the whole drawn main round, so an early end reads as a
+  // partial score rather than a perfect one.
+  for (const item of state.items) {
+    if (item.mode !== 'conjugation') continue
+    const tally = tenses.get(item.tense) ?? {
+      total: 0,
+      answered: 0,
+      exact: 0,
+      accentOnly: 0,
+      wrong: 0,
+    }
+    tally.total += 1
+    tenses.set(item.tense, tally)
+  }
 
   mainAnswers.forEach((answer, index) => {
     tallyVerdict(main, answer.verdict)
     const item = state.items[index]
     if (!item || item.mode !== 'conjugation') return
 
-    const tense = tenses.get(item.tense) ?? emptyTally()
-    tallyVerdict(tense, answer.verdict)
-    tenses.set(item.tense, tense)
+    const tally = tenses.get(item.tense)
+    if (!tally) return
+    tallyVerdict(tally, answer.verdict)
   })
 
-  // A review answer only counts as a correction if the form came back; an accent-only
-  // review answer still scores, matching how the session score treats it.
+  // Only an exactly right review answer corrects the miss; an accent-only answer still
+  // scores for the session but leaves the accent error in place.
   const corrected = new Set<string>()
   reviewAnswers.forEach((answer, index) => {
     tallyVerdict(review, answer.verdict)
     const item = state.reviewItems[index]
-    if (item && answer.verdict !== 'wrong') corrected.add(item.key)
+    if (item && answer.verdict === 'correct') corrected.add(item.key)
   })
 
   const missed = mainAnswers.flatMap((answer, index) => {
@@ -165,20 +195,16 @@ export function summarizeSession(state: CompletedSession): SessionSummary {
     return [missedItem(item, answer.verdict, corrected.has(item.key))]
   })
 
-  const byTense = TENSES.flatMap((tense): TenseBreakdown[] => {
-    const tally = tenses.get(tense.id)
-    if (!tally) return []
-    return [
-      {
-        tense: tense.id,
-        label: tense.label,
-        asked: tally.asked,
-        score: tally.exact + tally.accentOnly,
-        accentOnly: tally.accentOnly,
-        wrong: tally.wrong,
-      },
-    ]
-  })
+  const byTense = orderedTenses(tenses, (tense, tally) => ({
+    tense: tense.id,
+    label: tense.label,
+    gloss: tense.gloss,
+    total: tally.total,
+    answered: tally.answered,
+    score: tally.exact + tally.accentOnly,
+    accentOnly: tally.accentOnly,
+    wrong: tally.wrong,
+  }))
 
   const mode: Mode =
     state.items[0]?.mode ?? state.reviewItems[0]?.mode ?? 'conjugation'
@@ -190,14 +216,15 @@ export function summarizeSession(state: CompletedSession): SessionSummary {
     review: roundSummary(review, state.reviewItems.length),
     missed,
     byTense,
-    endedEarly: mainSummary.asked < mainSummary.total,
+    endedEarly: mainSummary.answered < mainSummary.total,
   }
 }
 
-/** How many of a round's answers had the right form; accent-only counts. */
+/** One tense's accuracy across the history. */
 export interface TenseAccuracy {
   tense: TenseId
   label: string
+  gloss: string
   attempts: number
   wrong: number
   accent: number
@@ -238,18 +265,12 @@ export interface HistoryStats {
   hasHistory: boolean
 }
 
-interface Tally {
-  attempts: number
-  wrong: number
-  accent: number
-}
-
 function ratio(part: number, total: number): number {
   return total > 0 ? part / total : 0
 }
 
 /** Form accuracy, tolerating an imported record whose counters do not add up. */
-function accuracy(tally: Tally): number {
+function accuracy(tally: ProgressRecord): number {
   return ratio(Math.max(0, tally.attempts - tally.wrong), tally.attempts)
 }
 
@@ -265,11 +286,11 @@ function byName(a: string, b: string): number {
  * as a right form and reports the missing accents separately; vocabulary accuracy is
  * kept apart because it measures recognition, not production.
  */
-export function aggregateStats(progress: ProgressMap, limit = 3): HistoryStats {
-  const byTense = new Map<TenseId, Tally>()
+export function aggregateStats(progress: ProgressMap): HistoryStats {
+  const byTense = new Map<TenseId, ProgressRecord>()
   const byVerb = new Map<string, { attempts: number; misses: number }>()
-  const vocabulary = { attempts: 0, wrong: 0, accent: 0 }
-  const conjugation = { attempts: 0, wrong: 0, accent: 0 }
+  const vocabulary: ProgressRecord = { attempts: 0, wrong: 0, accent: 0 }
+  const conjugation: ProgressRecord = { attempts: 0, wrong: 0, accent: 0 }
 
   for (const [key, record] of Object.entries(progress)) {
     if (record.attempts <= 0) continue
@@ -306,7 +327,7 @@ export function aggregateStats(progress: ProgressMap, limit = 3): HistoryStats {
       ([aName, a], [bName, b]) =>
         b.misses - a.misses || b.attempts - a.attempts || byName(aName, bName),
     )
-    .slice(0, Math.max(0, limit))
+    .slice(0, 3)
     .map(([infinitive, tally]) => ({
       infinitive,
       attempts: tally.attempts,
@@ -324,21 +345,16 @@ export function aggregateStats(progress: ProgressMap, limit = 3): HistoryStats {
       wrong: vocabulary.wrong,
       accuracy: accuracy(vocabulary),
     },
-    byTense: TENSES.flatMap((tense): TenseAccuracy[] => {
-      const tally = byTense.get(tense.id)
-      if (!tally) return []
-      return [
-        {
-          tense: tense.id,
-          label: tense.label,
-          attempts: tally.attempts,
-          wrong: tally.wrong,
-          accent: tally.accent,
-          accuracy: accuracy(tally),
-          accentRate: ratio(tally.accent, tally.attempts),
-        },
-      ]
-    }),
+    byTense: orderedTenses(byTense, (tense, tally) => ({
+      tense: tense.id,
+      label: tense.label,
+      gloss: tense.gloss,
+      attempts: tally.attempts,
+      wrong: tally.wrong,
+      accent: tally.accent,
+      accuracy: accuracy(tally),
+      accentRate: ratio(tally.accent, tally.attempts),
+    })),
     mostMissed,
     hasConjugation: conjugation.attempts > 0,
     hasVocabulary: vocabulary.attempts > 0,
