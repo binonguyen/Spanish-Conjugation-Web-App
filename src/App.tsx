@@ -1,25 +1,20 @@
-import { useState } from 'react'
+import { useState, type ComponentType } from 'react'
 import { SCREEN_LABELS, SCREENS, type Screen } from './app/screens'
 import { BuilderScreen } from './screens/BuilderScreen'
 import { DrillScreen } from './screens/DrillScreen'
 import { ResultsScreen } from './screens/ResultsScreen'
 import { StatsScreen } from './screens/StatsScreen'
 
-function renderScreen(screen: Screen) {
-  switch (screen) {
-    case 'builder':
-      return <BuilderScreen />
-    case 'drill':
-      return <DrillScreen />
-    case 'results':
-      return <ResultsScreen />
-    case 'stats':
-      return <StatsScreen />
-  }
+const SCREEN_COMPONENTS: Record<Screen, ComponentType> = {
+  builder: BuilderScreen,
+  drill: DrillScreen,
+  results: ResultsScreen,
+  stats: StatsScreen,
 }
 
 export function App() {
   const [screen, setScreen] = useState<Screen>('builder')
+  const ScreenComponent = SCREEN_COMPONENTS[screen]
 
   return (
     <div className="app">
@@ -39,7 +34,9 @@ export function App() {
           ))}
         </nav>
       </header>
-      <main>{renderScreen(screen)}</main>
+      <main>
+        <ScreenComponent />
+      </main>
     </div>
   )
 }
