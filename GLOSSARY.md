@@ -50,5 +50,9 @@ Which kind of item a session is made of — _conjugation_ or _vocabulary_. Fixed
 _Avoid_: Type, track, category
 
 **Selection**:
-The set of tenses a session is built from. Chosen per session; not a saved profile.
+The set of tenses a session is built from. Chosen per session; the session starts from the saved default selection, but the choice itself is not a saved profile.
 _Avoid_: Preset, filter, deck
+
+**Default selection**:
+The tense selection saved in Settings and used when a new session is built. Changing tenses in the Builder affects only the current session; changing them in Settings changes what the next app start begins with.
+_Avoid_: Saved selection, profile
