@@ -88,6 +88,7 @@ describe('builder reducer', () => {
       length: 20,
       customVerbs: [],
       archaicTenses: false,
+      vosotros: false,
     })
     expect(startBlockedReason(state)).toBeUndefined()
   })
@@ -107,8 +108,16 @@ describe('builder reducer', () => {
       verbTier: 1,
       length: 35,
       customVerbs: [],
+      vosotros: false,
     })
     expect(sessionSummary(toSessionConfig(state))).toBe('35 items · 4 tenses · 100 verbs')
+  })
+
+  it('carries the vosotros setting into the session config', () => {
+    const state = createBuilderState({ ...defaultSettings(), vosotros: true })
+
+    expect(toSessionConfig(state).vosotros).toBe(true)
+    expect(state.vosotros).toBe(true)
   })
 
   it('keeps the selection when the vocabulary mode hides it, but never mixes it into the session', () => {
@@ -121,6 +130,7 @@ describe('builder reducer', () => {
       verbTier: 2,
       length: 20,
       customVerbs: [],
+      vosotros: false,
     })
     expect(sessionSummary(toSessionConfig(state))).toBe('20 items · vocabulary · 501 verbs')
 

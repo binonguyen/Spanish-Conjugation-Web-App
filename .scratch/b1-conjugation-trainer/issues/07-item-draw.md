@@ -1,8 +1,17 @@
 # 07 — Item draw and weighting
 
-Status: ready-for-agent
+Status: in-progress
 Type: task
 Blocked by: 01, 02, 05
+
+## Progress
+
+- [x] Weight formula as a pure function, with deterministic tests
+- [x] Person availability in the session config (imperatives, vosotros setting)
+- [x] Weighted, interleaved conjugation queue with no verb within 3 items
+- [x] Weighted vocabulary queue that never repeats a verb
+- [x] Stable seeded queues asserted in tests; typecheck and full suite
+- [ ] Review, ticket closed, commit
 
 ## Context
 

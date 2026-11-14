@@ -17,6 +17,7 @@ export interface BuilderSeed {
   verbTier: VerbTier
   sessionLength: number
   archaicTenses: boolean
+  vosotros: boolean
 }
 
 export interface BuilderState {
@@ -28,6 +29,8 @@ export interface BuilderState {
   customVerbs: string[]
   /** Mirrors the setting so the reducer cannot keep a tense that is no longer offered. */
   archaicTenses: boolean
+  /** Mirrors the setting so the config fixes the person slots for the whole session. */
+  vosotros: boolean
 }
 
 export type BuilderAction =
@@ -74,6 +77,7 @@ export function createBuilderState(seed: BuilderSeed, customVerbs: readonly stri
     length: clampLength(seed.sessionLength),
     customVerbs: cleanCustomVerbs(customVerbs),
     archaicTenses: seed.archaicTenses,
+    vosotros: seed.vosotros,
   }
 }
 
@@ -133,6 +137,7 @@ export function toSessionConfig(state: BuilderState): SessionConfig {
     verbTier: state.verbTier,
     length: state.length,
     customVerbs: [...state.customVerbs],
+    vosotros: state.vosotros,
   }
 }
 
