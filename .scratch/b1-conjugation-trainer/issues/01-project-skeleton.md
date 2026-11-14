@@ -26,6 +26,18 @@ Greenfield. Spec: [spec.md](../spec.md). Stack is React + Vite + TypeScript per 
 
 Do not add a router: the app is a single state machine, and client-side routes need a Pages 404 workaround we do not want to own.
 
+## Progress
+
+- [x] Vite React-TS app at the repo root, `typescript` `strict` + `noUncheckedIndexedAccess`.
+- [x] Vitest wired up with one trivial passing test.
+- [x] Scripts `dev`, `build`, `preview`, `typecheck`, `test`.
+- [x] GitHub Actions: `npm ci` → typecheck → test → build on push and PR.
+- [x] GitHub Actions: publish `dist/` to GitHub Pages from `main`.
+- [x] Vite `base` set to the repo path.
+- [x] Placeholder shell with Builder / Drill / Results / Stats stubs and no router.
+- [x] Done-when: a push to `main` publishes a page that loads and shows the stub shell.
+- [x] Done-when: `npm run typecheck && npm run test && npm run build` passes on a clean clone.
+
 ## Comments
 
 - Implemented. Vite 8 + React 19 + TS 7 (`strict`, `noUncheckedIndexedAccess`), Vitest with one passing test, scripts `dev`/`build`/`preview`/`typecheck`/`test`, `.github/workflows/ci.yml` (verify on push and PR, deploy `dist/` to Pages from `main`), `base` set to `/Spanish-Conjugation-Web-App/`, and a placeholder shell with Builder / Drill / Results / Stats stubs.
