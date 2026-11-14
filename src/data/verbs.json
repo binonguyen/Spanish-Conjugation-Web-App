@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T21:08:53.886Z",
+  "generatedAt": "2026-11-14T21:13:32.012Z",
   "personOrder": {
     "personal": [
       "yo",
@@ -487,7 +487,7 @@
     {
       "infinitive": "estar",
       "reflexive": false,
-      "gloss": "to be (state/location)",
+      "gloss": "to be (state, location)",
       "tier": 1,
       "forms": {
         "presente": [
@@ -2864,7 +2864,7 @@
     {
       "infinitive": "pasar",
       "reflexive": false,
-      "gloss": "to pass, spend (time)",
+      "gloss": "to pass, happen, spend (time)",
       "tier": 1,
       "forms": {
         "presente": [
@@ -3080,7 +3080,7 @@
     {
       "infinitive": "deber",
       "reflexive": false,
-      "gloss": "to have to, must, to owe",
+      "gloss": "to have to, must",
       "tier": 1,
       "forms": {
         "presente": [
@@ -5024,7 +5024,7 @@
     {
       "infinitive": "encontrar",
       "reflexive": false,
-      "gloss": "to encounter, meet, find",
+      "gloss": "to find, meet",
       "tier": 1,
       "forms": {
         "presente": [
@@ -5888,7 +5888,7 @@
     {
       "infinitive": "salir",
       "reflexive": false,
-      "gloss": "to leave / to go out",
+      "gloss": "to leave, go out",
       "tier": 1,
       "forms": {
         "presente": [
@@ -6536,7 +6536,7 @@
     {
       "infinitive": "conocer",
       "reflexive": false,
-      "gloss": "to know (people/places)",
+      "gloss": "to know (people, places)",
       "tier": 1,
       "forms": {
         "presente": [
@@ -6968,7 +6968,7 @@
     {
       "infinitive": "sentir",
       "reflexive": false,
-      "gloss": "to feel, touch, sense",
+      "gloss": "to feel",
       "tier": 1,
       "forms": {
         "presente": [
@@ -8912,7 +8912,7 @@
     {
       "infinitive": "trabajar",
       "reflexive": false,
-      "gloss": "to work, labor",
+      "gloss": "to work",
       "tier": 1,
       "forms": {
         "presente": [
@@ -10640,7 +10640,7 @@
     {
       "infinitive": "recordar",
       "reflexive": false,
-      "gloss": "to remind, remember",
+      "gloss": "to remember, remind",
       "tier": 1,
       "forms": {
         "presente": [
@@ -10856,7 +10856,7 @@
     {
       "infinitive": "terminar",
       "reflexive": false,
-      "gloss": "to terminate, end, finish, stop",
+      "gloss": "to finish, end",
       "tier": 1,
       "forms": {
         "presente": [
@@ -11720,7 +11720,7 @@
     {
       "infinitive": "comenzar",
       "reflexive": false,
-      "gloss": "to commence, start, begin",
+      "gloss": "to start, begin",
       "tier": 1,
       "forms": {
         "presente": [
@@ -16472,7 +16472,7 @@
     {
       "infinitive": "realizar",
       "reflexive": false,
-      "gloss": "to realize, achieve, accomplish, attain",
+      "gloss": "to carry out, achieve",
       "tier": 1,
       "forms": {
         "presente": [
@@ -16904,7 +16904,7 @@
     {
       "infinitive": "comprender",
       "reflexive": false,
-      "gloss": "to comprehend, understand",
+      "gloss": "to understand",
       "tier": 1,
       "forms": {
         "presente": [
@@ -17768,7 +17768,7 @@
     {
       "infinitive": "tocar",
       "reflexive": false,
-      "gloss": "to play (an instrument), to touch, to knock",
+      "gloss": "to play (an instrument), touch, knock",
       "tier": 1,
       "forms": {
         "presente": [
@@ -19280,7 +19280,7 @@
     {
       "infinitive": "utilizar",
       "reflexive": false,
-      "gloss": "to use, utilize",
+      "gloss": "to use",
       "tier": 1,
       "forms": {
         "presente": [
@@ -40880,7 +40880,7 @@
     {
       "infinitive": "andar",
       "reflexive": false,
-      "gloss": "to go / to be",
+      "gloss": "to go, be",
       "tier": 2,
       "forms": {
         "presente": [
@@ -49520,7 +49520,7 @@
     {
       "infinitive": "cenar",
       "reflexive": false,
-      "gloss": "to eat dinner/supper",
+      "gloss": "to eat dinner, supper",
       "tier": 2,
       "forms": {
         "presente": [
@@ -51032,7 +51032,7 @@
     {
       "infinitive": "cargar",
       "reflexive": false,
-      "gloss": "to charge / to load",
+      "gloss": "to charge, load",
       "tier": 2,
       "forms": {
         "presente": [
@@ -54921,7 +54921,7 @@
     {
       "infinitive": "ordenar",
       "reflexive": false,
-      "gloss": "to order / to tidy",
+      "gloss": "to order, tidy",
       "tier": 2,
       "forms": {
         "presente": [
@@ -69177,7 +69177,7 @@
     {
       "infinitive": "importar",
       "reflexive": false,
-      "gloss": "to import, to be important",
+      "gloss": "to import, be important",
       "tier": 2,
       "forms": {
         "presente": [
@@ -75442,7 +75442,7 @@
     {
       "infinitive": "acercar",
       "reflexive": false,
-      "gloss": "to bring close, place close by, to approach",
+      "gloss": "to bring close, place close by, approach",
       "tier": 2,
       "forms": {
         "presente": [
@@ -95990,7 +95990,7 @@
     {
       "infinitive": "estrenar",
       "reflexive": false,
-      "gloss": "to premiere / to use for the first time",
+      "gloss": "to premiere, use for the first time",
       "tier": 2,
       "forms": {
         "presente": [
@@ -100970,7 +100970,7 @@
     {
       "infinitive": "girar",
       "reflexive": false,
-      "gloss": "to turn / to spin",
+      "gloss": "to turn, spin",
       "tier": 2,
       "forms": {
         "presente": [

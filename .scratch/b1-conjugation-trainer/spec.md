@@ -32,9 +32,9 @@ At B1 you can already read a conjugation table and still produce the wrong form 
 
 Generated at **build time** into a committed `src/data/verbs.json`; the app never fetches at runtime.
 
-**Sources** — forms from `conjuego` (ISC) or `@jirimracek/conjugate-esp` (MIT); English glosses joined from `conjugator`'s Apache-2.0 TSVs; one example sentence per verb from Tatoeba (CC BY 2.0 FR), with attribution metadata baked into the artifact. Verb list: top 500 by frequency, tiered (1 = top 100, 2 = top 500).
+**Sources** - forms from `conjuego` (ISC) or `@jirimracek/conjugate-esp` (MIT); English glosses joined from `conjugator`'s Apache-2.0 TSVs, with the frequency list's own gloss as a fallback where it has no entry; verb order from `fuzzy-logic/2000-verbos` (MIT, see [ADR-0003](../adr/0003-verb-frequency-list.md)); one example sentence per verb from Tatoeba (CC BY 2.0 FR), with attribution metadata baked into the artifact. Verb list: top 500 by frequency (plus the curated reflexive fixture `llamarse`), tiered (1 = top 100, 2 = top 500).
 
-**Stored tenses are simple paradigms only.** Perfect tenses are composed at runtime from `haber` + participle, which keeps the artifact around 95 KB gzip for 1000 verbs instead of 210 KB, and removes a class of data bugs.
+**Stored tenses are simple paradigms only.** Perfect tenses are composed at runtime from `haber` + participle, which keeps the artifact around 100 KB gzip for 500 verbs instead of storing a second copy of every paradigm, and removes a class of data bugs.
 
 ```jsonc
 {
@@ -149,3 +149,4 @@ Tests worth having: table-driven checker cases, data-fixture assertions, seeded 
 - **Verb list intersection**: joining a frequency list against a conjugator's verb list will drop a few common verbs, including some irregular ones; assert coverage for a top-100 must-have set.
 - **Tatoeba sense mismatch**: the example sentence may use a different sense of the verb than the gloss. Acceptable for v1; the sentence is colour, not assessment.
 - **Weighting over-fits**: with 20 items per session, error weighting can feel like punishment; watch for it after a week of real use.
+- **Impersonal verbs**: `llover`, `nevar` and `tronar` are in the top 500, and the artifact fills all six person slots because person availability is per tense. Their `yo`/`tú` forms are grammatical but rarely useful; they sit in tier 2, and a future availability flag can hide them if drills feel wrong.

@@ -1,7 +1,7 @@
 # Hand-reviewed gloss overrides for the top tier.
 # Format: infinitive<TAB>gloss. Applied after the conjugator join, before writing
 # the artifact, so the generated JSON is never edited by hand.
-deber	to have to, must, to owe
+deber	to have to, must
 quedar	to stay, remain, be left
 llevar	to carry, take, wear
 dejar	to leave, let, allow
@@ -19,3 +19,14 @@ partir	to leave, depart, divide
 hacer	to do, make
 conseguir	to get, obtain, manage
 alcanzar	to reach, achieve
+pasar	to pass, happen, spend (time)
+terminar	to finish, end
+recordar	to remember, remind
+salir	to leave, go out
+comenzar	to start, begin
+encontrar	to find, meet
+trabajar	to work
+realizar	to carry out, achieve
+comprender	to understand
+utilizar	to use
+sentir	to feel

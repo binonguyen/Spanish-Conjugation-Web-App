@@ -33,17 +33,24 @@ const COMPOUND_TENSES = [
   'futuro_perfecto_subjuntivo',
 ]
 
-function verb(infinitive: string): Verb {
-  const found = data.verbs.find((entry) => entry.infinitive === infinitive)
+const IMPERFECT_RA_ENDINGS = ['ra', 'ras', 'rais', 'ramos', 'ran']
+const IMPERFECT_SE_ENDINGS = ['se', 'ses', 'seis', 'semos', 'sen']
+
+function findVerb(infinitive: string): Verb {
+  const found = data.verbs.find((candidate) => candidate.infinitive === infinitive)
   if (!found) throw new Error(`missing verb: ${infinitive}`)
   return found
 }
 
-function accepted(v: Verb, tense: string, person: string): string[] {
-  const people = tense.startsWith('imperativo_') ? imperative : personal
-  const cells = v.forms[tense]
+function peopleFor(tense: string): string[] {
+  return tense.startsWith('imperativo_') ? imperative : personal
+}
+
+function accepted(verb: Verb, tense: string, person: string): string[] {
+  const people = peopleFor(tense)
+  const cells = verb.forms[tense]
   const index = people.indexOf(person)
-  if (!cells || index < 0) throw new Error(`bad lookup: ${v.infinitive} ${tense} ${person}`)
+  if (!cells || index < 0) throw new Error(`bad lookup: ${verb.infinitive} ${tense} ${person}`)
   return cells[index] ?? []
 }
 
@@ -59,32 +66,32 @@ describe('conjugation data artifact', () => {
 
   it('has 501 unique verbs in frequency order, with 100 in tier 1', () => {
     expect(data.verbs).toHaveLength(501)
-    expect(new Set(data.verbs.map((entry) => entry.infinitive)).size).toBe(data.verbs.length)
-    expect(data.verbs.filter((entry) => entry.tier === 1)).toHaveLength(100)
-    expect(data.verbs.slice(0, 100).every((entry) => entry.tier === 1)).toBe(true)
-    expect(data.verbs.slice(100).every((entry) => entry.tier === 2)).toBe(true)
+    expect(new Set(data.verbs.map((candidate) => candidate.infinitive)).size).toBe(data.verbs.length)
+    expect(data.verbs.filter((candidate) => candidate.tier === 1)).toHaveLength(100)
+    expect(data.verbs.slice(0, 100).every((candidate) => candidate.tier === 1)).toBe(true)
+    expect(data.verbs.slice(100).every((candidate) => candidate.tier === 2)).toBe(true)
     expect(data.verbs[0]?.infinitive).toBe('ser')
   })
 
   it('marks an infinitive ending in -se as reflexive', () => {
-    for (const entry of data.verbs) {
-      expect(entry.reflexive).toBe(entry.infinitive.endsWith('se'))
+    for (const candidate of data.verbs) {
+      expect(candidate.reflexive).toBe(candidate.infinitive.endsWith('se'))
     }
   })
 
   it('never stores a compound tense', () => {
     for (const tense of COMPOUND_TENSES) {
       expect(data.tenses).not.toContain(tense)
-      expect(verb('hablar').forms).not.toHaveProperty(tense)
+      expect(findVerb('hablar').forms).not.toHaveProperty(tense)
     }
   })
 
   it('has a non-empty accepted-form array for every tense and available person', () => {
-    for (const entry of data.verbs) {
+    for (const candidate of data.verbs) {
       for (const tense of data.tenses) {
-        const people = tense.startsWith('imperativo_') ? imperative : personal
-        const cells = entry.forms[tense]
-        expect(cells, `${entry.infinitive}/${tense}`).toHaveLength(people.length)
+        const people = peopleFor(tense)
+        const cells = candidate.forms[tense]
+        expect(cells, `${candidate.infinitive}/${tense}`).toHaveLength(people.length)
         for (const cell of cells ?? []) {
           expect(cell.length).toBeGreaterThan(0)
           for (const form of cell) {
@@ -98,36 +105,37 @@ describe('conjugation data artifact', () => {
 
   it('drops the yo slot from both imperatives and keeps five people', () => {
     expect(imperative).toEqual(['tu', '3sg', 'nosotros', 'vosotros', '3pl'])
-    for (const entry of data.verbs) {
-      expect(entry.forms.imperativo_afirmativo).toHaveLength(5)
-      expect(entry.forms.imperativo_negativo).toHaveLength(5)
+    for (const candidate of data.verbs) {
+      expect(candidate.forms.imperativo_afirmativo).toHaveLength(5)
+      expect(candidate.forms.imperativo_negativo).toHaveLength(5)
     }
   })
 
   it('carries both -ra and -se imperfect-subjunctive endings for every verb', () => {
-    for (const entry of data.verbs) {
+    for (const candidate of data.verbs) {
       for (const person of personal) {
-        const forms = accepted(entry, 'imperfecto_subjuntivo', person)
-        expect(forms.length, `${entry.infinitive}/${person}`).toBeGreaterThanOrEqual(2)
-        expect(forms.some((form) => form.includes('ra'))).toBe(true)
-        expect(forms.some((form) => form.includes('se'))).toBe(true)
+        const forms = accepted(candidate, 'imperfecto_subjuntivo', person)
+        expect(forms.length, `${candidate.infinitive}/${person}`).toBeGreaterThanOrEqual(2)
+        expect(forms.some((form) => IMPERFECT_RA_ENDINGS.some((ending) => form.endsWith(ending)))).toBe(true)
+        expect(forms.some((form) => IMPERFECT_SE_ENDINGS.some((ending) => form.endsWith(ending)))).toBe(true)
       }
     }
   })
 
   it('has vosotros forms for every verb', () => {
-    for (const entry of data.verbs) {
-      for (const tense of data.tenses.filter((tense) => tense !== 'imperativo_afirmativo')) {
-        expect(accepted(entry, tense, 'vosotros').length, `${entry.infinitive}/${tense}`).toBeGreaterThan(0)
+    for (const candidate of data.verbs) {
+      for (const tense of data.tenses) {
+        expect(accepted(candidate, tense, 'vosotros').length, `${candidate.infinitive}/${tense}`).toBeGreaterThan(0)
       }
-      expect(accepted(entry, 'imperativo_afirmativo', 'vosotros').length).toBeGreaterThan(0)
     }
   })
 
-  it('gives every verb an English gloss', () => {
-    for (const entry of data.verbs) {
-      expect(entry.gloss.trim()).not.toBe('')
-      expect(entry.gloss).not.toMatch(/\?|undefined/i)
+  it('gives every verb one comma-joined English gloss', () => {
+    for (const candidate of data.verbs) {
+      expect(candidate.gloss.trim()).not.toBe('')
+      expect(candidate.gloss).not.toMatch(/\?|undefined/i)
+      expect(candidate.gloss).not.toContain('/')
+      expect(candidate.gloss).not.toMatch(/,\s*to\s+/)
     }
   })
 
@@ -156,15 +164,15 @@ describe('conjugation data artifact', () => {
       ['llamarse', 'imperfecto_subjuntivo', 'yo', ['me llamara', 'me llamase']],
     ]
     for (const [infinitive, tense, person, expected] of cases) {
-      expect(accepted(verb(infinitive), tense, person), `${infinitive} ${tense} ${person}`).toEqual(expected)
+      expect(accepted(findVerb(infinitive), tense, person), `${infinitive} ${tense} ${person}`).toEqual(expected)
     }
   })
 
   it('stores the irregular non-finite forms needed for compound tenses', () => {
-    expect(verb('decir').nonFinite.participio).toEqual(['dicho'])
-    expect(verb('ir').nonFinite.gerundio).toEqual(['yendo'])
-    expect(verb('tener').nonFinite.participio).toEqual(['tenido'])
-    expect(verb('hablar').nonFinite).toEqual({ gerundio: ['hablando'], participio: ['hablado'] })
+    expect(findVerb('decir').nonFinite.participio).toEqual(['dicho'])
+    expect(findVerb('ir').nonFinite.gerundio).toEqual(['yendo'])
+    expect(findVerb('tener').nonFinite.participio).toEqual(['tenido'])
+    expect(findVerb('hablar').nonFinite).toEqual({ gerundio: ['hablando'], participio: ['hablado'] })
   })
 
   it('emits a personal haber table with no impersonal hay', () => {
