@@ -1,6 +1,6 @@
 # 05 — Local store, export and import
 
-Status: in-progress
+Status: done
 Type: task
 Blocked by: 01
 
@@ -33,4 +33,15 @@ Only persistence in the app. [ADR-0002](../../../docs/adr/0002-local-only-static
 - [x] Reset behind a typed confirmation.
 - [x] Failure paths surfaced as results: corrupted file, wrong app, newer version, unknown verb, quota.
 - [x] Round-trip and failure-path tests, typecheck, full suite.
-- [ ] Review, ticket closed, commit.
+- [x] Review, ticket closed, commit.
+
+## Comments
+
+- Implemented `src/store/` as a small typed module over IndexedDB, no ORM or wrapper. `db.ts` opens the `progress`, `settings` and `customVerbs` stores; `store.ts` exposes a `createStore({ name? })` factory whose writes return `StoreResult<T>` instead of throwing. `types.ts` holds the domain types, defaults and `nextProgress`, and `transfer.ts` owns export validation and the browser download.
+- Settings use the ticket defaults (`vosotros: false`, `sessionLength: 20`, `verbTier: 2`, `mode: 'conjugation'`, the four default tenses, archaic tenses off). `archaicTenses` is stored and therefore exported: the ticket requires the setting, and ADR-0002 makes the export the only bridge between devices, so dropping it would silently lose it on a round trip. The rest of the export envelope is exactly the spec shape. A v1 file written before the setting existed still imports, defaulting it to `false`.
+- Progress keys are `verb|tense|person`; vocabulary checks use `verb|vocab|`. `recordVerdict` increments `attempts` always, `wrong` on a wrong verdict and `accent` on accent-only. Accent-only is deliberately not folded into `wrong` (the spec's export example keeps them separate); the draw in issue 07 must count `wrong + accent` when it computes the miss ratio, so an accent-only item still re-weights.
+- Hand-added verbs are normalised (NFC, trim, lowercase) and must exist in the artifact. `resolveCustomVerbs()` resolves stored names at load and skips a name the current artifact no longer carries. Import keeps such a stale name in the file's custom-list rather than dropping it, so a later artifact can resolve it again.
+- Import parses and validates the whole file before writing anything: app tag, integer version, settings types and 5–50 session length, custom-verb strings, progress records with non-negative integer counts, a parsable `exportedAt`. A newer version or wrong app is refused with a specific message; malformed input is `corrupted`. Replacement is one read-write transaction over all three stores, so a refused or failed import changes nothing. The caller must pass `IMPORT_CONFIRMATION` (`'replace'`) after the UI confirmation; a wrong token returns `unconfirmed` before the file is even parsed.
+- Reset requires the typed word `reset` (`RESET_CONFIRMATION`); anything else leaves all three stores untouched. Quota failures map to a "storage is full" message and other write failures to a generic one; exports map read failures to "local database is not available". `createStore` is the one operation that rejects — without a database there is no store to report against.
+- Tests use `fake-indexeddb` (dev dependency) with a fresh factory per test and cover the ticket's round trip (seed → export → reset → import → identical progress/settings/verbs), the v2 refusal leaving state untouched, wrong app, five corrupted shapes including an out-of-range session length, replace-not-merge, import and reset confirmations, stale custom verbs, an older v1 file, and a simulated `QuotaExceededError` on write. 25 store tests; typecheck, the 81-test suite and `vite build` pass.
+- Review fixes: one shared JSON record guard, a single infinitive normaliser, export serialisation gathered behind one `buildExport` result so the three export paths cannot drift, `MESSAGES.unavailable` no longer says "local storage" for IndexedDB, `sessionLength` is range-checked, and the unused `exportData` method was removed. Domain note for later: saved `defaultTenses` is the spec's "default selection", which sits beside the glossary's "Selection is session-only"; the per-session choice still starts from these defaults, so the glossary wording is the thing to reconcile, not the store.
