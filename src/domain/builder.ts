@@ -1,12 +1,11 @@
 import {
+  clampSessionLength,
   isVerbTier,
-  MAX_SESSION_LENGTH,
-  MIN_SESSION_LENGTH,
   type Mode,
   type SessionConfig,
   type VerbTier,
 } from './session'
-import { isTenseId, visibleTenses, type TenseId } from './tenses'
+import { isTenseId, orderTenses, visibleTenses, type TenseId } from './tenses'
 import { poolSize } from './verbPool'
 import { normalizeInfinitive } from './verbs'
 
@@ -40,10 +39,10 @@ export type BuilderAction =
   | { type: 'set-length'; length: number }
   | { type: 'set-custom-verbs'; customVerbs: readonly string[] }
   | { type: 'set-archaic'; archaicTenses: boolean }
-
-function clampLength(length: number): number {
-  return Math.min(MAX_SESSION_LENGTH, Math.max(MIN_SESSION_LENGTH, Math.round(length)))
-}
+  /** The Settings sheet changed a preference that shapes the next session. */
+  | { type: 'apply-settings'; settings: Pick<BuilderSeed, 'archaicTenses' | 'vosotros'> }
+  /** An import or reset replaced the store; start over from what it now holds. */
+  | { type: 'rebuild'; seed: BuilderSeed; customVerbs: readonly string[] }
 
 /** Keep hand-added names canonical, non-empty and unique, preserving their order. */
 function cleanCustomVerbs(customVerbs: readonly string[]): string[] {
@@ -58,9 +57,8 @@ function cleanCustomVerbs(customVerbs: readonly string[]): string[] {
 }
 
 function selectableTenses(archaicTenses: boolean, selected: ReadonlySet<TenseId>): TenseId[] {
-  return visibleTenses(archaicTenses)
-    .filter((tense) => selected.has(tense.id))
-    .map((tense) => tense.id)
+  const offered = new Set(visibleTenses(archaicTenses).map((tense) => tense.id))
+  return orderTenses([...selected].filter((tense) => offered.has(tense)))
 }
 
 /** A builder starts from the saved defaults; a reload discards the session's choices. */
@@ -74,7 +72,7 @@ export function createBuilderState(seed: BuilderSeed, customVerbs: readonly stri
     mode: seed.mode,
     tenses: selectableTenses(seed.archaicTenses, selected),
     verbTier: seed.verbTier,
-    length: clampLength(seed.sessionLength),
+    length: clampSessionLength(seed.sessionLength),
     customVerbs: cleanCustomVerbs(customVerbs),
     archaicTenses: seed.archaicTenses,
     vosotros: seed.vosotros,
@@ -105,7 +103,7 @@ export function builderReducer(state: BuilderState, action: BuilderAction): Buil
 
     case 'set-length': {
       if (!Number.isFinite(action.length)) return state
-      const length = clampLength(action.length)
+      const length = clampSessionLength(action.length)
       return state.length === length ? state : { ...state, length }
     }
 
@@ -123,6 +121,21 @@ export function builderReducer(state: BuilderState, action: BuilderAction): Buil
         tenses: selectableTenses(action.archaicTenses, selected),
       }
     }
+
+    case 'apply-settings': {
+      const { archaicTenses, vosotros } = action.settings
+      if (state.archaicTenses === archaicTenses && state.vosotros === vosotros) return state
+
+      return {
+        ...state,
+        archaicTenses,
+        vosotros,
+        tenses: selectableTenses(archaicTenses, new Set(state.tenses)),
+      }
+    }
+
+    case 'rebuild':
+      return createBuilderState(action.seed, action.customVerbs)
   }
 }
 

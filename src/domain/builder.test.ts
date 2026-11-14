@@ -170,6 +170,59 @@ describe('builder reducer', () => {
     )
   })
 
+  it('applies the vosotros and archaic settings to the live builder', () => {
+    const state = createBuilderState(defaultSettings())
+    const withVosotros = builderReducer(state, {
+      type: 'apply-settings',
+      settings: { ...defaultSettings(), vosotros: true },
+    })
+    const withArchaic = builderReducer(withVosotros, {
+      type: 'apply-settings',
+      settings: { ...defaultSettings(), vosotros: true, archaicTenses: true },
+    })
+
+    expect(withVosotros.vosotros).toBe(true)
+    expect(toSessionConfig(withVosotros).vosotros).toBe(true)
+    expect(withArchaic.archaicTenses).toBe(true)
+    expect(
+      builderReducer(withArchaic, { type: 'toggle-tense', tense: 'preterito_anterior' }).tenses,
+    ).toContain('preterito_anterior')
+  })
+
+  it('drops a selected archaic tense when the setting turns off', () => {
+    const state = builderReducer(createBuilderState(defaultSettings()), {
+      type: 'apply-settings',
+      settings: { ...defaultSettings(), archaicTenses: true },
+    })
+    const selected = builderReducer(state, { type: 'toggle-tense', tense: 'preterito_anterior' })
+    const off = builderReducer(selected, { type: 'apply-settings', settings: defaultSettings() })
+
+    expect(off.archaicTenses).toBe(false)
+    expect(off.tenses).not.toContain('preterito_anterior')
+  })
+
+  it('rebuilds from the store settings and verbs after an import or reset', () => {
+    const state = builderReducer(createBuilderState(defaultSettings()), {
+      type: 'set-length',
+      length: 40,
+    })
+    const rebuilt = builderReducer(state, {
+      type: 'rebuild',
+      seed: {
+        ...defaultSettings(),
+        sessionLength: 10,
+        defaultTenses: ['presente'],
+        vosotros: true,
+      },
+      customVerbs: [' Hablar ', 'hablar'],
+    })
+
+    expect(rebuilt.length).toBe(10)
+    expect(rebuilt.tenses).toEqual(['presente'])
+    expect(rebuilt.vosotros).toBe(true)
+    expect(rebuilt.customVerbs).toEqual(['hablar'])
+  })
+
   it('keeps hand-added verbs canonical and unique', () => {
     const state = builderReducer(createBuilderState(defaultSettings()), {
       type: 'set-custom-verbs',
