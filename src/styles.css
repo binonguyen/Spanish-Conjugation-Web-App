@@ -119,6 +119,14 @@ p {
   font-size: 1.1rem;
 }
 
+.screen-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
 .screen p {
   color: var(--muted);
 }
@@ -932,6 +940,7 @@ p {
   font-weight: 400;
 }
 
+<<<<<<< HEAD
 /* Results and Stats */
 
 .results,
@@ -1154,6 +1163,116 @@ p {
 .stats-empty p:first-child {
   color: var(--foreground);
   font-weight: 600;
+}
+
+/* Settings sheet */
+
+.settings-sheet {
+  width: min(100% - 2rem, 42rem);
+  max-height: min(92vh, 56rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.settings-sheet::backdrop {
+  background: rgb(0 0 0 / 0.45);
+}
+
+.sheet-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.sheet-header h2 {
+  font-size: 1.1rem;
+}
+
+.sheet-body {
+  display: grid;
+  gap: 1.25rem;
+  max-height: calc(92vh - 4.2rem);
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.toggle-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.toggle-field input {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+  accent-color: var(--accent);
+}
+
+.toggle-label {
+  font-weight: 600;
+}
+
+.toggle-note {
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.data-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.default-mode,
+.default-length {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.file-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.file-field input {
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.import-confirm,
+.reset-block {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.import-confirm p {
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
+.reset-block code {
+  padding: 0 0.25rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
 @media (max-width: 30rem) {

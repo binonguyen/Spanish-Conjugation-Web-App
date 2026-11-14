@@ -1,4 +1,6 @@
 import { useState, type Dispatch, type FormEvent } from 'react'
+import { LengthStepper } from '../components/LengthStepper'
+import { TenseCheckbox } from '../components/TenseCheckbox'
 import {
   sessionSummary,
   startBlockedReason,
@@ -6,12 +8,7 @@ import {
   type BuilderAction,
   type BuilderState,
 } from '../domain/builder'
-import {
-  MAX_SESSION_LENGTH,
-  MIN_SESSION_LENGTH,
-  isVerbTier,
-  type SessionConfig,
-} from '../domain/session'
+import { isVerbTier, type SessionConfig } from '../domain/session'
 import { tenseGroups, type TenseInfo } from '../domain/tenses'
 import { poolSize, searchVerbs } from '../domain/verbPool'
 import { canonicalVerb, normalizeInfinitive } from '../domain/verbs'
@@ -23,6 +20,7 @@ interface BuilderScreenProps {
   state: BuilderState
   dispatch: Dispatch<BuilderAction>
   storageMessage?: string
+  onOpenSettings(): void
   onStart(config: SessionConfig): void
 }
 
@@ -31,6 +29,7 @@ export function BuilderScreen({
   state,
   dispatch,
   storageMessage,
+  onOpenSettings,
   onStart,
 }: BuilderScreenProps) {
   const [query, setQuery] = useState('')
@@ -94,23 +93,23 @@ export function BuilderScreen({
   function tenseOption(tense: TenseInfo) {
     return (
       <li key={tense.id}>
-        <label className={tense.archaic ? 'tense-option is-archaic' : 'tense-option'}>
-          <input
-            type="checkbox"
-            aria-label={`${tense.label} (${tense.gloss})`}
-            checked={state.tenses.includes(tense.id)}
-            onChange={() => dispatch({ type: 'toggle-tense', tense: tense.id })}
-          />
-          <span>{tense.label}</span>
-          <span className="tense-gloss">{tense.gloss}</span>
-        </label>
+        <TenseCheckbox
+          tense={tense}
+          checked={state.tenses.includes(tense.id)}
+          onToggle={() => dispatch({ type: 'toggle-tense', tense: tense.id })}
+        />
       </li>
     )
   }
 
   return (
     <section className="screen builder">
-      <h2>Builder</h2>
+      <header className="screen-header">
+        <h2>Builder</h2>
+        <button type="button" className="ghost-button" onClick={onOpenSettings}>
+          Settings
+        </button>
+      </header>
 
       <fieldset className="field">
         <legend>Mode</legend>
@@ -243,27 +242,10 @@ export function BuilderScreen({
 
       <fieldset className="field">
         <legend>Session length</legend>
-        <div className="stepper">
-          <button
-            type="button"
-            onClick={() => dispatch({ type: 'set-length', length: state.length - 1 })}
-            disabled={state.length <= MIN_SESSION_LENGTH}
-            aria-label="One fewer item"
-          >
-            −
-          </button>
-          <output className="stepper-value" aria-live="polite">
-            {state.length} items
-          </output>
-          <button
-            type="button"
-            onClick={() => dispatch({ type: 'set-length', length: state.length + 1 })}
-            disabled={state.length >= MAX_SESSION_LENGTH}
-            aria-label="One more item"
-          >
-            +
-          </button>
-        </div>
+        <LengthStepper
+          value={state.length}
+          onChange={(length) => dispatch({ type: 'set-length', length })}
+        />
       </fieldset>
 
       <footer className="builder-footer">
