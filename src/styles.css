@@ -7,8 +7,12 @@
   --border: #ddd7cb;
   --accent: #a8431f;
   --accent-contrast: #ffffff;
+  --success: #1f7a4d;
+  --warning: #9a5b00;
+  --error: #b3261e;
   --radius: 10px;
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Consolas, monospace;
 
   font-family: var(--font-sans);
   line-height: 1.5;
@@ -25,6 +29,9 @@
     --border: #3a3a42;
     --accent: #e08356;
     --accent-contrast: #1b1b1f;
+    --success: #6fd39b;
+    --warning: #e3ad61;
+    --error: #ff8f85;
   }
 }
 
@@ -456,8 +463,391 @@ p {
   cursor: not-allowed;
 }
 
+/* Drill */
+
+.drill {
+  gap: 0.9rem;
+}
+
+.drill-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.drill-status {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.drill-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.drill-count {
+  font-weight: 700;
+}
+
+.drill-tense {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.drill-end {
+  display: grid;
+  justify-items: end;
+}
+
+.end-confirm {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  justify-items: end;
+}
+
+.end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.drill-prompt {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.drill-verb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.drill-infinitive {
+  color: var(--foreground);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.drill-gloss {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.drill-meta {
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.drill-answer {
+  gap: 0.3rem;
+}
+
+.answer-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 1.35rem;
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.answer-input.is-correct {
+  border-color: var(--success);
+}
+
+.answer-input.is-accent-only {
+  border-color: var(--warning);
+}
+
+.answer-input.is-wrong {
+  border-color: var(--error);
+  color: var(--error);
+  text-decoration: line-through;
+}
+
+.accent-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.accent-key {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.accent-key:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.accent-key:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.accent-key:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.drill-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.drill-hint kbd {
+  padding: 0 0.3rem;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.drill-actions,
+.reveal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ghost-button,
+.danger-button {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.ghost-button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ghost-button:focus-visible,
+.danger-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.danger-button {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.danger-button:hover {
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+}
+
+.verdict {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  border-left: 4px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+}
+
+/* The live region stays mounted so a reveal is announced; idle it takes no space. */
+.verdict:empty {
+  padding: 0;
+  border-left-width: 0;
+  background: none;
+}
+
+.verdict.is-correct {
+  border-left-color: var(--success);
+}
+
+.verdict.is-accent-only {
+  border-left-color: var(--warning);
+}
+
+.verdict.is-wrong {
+  border-left-color: var(--error);
+}
+
+.verdict-headline {
+  font-weight: 700;
+}
+
+.verdict.is-correct .verdict-headline {
+  color: var(--success);
+}
+
+.verdict.is-accent-only .verdict-headline {
+  color: var(--warning);
+}
+
+.verdict.is-wrong .verdict-headline {
+  color: var(--error);
+}
+
+.verdict-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.correct-form {
+  color: var(--foreground);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.variant-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.example {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--border);
+}
+
+.example blockquote {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.05rem;
+}
+
+.example figcaption {
+  display: grid;
+  gap: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.example a {
+  color: var(--accent);
+}
+
+.paradigm > summary {
+  width: fit-content;
+  color: var(--accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.paradigm > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.paradigm table {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.paradigm caption {
+  padding-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.paradigm th,
+.paradigm td {
+  padding: 0.3rem 0.45rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.paradigm th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.paradigm tr.is-current {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.paradigm tr.is-current th,
+.paradigm tr.is-current td {
+  font-weight: 600;
+}
+
+.drill-reveal {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.key-hint {
+  margin-left: 0.4rem;
+  padding: 0 0.25rem;
+  border: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
 @media (max-width: 30rem) {
   .builder-start {
     justify-items: start;
+  }
+
+  .drill-header {
+    align-items: stretch;
+  }
+
+  .drill-end {
+    justify-items: start;
+  }
+
+  .end-confirm {
+    justify-items: start;
+  }
+
+  .drill-infinitive,
+  .correct-form {
+    font-size: 1.7rem;
   }
 }

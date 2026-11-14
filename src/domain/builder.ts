@@ -143,7 +143,12 @@ export function toSessionConfig(state: BuilderState): SessionConfig {
 
 /** Why Start is disabled, or `undefined` when the session can begin. */
 export function startBlockedReason(state: BuilderState): string | undefined {
-  if (state.mode === 'conjugation' && state.tenses.length === 0) {
+  if (state.mode === 'vocabulary') {
+    // Temporary until issue 09 adds the vocabulary item; the mode stays visible so the
+    // builder's shape does not change twice.
+    return 'Vocabulary checks are not available yet. Choose Conjugation to drill forms.'
+  }
+  if (state.tenses.length === 0) {
     return 'Choose at least one tense to start.'
   }
   return undefined

@@ -1,14 +1,17 @@
-import { useReducer, useState, type ReactElement } from 'react'
+import { useEffect, useReducer, useRef, useState, type ReactElement } from 'react'
+import { recordAnswers } from './app/recordAnswers'
 import { SCREEN_LABELS, SCREENS, type Screen } from './app/screens'
 import { useLocalStore } from './app/useLocalStore'
 import { builderReducer, createBuilderState } from './domain/builder'
+import { buildQueue, createRng } from './domain/draw'
+import { drillReducer } from './domain/drill'
 import type { SessionConfig } from './domain/session'
 import { BuilderScreen } from './screens/BuilderScreen'
 import { DrillScreen } from './screens/DrillScreen'
 import { ResultsScreen } from './screens/ResultsScreen'
 import { StatsScreen } from './screens/StatsScreen'
 import type { LocalStore } from './store/store'
-import type { Settings } from './store/types'
+import { MESSAGES, type ProgressMap, type Settings } from './store/types'
 
 export function App() {
   const { ready, store, settings, customVerbs, message } = useLocalStore()
@@ -40,15 +43,56 @@ interface TrainerProps {
 
 function Trainer({ store, settings, initialCustomVerbs, storageMessage }: TrainerProps) {
   const [screen, setScreen] = useState<Screen>('builder')
-  const [session, setSession] = useState<SessionConfig | null>(null)
+  const [sessionConfig, setSessionConfig] = useState<SessionConfig | null>(null)
+  const [drill, dispatchDrill] = useReducer(drillReducer, null)
+  const [drillNotice, setDrillNotice] = useState<string | undefined>(undefined)
+  /** How many answers have already reached the store; keeps the effect from writing twice. */
+  const recorded = useRef(0)
   const [builder, dispatch] = useReducer(
     builderReducer,
     { settings, initialCustomVerbs },
     (seed) => createBuilderState(seed.settings, seed.initialCustomVerbs),
   )
 
-  function startSession(config: SessionConfig) {
-    setSession(config)
+  useEffect(() => {
+    if (!drill) return
+
+    const pending = drill.answers.slice(recorded.current)
+    if (pending.length === 0) return
+    recorded.current = drill.answers.length
+    if (!store) return
+
+    void recordAnswers(store, pending).then((messages) => {
+      if (messages.length > 0) setDrillNotice(messages[0])
+    })
+  }, [drill, store])
+
+  useEffect(() => {
+    if (drill?.phase === 'finished') setScreen('results')
+  }, [drill?.phase])
+
+  async function startSession(config: SessionConfig) {
+    let progress: ProgressMap = {}
+    let notice: string | undefined
+
+    if (store) {
+      try {
+        progress = await store.getAllProgress()
+      } catch {
+        notice = MESSAGES.unavailable
+      }
+    }
+
+    const items = buildQueue(
+      config,
+      progress,
+      createRng(Math.floor(Math.random() * 0x100000000)),
+    )
+
+    recorded.current = 0
+    setDrillNotice(notice)
+    setSessionConfig(config)
+    dispatchDrill({ type: 'start', items })
     setScreen('drill')
   }
 
@@ -62,7 +106,15 @@ function Trainer({ store, settings, initialCustomVerbs, storageMessage }: Traine
         onStart={startSession}
       />
     ),
-    drill: <DrillScreen config={session} />,
+    drill: (
+      <DrillScreen
+        state={drill}
+        dispatch={dispatchDrill}
+        vosotros={sessionConfig?.vosotros ?? false}
+        notice={drillNotice}
+        onOpenBuilder={() => setScreen('builder')}
+      />
+    ),
     results: <ResultsScreen />,
     stats: <StatsScreen />,
   }

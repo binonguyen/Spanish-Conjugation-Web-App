@@ -196,13 +196,15 @@ describe('builder reducer', () => {
     expect(archaic.tenses).toEqual(['presente', 'preterito_anterior'])
   })
 
-  it('blocks a conjugation session with no tense and says why', () => {
+  it('blocks a session with no tense and a vocabulary session until issue 09', () => {
     const empty = createBuilderState({ ...defaultSettings(), defaultTenses: [] })
 
     expect(startBlockedReason(empty)).toBe('Choose at least one tense to start.')
 
     const vocabulary = builderReducer(empty, { type: 'set-mode', mode: 'vocabulary' })
-    expect(startBlockedReason(vocabulary)).toBeUndefined()
+    expect(startBlockedReason(vocabulary)).toBe(
+      'Vocabulary checks are not available yet. Choose Conjugation to drill forms.',
+    )
   })
 })
 
