@@ -1,7 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import type { SessionConfig } from './session'
-import type { ProgressRecord } from '../store/types'
-import { buildQueue, createRng, unitWeight, type ConjugationItem, type Item } from './draw'
+import { verbArtifact } from '../data/verbs'
+import { personsForTense, type SessionConfig } from './session'
+import { makeVocabKey, type ProgressRecord } from '../store/types'
+import {
+  buildQueue,
+  createRng,
+  unitWeight,
+  type ConjugationItem,
+  type Item,
+  type ProgressLookup,
+} from './draw'
+import { poolVerbs } from './verbPool'
 
 function config(overrides: Partial<SessionConfig> = {}): SessionConfig {
   return {
@@ -42,6 +51,12 @@ describe('item weight', () => {
 })
 
 describe('conjugation draw', () => {
+  it('matches the artifact person order for each tense shape', () => {
+    expect(personsForTense('presente', true)).toEqual(verbArtifact.personOrder.personal)
+    expect(personsForTense('imperativo_negativo', true)).toEqual(verbArtifact.personOrder.imperative)
+    expect(personsForTense('presente', false)).not.toContain('vosotros')
+  })
+
   it('offers no yo for imperatives and no vosotros while the setting is off', () => {
     const queue = buildQueue(
       config({ tenses: ['imperativo_afirmativo'], length: 30 }),
@@ -100,11 +115,38 @@ describe('conjugation draw', () => {
   })
 })
 
+describe('weighted draw', () => {
+  it('lets an unseen or miss-heavy verb outrank four clean ones at the same draw point', () => {
+    const pool = poolVerbs(1, [])
+    const target = pool[0]!
+    const key = makeVocabKey(target.infinitive)
+    const clean: Record<string, ProgressRecord> = Object.fromEntries(
+      pool.map((verb) => [makeVocabKey(verb.infinitive), record(10, 0)]),
+    )
+    const unseen: ProgressLookup = { ...clean, [key]: undefined }
+    const missHeavy: ProgressLookup = { ...clean, [key]: record(4, 3) }
+    const firstDrawn = (progress: ProgressLookup) =>
+      buildQueue(
+        config({ mode: 'vocabulary', tenses: [], verbTier: 1, length: 5 }),
+        progress,
+        () => 0.02,
+      )[0]!.verb.infinitive
+
+    // A two-percent draw only reaches the first item once its weight is above one.
+    expect(firstDrawn(clean)).not.toBe(target.infinitive)
+    expect(firstDrawn(unseen)).toBe(target.infinitive)
+    expect(firstDrawn(missHeavy)).toBe(target.infinitive)
+  })
+})
+
 describe('seeded queue', () => {
   const progress: Record<string, ProgressRecord> = {
-    'hablar|presente|yo': record(4, 3),
-    'ser|preterito_indefinido|3sg': record(6, 1, 2),
-    'tener|presente|nosotros': record(10, 0),
+    'apurar|preterito_indefinido|nosotros': record(4, 3),
+    'hervir|presente|nosotros': record(6, 1, 2),
+    'vender|preterito_indefinido|3sg': record(10, 0),
+    'apurar|vocab|': record(4, 3),
+    'hervir|vocab|': record(10, 0),
+    'vender|vocab|': record(3, 0, 3),
   }
 
   it('replays a locked conjugation queue for a fixed seed and fixture', () => {
@@ -116,12 +158,12 @@ describe('seeded queue', () => {
 
     expect(queue.map((item) => item.key)).toEqual([
       'apurar|preterito_indefinido|nosotros',
-      'hervir|presente|nosotros',
-      'realizar|presente|tu',
+      'hervir|presente|3sg',
+      'aceptar|presente|3pl',
       'vender|preterito_indefinido|3sg',
       'retirar|presente|yo',
       'elegir|preterito_indefinido|yo',
-      'tratar|preterito_indefinido|tu',
+      'tratar|preterito_indefinido|yo',
       'fastidiar|presente|3sg',
     ])
   })
@@ -134,14 +176,14 @@ describe('seeded queue', () => {
     )
 
     expect(queue.map((item) => item.key)).toEqual([
-      'almorzar|vocab|',
-      'apurar|vocab|',
-      'hervir|vocab|',
-      'fastidiar|vocab|',
+      'desayunar|vocab|',
+      'tardar|vocab|',
+      'freír|vocab|',
+      'molestar|vocab|',
       'aceptar|vocab|',
-      'vender|vocab|',
+      'comprar|vocab|',
       'repartir|vocab|',
-      'retirar|vocab|',
+      'transferir|vocab|',
     ])
   })
 })

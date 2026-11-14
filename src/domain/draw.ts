@@ -56,17 +56,17 @@ export interface VocabularyItem {
 /** One thing a session asks; the two shapes are never mixed within a session. */
 export type Item = ConjugationItem | VocabularyItem
 
-/** Index of the item drawn in proportion to its weight. */
-function pickWeighted<T>(items: readonly T[], weight: (item: T) => number, rng: Rng): number {
+/** One item drawn in proportion to its weight. */
+function pickWeighted<T>(items: readonly T[], weight: (item: T) => number, rng: Rng): T {
   const total = items.reduce((sum, item) => sum + weight(item), 0)
   let target = rng() * total
 
-  for (let index = 0; index < items.length; index += 1) {
-    target -= weight(items[index]!)
-    if (target < 0) return index
+  for (const item of items) {
+    target -= weight(item)
+    if (target < 0) return item
   }
 
-  return items.length - 1
+  return items[items.length - 1]!
 }
 
 function drawVocabulary(
@@ -79,13 +79,12 @@ function drawVocabulary(
   const count = Math.min(config.length, remaining.length)
 
   while (items.length < count) {
-    const index = pickWeighted(
+    const verb = pickWeighted(
       remaining,
-      (verb) => unitWeight(progress[makeVocabKey(verb.infinitive)]),
+      (candidate) => unitWeight(progress[makeVocabKey(candidate.infinitive)]),
       rng,
     )
-    const verb = remaining[index]!
-    remaining.splice(index, 1)
+    remaining.splice(remaining.indexOf(verb), 1)
     items.push({ mode: 'vocabulary', verb, key: makeVocabKey(verb.infinitive) })
   }
 
@@ -111,8 +110,8 @@ function shuffle<T>(items: T[], rng: Rng): T[] {
 }
 
 /**
- * Pick one unit from a tense, avoiding the verbs of the last three items. A pool too
- * small to clear that gap falls back to a shorter window rather than stalling.
+ * Pick one unit from a tense, never choosing a verb from the last three items. A pool
+ * too small to clear that gap simply stops feeding this tense.
  */
 function takeUnit(
   units: readonly Unit[],
@@ -120,21 +119,16 @@ function takeUnit(
   progress: ProgressLookup,
   rng: Rng,
 ): Unit | undefined {
-  for (let window = 3; window >= 0; window -= 1) {
-    const blocked = new Set(recentVerbs.slice(recentVerbs.length - window))
-    const allowed = units.filter((unit) => !blocked.has(unit.verb.infinitive))
-    if (allowed.length === 0) continue
+  const blocked = new Set(recentVerbs)
+  const allowed = units.filter((unit) => !blocked.has(unit.verb.infinitive))
+  if (allowed.length === 0) return undefined
 
-    const index = pickWeighted(
-      allowed,
-      (unit) =>
-        unitWeight(progress[makeProgressKey(unit.verb.infinitive, unit.tense, unit.person)]),
-      rng,
-    )
-    return allowed[index]
-  }
-
-  return undefined
+  return pickWeighted(
+    allowed,
+    (unit) =>
+      unitWeight(progress[makeProgressKey(unit.verb.infinitive, unit.tense, unit.person)]),
+    rng,
+  )
 }
 
 /**
@@ -167,6 +161,7 @@ function drawConjugation(
     )
     if (active.length === 0) break
 
+    let added = false
     for (const [tense, units] of active) {
       if (queue.length >= config.length) break
 
@@ -183,7 +178,11 @@ function drawConjugation(
       })
       recentVerbs.push(unit.verb.infinitive)
       if (recentVerbs.length > 3) recentVerbs.shift()
+      added = true
     }
+
+    // Every remaining unit repeats one of the last three verbs, so the session ends here.
+    if (!added) break
   }
 
   return queue

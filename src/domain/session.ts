@@ -17,8 +17,9 @@ const IMPERATIVE_PERSONS: readonly Person[] = ['tu', '3sg', 'nosotros', 'vosotro
  */
 export function personsForTense(tense: TenseId, vosotros: boolean): Person[] {
   const info = tenseById(tense)
-  const slots = info?.mood === 'imperativo' ? IMPERATIVE_PERSONS : PERSONS
+  if (!info) return []
 
+  const slots = info.mood === 'imperativo' ? IMPERATIVE_PERSONS : PERSONS
   return slots.filter((person) => vosotros || person !== 'vosotros')
 }
 
