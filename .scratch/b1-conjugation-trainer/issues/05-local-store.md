@@ -1,6 +1,6 @@
 # 05 — Local store, export and import
 
-Status: ready-for-agent
+Status: in-progress
 Type: task
 Blocked by: 01
 
@@ -22,3 +22,15 @@ Only persistence in the app. [ADR-0002](../../../docs/adr/0002-local-only-static
 
 - Round-trip test: seeded store → export → reset → import → identical progress.
 - Importing a v2 file into a v1 app refuses with an explanation instead of half-applying.
+
+## Progress
+
+- [x] Test harness for IndexedDB (`fake-indexeddb`) and store factory seam.
+- [x] Settings with defaults, load/save.
+- [x] Progress keyed `verb|tense|person` (and `verb|vocab|`), record attempt by verdict.
+- [x] Custom verbs added, removed and resolved against the artifact.
+- [x] Versioned export and validated import that replaces.
+- [x] Reset behind a typed confirmation.
+- [x] Failure paths surfaced as results: corrupted file, wrong app, newer version, unknown verb, quota.
+- [x] Round-trip and failure-path tests, typecheck, full suite.
+- [ ] Review, ticket closed, commit.
