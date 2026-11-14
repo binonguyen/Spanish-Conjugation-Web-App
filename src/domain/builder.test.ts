@@ -11,7 +11,7 @@ import {
   type BuilderState,
 } from './builder'
 import { tenseById, tenseGroups, TENSES, visibleTenses } from './tenses'
-import { poolSize, searchVerbs, SEARCH_LIMIT } from './verbPool'
+import { poolSize, searchVerbs, SEARCH_LIMIT, verbsForTier, verbsInTier } from './verbPool'
 
 const DEFAULT_TENSE_IDS = new Set<string>(DEFAULT_TENSES)
 const DEFAULT_SELECTION = TENSES.filter((tense) => DEFAULT_TENSE_IDS.has(tense.id)).map(
@@ -196,15 +196,13 @@ describe('builder reducer', () => {
     expect(archaic.tenses).toEqual(['presente', 'preterito_anterior'])
   })
 
-  it('blocks a session with no tense and a vocabulary session until issue 09', () => {
+  it('blocks a conjugation session with no tense but starts a vocabulary session', () => {
     const empty = createBuilderState({ ...defaultSettings(), defaultTenses: [] })
 
     expect(startBlockedReason(empty)).toBe('Choose at least one tense to start.')
 
     const vocabulary = builderReducer(empty, { type: 'set-mode', mode: 'vocabulary' })
-    expect(startBlockedReason(vocabulary)).toBe(
-      'Vocabulary checks are not available yet. Choose Conjugation to drill forms.',
-    )
+    expect(startBlockedReason(vocabulary)).toBeUndefined()
   })
 })
 
@@ -216,6 +214,13 @@ describe('verb pool', () => {
     expect(poolSize(1)).toBe(100)
     expect(poolSize(2)).toBe(total)
     expect(poolSize('all')).toBe(total)
+  })
+
+  it('separates one exact tier from the cumulative session pool', () => {
+    expect(verbsInTier(1).every((verb) => verb.tier === 1)).toBe(true)
+    expect(verbsInTier(2).every((verb) => verb.tier === 2)).toBe(true)
+    expect(verbsInTier(1).length + verbsInTier(2).length).toBe(total)
+    expect(verbsForTier(2)).toHaveLength(total)
   })
 
   it('adds hand-added verbs outside the tier without double-counting them inside it', () => {

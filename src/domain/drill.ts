@@ -1,6 +1,7 @@
 import { checkAnswer, type Verdict } from './check'
 import type { Item } from './draw'
 import { acceptedForms } from './forms'
+import { vocabularyVerdict } from './vocab'
 
 /** An item is asked, then revealed; a session is finished after its last reveal. */
 export type DrillPhase = 'asking' | 'revealed' | 'finished'
@@ -78,11 +79,11 @@ export function currentVerdict(state: DrillState): Verdict | undefined {
 }
 
 /**
- * Check one typed answer against the item's cell. Vocabulary items have no typed form;
- * they arrive with issue 09 and must never be mistaken for a wrong conjugation.
+ * Check one answer against the item: a typed form for a conjugation drill, the chosen
+ * gloss for a vocabulary check. Both verdicts feed the same store record.
  */
-function verdictFor(item: Item, input: string): Verdict | undefined {
-  if (item.mode !== 'conjugation') return undefined
+function verdictFor(item: Item, input: string): Verdict {
+  if (item.mode === 'vocabulary') return vocabularyVerdict(item.options, input)
 
   return checkAnswer(input, acceptedForms(item.verb, item.tense, item.person))
 }
@@ -127,8 +128,7 @@ export function drillReducer(
       const item = currentItem(state)
       if (!item) return state
 
-      const verdict = verdictFor(item, state.input)
-      return verdict ? reveal(state, verdict, state.input) : state
+      return reveal(state, verdictFor(item, state.input), state.input)
     }
 
     case 'dont-know': {

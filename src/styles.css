@@ -652,6 +652,77 @@ p {
   cursor: not-allowed;
 }
 
+.vocab-options {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.vocab-option {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.55rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vocab-option:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.vocab-option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.vocab-option:disabled {
+  cursor: default;
+}
+
+.vocab-option.is-correct {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  font-weight: 600;
+}
+
+.vocab-option.is-wrong {
+  border-color: var(--error);
+  background: color-mix(in srgb, var(--error) 10%, transparent);
+  text-decoration: line-through;
+}
+
+.vocab-option.is-dim {
+  opacity: 0.6;
+}
+
+.vocab-key {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.vocab-gloss {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .drill-hint {
   color: var(--muted);
   font-size: 0.8rem;
@@ -758,7 +829,8 @@ p {
   font-size: 0.9rem;
 }
 
-.correct-form {
+.correct-form,
+.correct-gloss {
   color: var(--foreground);
   font-size: 2rem;
   font-weight: 700;
@@ -1102,7 +1174,8 @@ p {
   }
 
   .drill-infinitive,
-  .correct-form {
+  .correct-form,
+  .correct-gloss {
     font-size: 1.7rem;
   }
 

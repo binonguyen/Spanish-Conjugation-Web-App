@@ -1,26 +1,10 @@
 import type { Verb } from '../data/verbs'
 import { makeProgressKey, makeVocabKey, type ProgressRecord } from '../store/types'
+import { shuffle, type Rng } from './random'
 import { personsForTense, type Person, type SessionConfig } from './session'
 import type { TenseId } from './tenses'
+import { buildVocabularyOptions, type VocabularyOption } from './vocab'
 import { poolVerbs } from './verbPool'
-
-/** A source of numbers in `[0, 1)`; the draw takes one so a session's queue is testable. */
-export type Rng = () => number
-
-/**
- * Mulberry32: a small seeded generator. The same seed always replays the same session.
- */
-export function createRng(seed: number): Rng {
-  let state = seed >>> 0
-
-  return () => {
-    state = (state + 0x6d2b79f5) >>> 0
-    let t = state
-    t = Math.imul(t ^ (t >>> 15), t | 1)
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
-}
 
 /**
  * How strongly the draw favours one unit. Unseen units get a fixed four; a drilled unit
@@ -51,6 +35,8 @@ export interface VocabularyItem {
   verb: Verb
   /** The progress key this item's verdict updates. */
   key: string
+  /** Four glosses, one correct; fixed when the queue is drawn so a reveal is stable. */
+  options: readonly VocabularyOption[]
 }
 
 /** One thing a session asks; the two shapes are never mixed within a session. */
@@ -75,20 +61,25 @@ function drawVocabulary(
   rng: Rng,
 ): VocabularyItem[] {
   const remaining = poolVerbs(config.verbTier, config.customVerbs)
-  const items: VocabularyItem[] = []
+  const drawn: Omit<VocabularyItem, 'options'>[] = []
   const count = Math.min(config.length, remaining.length)
 
-  while (items.length < count) {
+  while (drawn.length < count) {
     const verb = pickWeighted(
       remaining,
       (candidate) => unitWeight(progress[makeVocabKey(candidate.infinitive)]),
       rng,
     )
     remaining.splice(remaining.indexOf(verb), 1)
-    items.push({ mode: 'vocabulary', verb, key: makeVocabKey(verb.infinitive) })
+    drawn.push({ mode: 'vocabulary', verb, key: makeVocabKey(verb.infinitive) })
   }
 
-  return items
+  // Building options after the whole queue keeps the drawn verbs — and the locked
+  // seeded-queue test — independent of how many random numbers each option set uses.
+  return drawn.map((item) => ({
+    ...item,
+    options: buildVocabularyOptions(item.verb, rng),
+  }))
 }
 
 /** One drawable conjugation item before it becomes part of the queue. */
@@ -96,17 +87,6 @@ interface Unit {
   verb: Verb
   tense: TenseId
   person: Person
-}
-
-function shuffle<T>(items: T[], rng: Rng): T[] {
-  for (let index = items.length - 1; index > 0; index -= 1) {
-    const swap = Math.floor(rng() * (index + 1))
-    const current = items[index]!
-    items[index] = items[swap]!
-    items[swap] = current
-  }
-
-  return items
 }
 
 /**

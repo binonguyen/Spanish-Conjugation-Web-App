@@ -4,12 +4,12 @@ import { personsForTense, type SessionConfig } from './session'
 import { makeVocabKey, type ProgressRecord } from '../store/types'
 import {
   buildQueue,
-  createRng,
   unitWeight,
   type ConjugationItem,
   type Item,
   type ProgressLookup,
 } from './draw'
+import { createRng } from './random'
 import { poolVerbs } from './verbPool'
 
 function config(overrides: Partial<SessionConfig> = {}): SessionConfig {
@@ -211,5 +211,21 @@ describe('vocabulary draw', () => {
 
     expect(again.map((item) => item.key)).toEqual(first.map((item) => item.key))
     expect(other.map((item) => item.key)).not.toEqual(first.map((item) => item.key))
+  })
+
+  it('gives every vocabulary item four gloss options with its own gloss as the one correct answer', () => {
+    const queue = buildQueue(
+      config({ mode: 'vocabulary', tenses: [], length: 20 }),
+      {},
+      createRng(13),
+    )
+
+    for (const item of queue) {
+      if (item.mode !== 'vocabulary') throw new Error(`wrong item mode ${item.mode}`)
+
+      expect(item.options).toHaveLength(4)
+      expect(item.options.filter((option) => option.correct)).toHaveLength(1)
+      expect(item.options.find((option) => option.correct)?.gloss).toBe(item.verb.gloss)
+    }
   })
 })

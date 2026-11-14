@@ -5,10 +5,18 @@ import { canonicalVerb, normalizeInfinitive } from './verbs'
 /** How many suggestions the hand-add search offers at once. */
 export const SEARCH_LIMIT = 8
 
-/** The artifact's verbs in a tier, in frequency order. */
+/** The session's pool for a tier: the top 100 for tier 1, everything for tier 2 and up. */
 export function verbsForTier(tier: VerbTier): Verb[] {
   if (tier === 'all') return [...verbArtifact.verbs]
   return verbArtifact.verbs.filter((verb) => verb.tier === 1 || verb.tier === tier)
+}
+
+/**
+ * The artifact's verbs whose own tier is exactly this one. `verbsForTier` is the
+ * cumulative session pool; this is the band a vocabulary distractor must match.
+ */
+export function verbsInTier(tier: 1 | 2): Verb[] {
+  return verbArtifact.verbs.filter((verb) => verb.tier === tier)
 }
 
 /**

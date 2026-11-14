@@ -8,11 +8,8 @@ import {
 import { ACCENT_BAR, applyDeadKey, insertAt, type DeadKey } from '../domain/accents'
 import type { Verdict } from '../domain/check'
 import {
-  atRoundEnd,
   currentItem,
   currentVerdict,
-  roundLength,
-  startsReview,
   type DrillAction,
   type DrillState,
 } from '../domain/drill'
@@ -20,6 +17,14 @@ import type { ConjugationItem } from '../domain/draw'
 import { acceptedForms, paradigm } from '../domain/forms'
 import { personLabel, subjectPronoun } from '../domain/session'
 import { tenseById } from '../domain/tenses'
+import {
+  advanceLabel,
+  DrillHeader,
+  ExampleSentenceBlock,
+  ReviewBanner,
+  useEndConfirmation,
+} from './DrillChrome'
+import { VocabularyDrill } from './VocabularyDrill'
 
 interface DrillScreenProps {
   /** The session being drilled; null until the builder starts one. */
@@ -65,11 +70,12 @@ export function DrillScreen({
 
   if (item.mode === 'vocabulary') {
     return (
-      <DrillPlaceholder
-        title="Vocabulary check"
-        text="Vocabulary checks are not available yet. Switch to Conjugation mode to drill forms."
-        actionLabel="Go to Builder"
-        onAction={onOpenBuilder}
+      <VocabularyDrill
+        key={`${state.inReview ? 'review' : 'main'}-${state.index}`}
+        item={item}
+        state={state}
+        dispatch={dispatch}
+        notice={notice}
       />
     )
   }
@@ -127,20 +133,13 @@ function ConjugationDrill({
   /** Set by an accent or dead-key insert, applied once React has painted the new value. */
   const pendingCaret = useRef<number | null>(null)
   const [deadKey, setDeadKey] = useState<DeadKey | null>(null)
-  const [confirmingEnd, setConfirmingEnd] = useState(false)
+  const end = useEndConfirmation(() => dispatch({ type: 'end' }))
 
   const revealed = state.phase === 'revealed'
   const verdict = currentVerdict(state)
   const accepted = acceptedForms(item.verb, item.tense, item.person)
   const rows = paradigm(item.verb, item.tense, vosotros)
   const sentence = item.verb.sentence
-  const lastItem = atRoundEnd(state)
-  const roundTotal = roundLength(state)
-  const advanceLabel = startsReview(state)
-    ? 'Start review'
-    : lastItem
-      ? 'See results'
-      : 'Next item'
   const person = personLabel(item.tense, item.person)
   const subject = subjectPronoun(item.tense, item.person)
 
@@ -157,8 +156,8 @@ function ConjugationDrill({
 
   // Cancel a confirmation without losing the caret: the button that had focus is gone.
   useEffect(() => {
-    if (!confirmingEnd) inputRef.current?.focus()
-  }, [confirmingEnd])
+    if (!end.confirmingEnd) inputRef.current?.focus()
+  }, [end.confirmingEnd])
 
   function insert(text: string) {
     const input = inputRef.current
@@ -212,69 +211,22 @@ function ConjugationDrill({
     if (event.key !== 'Escape') return
 
     setDeadKey(null)
-    if (confirmingEnd) {
+    if (end.confirmingEnd) {
       event.preventDefault()
-      setConfirmingEnd(false)
+      end.cancelEnd()
     }
   }
 
   return (
     <section className="screen drill" onKeyDown={handleSectionKeyDown}>
-      <header className="drill-header">
-        <div className="drill-status">
-          <p
-            className="drill-progress"
-            aria-label={
-              state.inReview
-                ? `Review item ${state.index + 1} of ${roundTotal}`
-                : `Item ${state.index + 1} of ${state.items.length}`
-            }
-          >
-            <span className="drill-count">
-              {state.inReview
-                ? `Review ${state.index + 1} / ${roundTotal}`
-                : `${state.index + 1} / ${state.items.length}`}
-            </span>
-            <span className="drill-tense">{tense ? tense.label : item.tense}</span>
-          </p>
-          {notice ? (
-            <p className="field-note" role="status">
-              {notice}
-            </p>
-          ) : null}
-        </div>
+      <DrillHeader
+        state={state}
+        modeLabel={tense ? tense.label : item.tense}
+        notice={notice}
+        end={end}
+      />
 
-        <div className="drill-end">
-          {confirmingEnd ? (
-            <div className="end-confirm" role="group" aria-label="End session">
-              <p className="field-note">End this session now? Unanswered items are not counted.</p>
-              <div className="end-actions">
-                <button
-                  type="button"
-                  className="danger-button"
-                  onClick={() => dispatch({ type: 'end' })}
-                >
-                  End now
-                </button>
-                <button type="button" autoFocus onClick={() => setConfirmingEnd(false)}>
-                  Keep going
-                </button>
-              </div>
-            </div>
-          ) : (
-            <button type="button" className="ghost-button" onClick={() => setConfirmingEnd(true)}>
-              End session
-            </button>
-          )}
-        </div>
-      </header>
-
-      {state.inReview ? (
-        <p className="review-banner" role="status">
-          Review round — {state.reviewItems.length}{' '}
-          {state.reviewItems.length === 1 ? 'item comes' : 'items come'} back once more.
-        </p>
-      ) : null}
+      <ReviewBanner state={state} />
 
       <div className="drill-prompt">
         <p className="drill-verb">
@@ -365,24 +317,7 @@ function ConjugationDrill({
             </p>
           ) : null}
 
-          {sentence ? (
-            <figure className="example">
-              <blockquote lang="es">{sentence.es}</blockquote>
-              <figcaption>
-                <span lang="en">{sentence.en}</span>
-                <span className="sentence-credit">
-                  <a
-                    href={`https://tatoeba.org/en/sentences/show/${sentence.id}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Tatoeba #{sentence.id}
-                  </a>{' '}
-                  · {sentence.author}
-                </span>
-              </figcaption>
-            </figure>
-          ) : null}
+          {sentence ? <ExampleSentenceBlock sentence={sentence} /> : null}
 
           <details className="paradigm">
             <summary>Show table</summary>
@@ -407,7 +342,7 @@ function ConjugationDrill({
 
           <div className="reveal-actions">
             <button type="button" className="start-button" onClick={() => dispatch({ type: 'advance' })}>
-              {advanceLabel}
+              {advanceLabel(state)}
               <kbd className="key-hint">Enter</kbd>
             </button>
           </div>

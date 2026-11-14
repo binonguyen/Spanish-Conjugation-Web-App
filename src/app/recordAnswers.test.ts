@@ -1,7 +1,7 @@
 import { IDBFactory } from 'fake-indexeddb'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import type { DrillAnswer } from '../domain/drill'
-import { createStore, makeProgressKey, type LocalStore } from '../store/store'
+import { createStore, makeProgressKey, makeVocabKey, type LocalStore } from '../store/store'
 import { recordAnswers } from './recordAnswers'
 
 let store: LocalStore
@@ -33,6 +33,19 @@ describe('recording a drill', () => {
       'hablar|presente|yo': { attempts: 1, wrong: 0, accent: 0 },
       'hablar|preterito_indefinido|yo': { attempts: 1, wrong: 0, accent: 1 },
       'hablar|presente|tu': { attempts: 1, wrong: 1, accent: 0 },
+    })
+  })
+
+  it('records a vocabulary check under the reserved vocab key with no accent count', async () => {
+    await recordAnswers(store, [
+      { key: makeVocabKey('hablar'), verdict: 'wrong', input: 'to see' },
+      { key: makeVocabKey('hablar'), verdict: 'correct', input: 'to speak, talk' },
+    ])
+
+    expect(await store.getProgress(makeVocabKey('hablar'))).toEqual({
+      attempts: 2,
+      wrong: 1,
+      accent: 0,
     })
   })
 

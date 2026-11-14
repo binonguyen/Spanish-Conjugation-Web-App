@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { ConjugationItem } from './draw'
+import type { ConjugationItem, VocabularyItem } from './draw'
 import {
   atRoundEnd,
   currentItem,
@@ -10,10 +10,12 @@ import {
   startsReview,
   type DrillState,
 } from './drill'
+import { createRng } from './random'
 import type { Person } from './session'
 import type { TenseId } from './tenses'
+import { buildVocabularyOptions, correctOption } from './vocab'
 import { canonicalVerb } from './verbs'
-import { makeProgressKey } from '../store/types'
+import { makeProgressKey, makeVocabKey } from '../store/types'
 
 function item(infinitive: string, tense: TenseId, person: Person): ConjugationItem {
   const verb = canonicalVerb(infinitive)
@@ -25,6 +27,18 @@ function item(infinitive: string, tense: TenseId, person: Person): ConjugationIt
     tense,
     person,
     key: makeProgressKey(infinitive, tense, person),
+  }
+}
+
+function vocabularyItem(infinitive: string): VocabularyItem {
+  const verb = canonicalVerb(infinitive)
+  if (!verb) throw new Error(`missing fixture verb ${infinitive}`)
+
+  return {
+    mode: 'vocabulary',
+    verb,
+    key: makeVocabKey(infinitive),
+    options: buildVocabularyOptions(verb, createRng(1)),
   }
 }
 
@@ -135,6 +149,56 @@ describe('verdict records', () => {
 
     expect(drillReducer(twice, { type: 'advance' })).toBe(twice)
     expect(twice.answers).toHaveLength(1)
+  })
+})
+
+describe('vocabulary check', () => {
+  const target = vocabularyItem('hablar')
+  const correct = correctOption(target.options)!
+  const distractor = target.options.find((option) => !option.correct)!
+
+  it('reveals a correct verdict for the target gloss and records the reserved vocab key', () => {
+    const state = answer(startDrill([target]), correct.gloss)
+
+    expect(state.phase).toBe('revealed')
+    expect(currentVerdict(state)).toBe('correct')
+    expect(state.answers).toEqual([
+      { key: makeVocabKey('hablar'), verdict: 'correct', input: correct.gloss },
+    ])
+  })
+
+  it('reveals a wrong verdict for a distractor gloss without counting an accent', () => {
+    const state = answer(startDrill([target]), distractor.gloss)
+
+    expect(state.phase).toBe('revealed')
+    expect(currentVerdict(state)).toBe('wrong')
+    expect(state.answers).toEqual([
+      { key: makeVocabKey('hablar'), verdict: 'wrong', input: distractor.gloss },
+    ])
+  })
+
+  it('records a skipped vocabulary item as wrong with an empty input', () => {
+    const state = drillReducer(startDrill([target]), { type: 'dont-know' }) as DrillState
+
+    expect(state.phase).toBe('revealed')
+    expect(currentVerdict(state)).toBe('wrong')
+    expect(state.answers).toEqual([
+      { key: makeVocabKey('hablar'), verdict: 'wrong', input: '' },
+    ])
+  })
+
+  it('sends a missed vocabulary item to the review round, once', () => {
+    let state = startDrill([target])
+
+    state = nextItem(answer(state, distractor.gloss))
+    expect(state.inReview).toBe(true)
+    expect(state.reviewItems.map((reviewItem) => reviewItem.key)).toEqual([
+      makeVocabKey('hablar'),
+    ])
+
+    state = nextItem(answer(state, correct.gloss))
+    expect(state.phase).toBe('finished')
+    expect(state.answers.map((answer) => answer.verdict)).toEqual(['wrong', 'correct'])
   })
 })
 
