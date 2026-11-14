@@ -30,5 +30,5 @@ Do not add a router: the app is a single state machine, and client-side routes n
 
 - Implemented. Vite 8 + React 19 + TS 7 (`strict`, `noUncheckedIndexedAccess`), Vitest with one passing test, scripts `dev`/`build`/`preview`/`typecheck`/`test`, `.github/workflows/ci.yml` (verify on push and PR, deploy `dist/` to Pages from `main`), `base` set to `/Spanish-Conjugation-Web-App/`, and a placeholder shell with Builder / Drill / Results / Stats stubs.
 - Local branch renamed `master` → `main` to match the deploy gate; `main` pushed and tracking `origin/main` (remote `master` left in place).
-- Remaining human step (not verifiable from the repo): make `main` the default branch and set Settings → Pages → Source to "GitHub Actions", then confirm the deployed page shows the stub shell.
+- Deployed and verified at https://binonguyen.github.io/Spanish-Conjugation-Web-App/ — the stub shell loads under the `/Spanish-Conjugation-Web-App/` base path and the nav switches screens.
 
