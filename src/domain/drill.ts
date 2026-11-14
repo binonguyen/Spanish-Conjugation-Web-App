@@ -15,8 +15,13 @@ export interface DrillAnswer {
 }
 
 export interface DrillState {
+  /** The main round's queue, drawn for the session. */
   items: readonly Item[]
-  /** Position of the item being asked or revealed. */
+  /** Items missed in the main round, in the order they were missed; each is asked once more. */
+  reviewItems: readonly Item[]
+  /** Whether the item on screen comes from `reviewItems` rather than `items`. */
+  inReview: boolean
+  /** Position of the item being asked or revealed within its round. */
   index: number
   phase: DrillPhase
   /** The text in the answer field; kept through the reveal so it can be shown struck through. */
@@ -36,6 +41,8 @@ export type DrillAction =
 export function startDrill(items: readonly Item[]): DrillState {
   return {
     items,
+    reviewItems: [],
+    inReview: false,
     index: 0,
     phase: items.length === 0 ? 'finished' : 'asking',
     input: '',
@@ -43,8 +50,25 @@ export function startDrill(items: readonly Item[]): DrillState {
   }
 }
 
+/** The item on screen, from the main round or the review round. */
 export function currentItem(state: DrillState): Item | undefined {
-  return state.items[state.index]
+  const round = state.inReview ? state.reviewItems : state.items
+  return round[state.index]
+}
+
+/** How many items the round on screen asks. */
+export function roundLength(state: DrillState): number {
+  return state.inReview ? state.reviewItems.length : state.items.length
+}
+
+/** The last item of the round on screen is revealed. */
+export function atRoundEnd(state: DrillState): boolean {
+  return state.index >= roundLength(state) - 1
+}
+
+/** Advancing from this reveal starts the review round rather than finishing. */
+export function startsReview(state: DrillState): boolean {
+  return !state.inReview && atRoundEnd(state) && state.reviewItems.length > 0
 }
 
 /** The verdict of the item on screen, while its reveal is showing. */
@@ -67,9 +91,17 @@ function reveal(state: DrillState, verdict: Verdict, input: string): DrillState 
   const item = currentItem(state)
   if (!item) return { ...state, phase: 'finished' }
 
+  // A miss in the main round earns one place in the review round. A miss during the
+  // review itself is recorded but never requeued again.
+  const missed =
+    !state.inReview &&
+    verdict !== 'correct' &&
+    !state.reviewItems.some((reviewItem) => reviewItem.key === item.key)
+
   return {
     ...state,
     phase: 'revealed',
+    reviewItems: missed ? [...state.reviewItems, item] : state.reviewItems,
     answers: [...state.answers, { key: item.key, verdict, input }],
   }
 }
@@ -92,7 +124,10 @@ export function drillReducer(
     case 'submit': {
       if (state.phase !== 'asking' || state.input.trim() === '') return state
 
-      const verdict = verdictFor(state.items[state.index]!, state.input)
+      const item = currentItem(state)
+      if (!item) return state
+
+      const verdict = verdictFor(item, state.input)
       return verdict ? reveal(state, verdict, state.input) : state
     }
 
@@ -106,9 +141,18 @@ export function drillReducer(
       if (state.phase !== 'revealed') return state
 
       const index = state.index + 1
-      return index >= state.items.length
-        ? { ...state, phase: 'finished' }
-        : { ...state, index, phase: 'asking', input: '' }
+      if (state.inReview) {
+        return index >= state.reviewItems.length
+          ? { ...state, phase: 'finished' }
+          : { ...state, index, phase: 'asking', input: '' }
+      }
+
+      if (index < state.items.length) return { ...state, index, phase: 'asking', input: '' }
+
+      // The main round is over: ask every missed item once more before results.
+      return state.reviewItems.length > 0
+        ? { ...state, inReview: true, index: 0, phase: 'asking', input: '' }
+        : { ...state, phase: 'finished' }
     }
 
     case 'end':

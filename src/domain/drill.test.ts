@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest'
 import type { ConjugationItem } from './draw'
-import { currentVerdict, drillReducer, startDrill, type DrillState } from './drill'
+import {
+  atRoundEnd,
+  currentItem,
+  currentVerdict,
+  drillReducer,
+  roundLength,
+  startDrill,
+  startsReview,
+  type DrillState,
+} from './drill'
 import type { Person } from './session'
 import type { TenseId } from './tenses'
 import { canonicalVerb } from './verbs'
@@ -110,10 +119,9 @@ describe('verdict records', () => {
 
     state = nextItem(answer(state, 'hablo')) // presente yo: correct
     state = nextItem(answer(state, 'hable')) // pretérito indefinido yo is hablé: accent-only
-    state = nextItem(answer(state, 'habla')) // presente tú is hablas: wrong
-    state = nextItem(state)
+    state = answer(state, 'habla') // presente tú is hablas: wrong, still revealed
 
-    expect(state.phase).toBe('finished')
+    expect(state.phase).toBe('revealed')
     expect(state.answers).toEqual([
       { key: 'hablar|presente|yo', verdict: 'correct', input: 'hablo' },
       { key: 'hablar|preterito_indefinido|yo', verdict: 'accent-only', input: 'hable' },
@@ -127,6 +135,95 @@ describe('verdict records', () => {
 
     expect(drillReducer(twice, { type: 'advance' })).toBe(twice)
     expect(twice.answers).toHaveLength(1)
+  })
+})
+
+describe('review round', () => {
+  it('asks missed items once more, in the order they were missed', () => {
+    let state = startDrill(threeItems)
+
+    state = nextItem(answer(state, 'habla')) // presente yo: wrong
+    state = nextItem(answer(state, 'hable')) // pretérito yo: accent-only
+    state = answer(state, 'hablas') // presente tú: correct
+    expect(state.phase).toBe('revealed')
+
+    state = nextItem(state)
+    expect(state.inReview).toBe(true)
+    expect(state.reviewItems.map((item) => item.key)).toEqual([
+      'hablar|presente|yo',
+      'hablar|preterito_indefinido|yo',
+    ])
+    expect(currentItem(state)?.key).toBe('hablar|presente|yo')
+
+    state = nextItem(answer(state, 'hablo'))
+    expect(currentItem(state)?.key).toBe('hablar|preterito_indefinido|yo')
+    state = nextItem(answer(state, 'hablé'))
+
+    expect(state.phase).toBe('finished')
+    expect(state.answers.map((answer) => answer.key)).toEqual([
+      'hablar|presente|yo',
+      'hablar|preterito_indefinido|yo',
+      'hablar|presente|tu',
+      'hablar|presente|yo',
+      'hablar|preterito_indefinido|yo',
+    ])
+  })
+
+  it('checks a review answer against the review item, not the main item at that index', () => {
+    let state = startDrill(threeItems)
+
+    state = nextItem(answer(state, 'hablo')) // presente yo: correct
+    state = nextItem(answer(state, 'habla')) // pretérito yo: wrong
+    state = nextItem(answer(state, 'hablas')) // presente tú: correct, into review
+
+    expect(state.inReview).toBe(true)
+    expect(currentItem(state)?.key).toBe('hablar|preterito_indefinido|yo')
+
+    // Main index 0 is presente yo; this answer is only right for the review item.
+    state = answer(state, 'hablé')
+    expect(currentVerdict(state)).toBe('correct')
+  })
+
+  it('finishes a clean round without a review', () => {
+    let state = startDrill(threeItems)
+
+    state = nextItem(answer(state, 'hablo'))
+    state = nextItem(answer(state, 'hablé'))
+    state = nextItem(answer(state, 'hablas'))
+
+    expect(state.phase).toBe('finished')
+    expect(state.reviewItems).toEqual([])
+    expect(state.inReview).toBe(false)
+  })
+
+  it('does not requeue a mistake made during the review round', () => {
+    let state = startDrill([threeItems[0]!])
+
+    state = nextItem(answer(state, 'habla')) // wrong in the main round
+    expect(state.inReview).toBe(true)
+    expect(roundLength(state)).toBe(1)
+
+    state = nextItem(answer(state, 'habla')) // wrong again in review
+    expect(state.phase).toBe('finished')
+    expect(state.reviewItems).toHaveLength(1)
+    expect(state.answers).toHaveLength(2)
+  })
+
+  it('lets an explicit end skip the review round', () => {
+    const missed = answer(startDrill([threeItems[0]!]), 'habla')
+    expect(missed.reviewItems).toHaveLength(1)
+
+    const ended = drillReducer(missed, { type: 'end' }) as DrillState
+    expect(ended.phase).toBe('finished')
+    expect(ended.answers).toHaveLength(1)
+  })
+
+  it('reports the last main item as the point where review starts', () => {
+    const missed = answer(startDrill([threeItems[0]!]), 'habla')
+
+    expect(atRoundEnd(missed)).toBe(true)
+    expect(startsReview(missed)).toBe(true)
+    expect(startsReview(answer(startDrill([threeItems[0]!]), 'hablo'))).toBe(false)
   })
 })
 

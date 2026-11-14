@@ -7,7 +7,15 @@ import {
 } from 'react'
 import { ACCENT_BAR, applyDeadKey, insertAt, type DeadKey } from '../domain/accents'
 import type { Verdict } from '../domain/check'
-import { currentItem, currentVerdict, type DrillAction, type DrillState } from '../domain/drill'
+import {
+  atRoundEnd,
+  currentItem,
+  currentVerdict,
+  roundLength,
+  startsReview,
+  type DrillAction,
+  type DrillState,
+} from '../domain/drill'
 import type { ConjugationItem } from '../domain/draw'
 import { acceptedForms, paradigm } from '../domain/forms'
 import { personLabel, subjectPronoun } from '../domain/session'
@@ -68,7 +76,7 @@ export function DrillScreen({
 
   return (
     <ConjugationDrill
-      key={state.index}
+      key={`${state.inReview ? 'review' : 'main'}-${state.index}`}
       item={item}
       state={state}
       dispatch={dispatch}
@@ -126,7 +134,13 @@ function ConjugationDrill({
   const accepted = acceptedForms(item.verb, item.tense, item.person)
   const rows = paradigm(item.verb, item.tense, vosotros)
   const sentence = item.verb.sentence
-  const lastItem = state.index >= state.items.length - 1
+  const lastItem = atRoundEnd(state)
+  const roundTotal = roundLength(state)
+  const advanceLabel = startsReview(state)
+    ? 'Start review'
+    : lastItem
+      ? 'See results'
+      : 'Next item'
   const person = personLabel(item.tense, item.person)
   const subject = subjectPronoun(item.tense, item.person)
 
@@ -208,9 +222,18 @@ function ConjugationDrill({
     <section className="screen drill" onKeyDown={handleSectionKeyDown}>
       <header className="drill-header">
         <div className="drill-status">
-          <p className="drill-progress" aria-label={`Item ${state.index + 1} of ${state.items.length}`}>
+          <p
+            className="drill-progress"
+            aria-label={
+              state.inReview
+                ? `Review item ${state.index + 1} of ${roundTotal}`
+                : `Item ${state.index + 1} of ${state.items.length}`
+            }
+          >
             <span className="drill-count">
-              {state.index + 1} / {state.items.length}
+              {state.inReview
+                ? `Review ${state.index + 1} / ${roundTotal}`
+                : `${state.index + 1} / ${state.items.length}`}
             </span>
             <span className="drill-tense">{tense ? tense.label : item.tense}</span>
           </p>
@@ -245,6 +268,13 @@ function ConjugationDrill({
           )}
         </div>
       </header>
+
+      {state.inReview ? (
+        <p className="review-banner" role="status">
+          Review round — {state.reviewItems.length}{' '}
+          {state.reviewItems.length === 1 ? 'item comes' : 'items come'} back once more.
+        </p>
+      ) : null}
 
       <div className="drill-prompt">
         <p className="drill-verb">
@@ -377,7 +407,7 @@ function ConjugationDrill({
 
           <div className="reveal-actions">
             <button type="button" className="start-button" onClick={() => dispatch({ type: 'advance' })}>
-              {lastItem ? 'See results' : 'Next item'}
+              {advanceLabel}
               <kbd className="key-hint">Enter</kbd>
             </button>
           </div>

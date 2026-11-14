@@ -86,6 +86,7 @@ A session has one **mode**, fixed for its whole length — conjugation or vocabu
   - `weight = (attempts === 0 ? 4 : 1) * (1 + 3 * wrongRatio)`, sampled without replacement.
   - Interleaved across tenses; no verb repeated within 3 items.
   - Seeded RNG so the queue is testable.
+- **Review round**: after the main queue, every item missed in it (`wrong` or `accent-only`) is asked once more, in the order it was missed. Review answers are ordinary attempts written to the store; a miss during review is recorded but not asked a third time. The main queue still has the configured `length`; review items are extra. An explicit early end skips the rest of both rounds.
 - Endable early; a session always ends in results.
 
 ### Conjugation drill
@@ -129,8 +130,8 @@ Import replaces (with confirmation), never merges — merging silently corrupts 
 Four states in one page component, no router (avoids GitHub Pages SPA 404 handling): **Builder → Drill → Results**, plus **Stats** and a **Settings** sheet.
 
 - **Builder**: mode switch first, then the controls mode needs — tense checkboxes by mood (conjugation only), verb tier, search-to-add, length, start.
-- **Drill**: prompt, accent bar (`á é í ó ú ü ñ` — tap or dead-key), verdict, reveal, progress `n/20`, end-early.
-- **Results**: score, accent-only count, per-tense breakdown for the session (conjugation mode), verbs missed.
+- **Drill**: prompt, accent bar (`á é í ó ú ü ñ` — tap or dead-key), verdict, reveal, progress `n/20` (then `Review n/m`), end-early.
+- **Results**: score, accent-only count, per-tense breakdown for the session (conjugation mode), verbs missed, and the review round's outcome. The main round and the review round are reported separately, so a repeated item cannot inflate the first-try score.
 - **Stats**: accuracy per tense across all history, accent-error rate, vocabulary accuracy, three most-missed verbs.
 - **Settings**: vosotros (default off), archaic tenses, default mode, default length, default selection, export/import, reset.
 
@@ -148,6 +149,6 @@ Tests worth having: table-driven checker cases, data-fixture assertions, seeded 
 
 - **Gloss join quality**: `conjugator` glosses are per-verb and sometimes join several senses; some will read awkwardly. Review the top 100 by hand.
 - **Verb list intersection**: joining a frequency list against a conjugator's verb list will drop a few common verbs, including some irregular ones; assert coverage for a top-100 must-have set.
-- **Tatoeba sense mismatch**: the example sentence may use a different sense of the verb than the gloss. Acceptable for v1; the sentence is colour, not assessment.
+- **Tatoeba sense or tense mismatch**: the example sentence may use a different sense of the verb than the gloss, and it is one sentence per verb rather than one per tense, so it can illustrate a different tense from the drill. Acceptable for v1; the sentence is vocabulary colour, not a model of the asked form.
 - **Weighting over-fits**: with 20 items per session, error weighting can feel like punishment; watch for it after a week of real use.
 - **Impersonal verbs**: `llover`, `nevar` and `tronar` are in the top 500, and the artifact fills all six person slots because person availability is per tense. Their `yo`/`tú` forms are grammatical but rarely useful; they sit in tier 2, and a future availability flag can hide them if drills feel wrong.

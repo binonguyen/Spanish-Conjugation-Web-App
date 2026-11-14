@@ -17,7 +17,7 @@ The set of verbs a session may draw from: a frequency tier (top 100 / top 500 / 
 _Avoid_: Deck, library, word list
 
 **Example sentence**:
-One short Tatoeba pair — a Spanish sentence containing a form of the verb, its English translation, and the Tatoeba id and author that credit it. Shown only on the reveal; a verb with no suitable pair simply has none.
+One short Tatoeba pair — a Spanish sentence containing a form of the verb, its English translation, and the Tatoeba id and author that credit it. Shown only on the reveal; it need not use the drilled tense, and a verb with no suitable pair simply has none.
 _Avoid_: Quote, sample, example
 
 **Tense**:
@@ -30,6 +30,10 @@ A grammatical slot in a paradigm — first/second/third person, singular/plural 
 **Session**:
 One practice run, assembled from a tense selection plus a verb pool and ended by the learner. Progress lives at the level of individual tense–verb pairs; a session is just the order they are served in.
 _Avoid_: Test, quiz, lesson, round
+
+**Review round**:
+The second pass over items missed in a session's main round, asked once each after the main queue. A miss during review is recorded but not asked again.
+_Avoid_: Repetition, retry, recap
 
 **Verdict**:
 The outcome of one item: _correct_, _accent-only_ (the right form without its accent marks) or _wrong_. Accent-only counts as correct in the session score and is tracked separately, because a missing accent is a different mistake from the wrong form.

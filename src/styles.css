@@ -505,6 +505,15 @@ p {
   justify-items: end;
 }
 
+.review-banner {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 9%, var(--background));
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
 .end-confirm {
   display: grid;
   gap: 0.45rem;
