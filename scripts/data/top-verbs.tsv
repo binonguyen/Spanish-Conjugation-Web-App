@@ -1,0 +1,506 @@
+# Frequency-ordered verb lemmas for the trainer.
+# Source: fuzzy-logic/2000-verbos (MIT licence), data/verbs_*.tsv.
+# First occurrence of each single-word lemma; top 500. Curated additions have
+# no source rank. The fallback gloss is only used when conjugator has no entry.
+# rank	infinitive	source_rank	fallback English gloss
+1	ser	1	to be (permanent)
+2	haber	2	to have (auxiliary)
+3	estar	3	to be (state/location)
+4	tener	4	to have
+5	hacer	5	to do / to make
+6	poder	6	to be able to
+7	decir	7	to say
+8	ir	8	to go
+9	ver	9	to see
+10	dar	10	to give
+11	saber	11	to know (facts)
+12	querer	12	to want / to love
+13	llegar	13	to arrive
+14	pasar	14	to pass / to happen
+15	deber	15	to owe / must
+16	poner	16	to put
+17	parecer	17	to seem
+18	quedar	18	to stay / to remain
+19	creer	19	to believe
+20	hablar	20	to speak
+21	llevar	21	to carry / to take
+22	dejar	22	to leave / to let
+23	seguir	23	to follow / to continue
+24	encontrar	24	to find
+25	llamar	25	to call
+26	venir	26	to come
+27	pensar	27	to think
+28	salir	28	to leave / to go out
+29	volver	29	to return
+30	tomar	30	to take / to drink
+31	conocer	31	to know (people/places)
+32	vivir	32	to live
+33	sentir	33	to feel
+34	tratar	34	to try / to treat
+35	mirar	35	to look / to watch
+36	contar	36	to count / to tell
+37	empezar	37	to begin
+38	esperar	38	to wait / to hope
+39	buscar	39	to look for
+40	existir	40	to exist
+41	entrar	41	to enter
+42	trabajar	42	to work
+43	escribir	43	to write
+44	perder	44	to lose
+45	producir	45	to produce
+46	ocurrir	46	to occur
+47	entender	47	to understand
+48	pedir	48	to ask for
+49	recibir	49	to receive
+50	recordar	50	to remember
+51	terminar	51	to finish
+52	permitir	52	to allow
+53	aparecer	53	to appear
+54	conseguir	54	to get / to obtain
+55	comenzar	55	to start
+56	servir	56	to serve / to be useful
+57	sacar	57	to take out
+58	necesitar	58	to need
+59	mantener	59	to maintain
+60	resultar	60	to turn out
+61	leer	61	to read
+62	caer	62	to fall
+63	cambiar	63	to change
+64	presentar	64	to present / to introduce
+65	crear	65	to create
+66	abrir	66	to open
+67	considerar	67	to consider
+68	oír	68	to hear
+69	acabar	69	to finish / to have just
+70	convertir	70	to convert / to turn into
+71	ganar	71	to win / to earn
+72	formar	72	to form
+73	traer	73	to bring
+74	partir	74	to leave / to split
+75	morir	75	to die
+76	aceptar	76	to accept
+77	realizar	77	to carry out
+78	suponer	78	to suppose
+79	comprender	79	to understand
+80	lograr	80	to manage to
+81	explicar	81	to explain
+82	preguntar	82	to ask
+83	tocar	83	to touch / to play
+84	reconocer	84	to recognise
+85	estudiar	85	to study
+86	alcanzar	86	to reach / to be enough
+87	nacer	87	to be born
+88	dirigir	88	to direct
+89	correr	89	to run
+90	utilizar	90	to use
+91	pagar	91	to pay
+92	ayudar	92	to help
+93	gustar	93	to be pleasing (to like)
+94	jugar	94	to play
+95	escuchar	95	to listen
+96	cumplir	96	to fulfil / to turn (age)
+97	ofrecer	97	to offer
+98	descubrir	98	to discover
+99	levantar	99	to lift / to raise
+100	intentar	100	to try
+101	usar	101	to use
+102	decidir	102	to decide
+103	repetir	103	to repeat
+104	olvidar	104	to forget
+105	valer	105	to be worth
+106	comer	106	to eat
+107	mostrar	107	to show
+108	incluir	108	to include
+109	continuar	109	to continue
+110	cerrar	110	to close
+111	comprar	111	to buy
+112	vender	112	to sell
+113	subir	113	to go up
+114	bajar	114	to go down
+115	caminar	115	to walk
+116	dormir	116	to sleep
+117	despertar	117	to wake up
+118	bañar	118	to bathe
+119	lavar	119	to wash
+120	cocinar	120	to cook
+121	limpiar	121	to clean
+122	manejar	122	to drive
+123	viajar	123	to travel
+124	visitar	124	to visit
+125	invitar	125	to invite
+126	bailar	126	to dance
+127	cantar	127	to sing
+128	reír	128	to laugh
+129	llorar	129	to cry
+130	gritar	130	to shout
+131	contestar	131	to answer
+132	responder	132	to respond
+133	saludar	133	to greet
+134	agradecer	134	to thank
+135	disculpar	135	to excuse
+136	perdonar	136	to forgive
+137	prometer	137	to promise
+138	mentir	138	to lie
+139	pelear	139	to fight
+140	discutir	140	to argue
+141	enojar	141	to get angry
+142	preocupar	142	to worry
+143	asustar	143	to frighten
+144	alegrar	144	to make glad
+145	extrañar	145	to miss
+146	amar	146	to love
+147	odiar	147	to hate
+148	preferir	148	to prefer
+149	elegir	149	to choose
+150	faltar	153	to be lacking
+151	sobrar	154	to be left over
+152	bastar	155	to be enough
+153	durar	156	to last
+154	tardar	157	to take time
+155	apurar	158	to hurry
+156	parar	159	to stop
+157	empujar	161	to push
+158	tirar	162	to pull / to throw
+159	agarrar	163	to grab
+160	soltar	164	to let go
+161	abrazar	166	to hug
+162	besar	167	to kiss
+163	notar	169	to notice
+164	observar	170	to observe
+165	fijar	171	to fix / to notice
+166	imaginar	172	to imagine
+167	soñar	173	to dream
+168	desear	174	to wish
+169	soportar	175	to put up with
+170	disfrutar	176	to enjoy
+171	descansar	177	to rest
+172	relajar	178	to relax
+173	divertir	179	to have fun
+174	aburrir	180	to bore
+175	cansar	181	to tire
+176	enfermar	182	to get sick
+177	curar	183	to heal
+178	doler	184	to hurt
+179	sanar	185	to recover
+180	criar	186	to raise
+181	crecer	187	to grow
+182	envejecer	188	to grow old
+183	casar	189	to marry
+184	separar	190	to separate
+185	surgir	191	to arise
+186	construir	192	to build
+187	romper	193	to break
+188	arreglar	194	to fix
+189	funcionar	195	to work (function)
+190	andar	197	to go / to be
+191	probar	199	to try / to taste
+192	planear	202	to plan
+193	organizar	203	to organise
+194	preparar	204	to prepare
+195	armar	205	to put together
+196	juntar	206	to gather
+197	reunir	207	to meet
+198	acompañar	208	to accompany
+199	charlar	212	to chat
+200	conversar	213	to converse
+201	avisar	215	to let know
+202	significar	217	to mean
+203	traducir	218	to translate
+204	pronunciar	219	to pronounce
+205	deletrear	221	to spell
+206	aprender	222	to learn
+207	enseñar	223	to teach
+208	practicar	224	to practise
+209	mejorar	225	to improve
+210	empeorar	226	to get worse
+211	corregir	227	to correct
+212	equivocar	228	to make a mistake
+213	fallar	229	to fail
+214	costar	231	to cost
+215	gastar	232	to spend
+216	ahorrar	233	to save
+217	prestar	234	to lend
+218	cobrar	236	to charge
+219	alquilar	237	to rent
+220	firmar	238	to sign
+221	entregar	239	to deliver
+222	recoger	240	to pick up
+223	enviar	242	to send
+224	mandar	243	to send
+225	devolver	245	to return
+226	guardar	246	to keep
+227	esconder	249	to hide
+228	desayunar	251	to have breakfast
+229	almorzar	252	to have lunch
+230	cenar	253	to have dinner
+231	merendar	254	to have an afternoon snack
+232	beber	255	to drink
+233	encender	256	to turn on
+234	apagar	257	to turn off
+235	prender	258	to switch on
+236	conectar	259	to connect
+237	cargar	260	to charge / to load
+238	descargar	261	to download
+239	instalar	262	to install
+240	borrar	263	to delete
+241	grabar	264	to record
+242	imprimir	265	to print
+243	actualizar	266	to update
+244	conducir	267	to drive
+245	estacionar	268	to park
+246	arrancar	269	to start (engine)
+247	frenar	270	to brake
+248	cruzar	271	to cross
+249	doblar	272	to turn
+250	regresar	273	to return
+251	despegar	274	to take off
+252	aterrizar	275	to land
+253	reservar	276	to book
+254	atender	277	to serve / to see to
+255	ordenar	278	to order / to tidy
+256	contratar	279	to hire
+257	renunciar	280	to resign
+258	jubilar	281	to retire
+259	negociar	282	to negotiate
+260	acordar	283	to agree
+261	facturar	284	to invoice
+262	prohibir	285	to forbid
+263	obligar	286	to force
+264	exigir	287	to demand
+265	sugerir	288	to suggest
+266	recomendar	289	to recommend
+267	aconsejar	290	to advise
+268	advertir	291	to warn
+269	informar	292	to inform
+270	anunciar	293	to announce
+271	confesar	294	to confess
+272	admitir	295	to admit
+273	negar	296	to deny
+274	rechazar	297	to reject
+275	dudar	298	to doubt
+276	confiar	299	to trust
+277	sospechar	300	to suspect
+278	acusar	301	to accuse
+279	culpar	302	to blame
+280	defender	303	to defend
+281	proteger	304	to protect
+282	cuidar	305	to look after
+283	controlar	306	to control
+284	obedecer	307	to obey
+285	respetar	308	to respect
+286	admirar	309	to admire
+287	criticar	310	to criticise
+288	felicitar	311	to congratulate
+289	celebrar	312	to celebrate
+290	festejar	313	to celebrate
+291	brindar	314	to toast
+292	analizar	315	to analyse
+293	investigar	316	to investigate
+294	averiguar	317	to find out
+295	comprobar	318	to check
+296	verificar	319	to verify
+297	confirmar	320	to confirm
+298	asegurar	321	to assure
+299	garantizar	322	to guarantee
+300	demostrar	323	to demonstrate
+301	aclarar	324	to clarify
+302	resumir	325	to summarise
+303	concluir	326	to conclude
+304	asumir	327	to assume
+305	emocionar	328	to move (emotionally)
+306	sorprender	329	to surprise
+307	impresionar	330	to impress
+308	decepcionar	331	to disappoint
+309	frustrar	332	to frustrate
+310	molestar	333	to bother
+311	fastidiar	334	to annoy
+312	calmar	335	to calm
+313	animar	336	to encourage
+314	apoyar	337	to support
+315	acostumbrar	338	to get used to
+316	adaptar	339	to adapt
+317	mudar	340	to move house
+318	establecer	342	to establish
+319	pertenecer	343	to belong
+320	depender	344	to depend
+321	importar	346	to matter
+322	interesar	347	to interest
+323	convenir	348	to suit / to be worth
+324	referir	350	to refer
+325	ocupar	351	to occupy
+326	llenar	352	to fill
+327	vaciar	353	to empty
+328	colgar	354	to hang
+329	meter	355	to put in
+330	mezclar	357	to mix
+331	cortar	358	to cut
+332	hervir	359	to boil
+333	freír	360	to fry
+334	calentar	361	to heat
+335	enfriar	362	to cool
+336	congelar	363	to freeze
+337	masticar	365	to chew
+338	tragar	366	to swallow
+339	pesar	368	to weigh
+340	medir	369	to measure
+341	sumar	371	to add
+342	restar	372	to subtract
+343	multiplicar	373	to multiply
+344	dividir	374	to divide
+345	repartir	375	to share out
+346	compartir	376	to share
+347	aprovechar	378	to make the most of
+348	desperdiciar	379	to waste
+349	caber	386	to fit
+350	acercar	388	to bring closer
+351	alejar	389	to move away
+352	acostar	390	to lie down
+353	sentar	392	to sit
+354	ponerse	396	to put on
+355	quitar	397	to take off
+356	vestir	398	to dress
+357	peinar	399	to comb
+358	afeitar	400	to shave
+359	llover	401	to rain
+360	nevar	402	to snow
+361	tronar	403	to thunder
+362	soplar	404	to blow
+363	amanecer	405	to dawn
+364	anochecer	406	to get dark
+365	inundar	407	to flood
+366	secar	408	to dry
+367	mojar	409	to get wet
+368	regar	410	to water
+369	sembrar	411	to sow
+370	cosechar	412	to harvest
+371	podar	413	to prune
+372	florecer	414	to bloom
+373	pudrir	416	to rot
+374	madurar	417	to ripen
+375	ladrar	418	to bark
+376	morder	419	to bite
+377	picar	420	to sting / to itch
+378	rascar	421	to scratch
+379	volar	422	to fly
+380	nadar	423	to swim
+381	pescar	424	to fish
+382	cazar	425	to hunt
+383	trepar	426	to climb
+384	saltar	427	to jump
+385	patear	428	to kick
+386	lanzar	429	to throw
+387	atrapar	430	to catch
+388	entrenar	431	to train
+389	competir	432	to compete
+390	empatar	433	to draw
+391	toser	434	to cough
+392	estornudar	435	to sneeze
+393	respirar	436	to breathe
+394	sudar	437	to sweat
+395	temblar	438	to shake
+396	sangrar	439	to bleed
+397	hinchar	440	to swell
+398	torcer	441	to twist
+399	recetar	442	to prescribe
+400	operar	443	to operate
+401	internar	444	to admit (hospital)
+402	depositar	445	to deposit
+403	retirar	446	to withdraw
+404	transferir	447	to transfer
+405	invertir	448	to invest
+406	tramitar	449	to process (paperwork)
+407	renovar	450	to renew
+408	vencer	451	to expire
+409	registrar	452	to register
+410	inscribir	453	to enrol
+411	certificar	454	to certify
+412	sellar	455	to stamp
+413	denunciar	456	to report (a crime)
+414	demandar	457	to sue
+415	juzgar	458	to judge
+416	heredar	459	to inherit
+417	poseer	460	to own
+418	adquirir	461	to acquire
+419	pintar	462	to paint
+420	clavar	463	to nail
+421	atornillar	464	to screw
+422	pegar	465	to stick / to glue
+423	soldar	466	to weld
+424	excavar	467	to dig
+425	demoler	468	to demolish
+426	reformar	469	to renovate
+427	decorar	470	to decorate
+428	programar	471	to program
+429	reiniciar	472	to restart
+430	respaldar	473	to back up
+431	restaurar	474	to restore
+432	navegar	475	to browse / to sail
+433	etiquetar	476	to tag
+434	bloquear	477	to block
+435	silenciar	478	to mute
+436	dibujar	479	to draw
+437	fotografiar	480	to photograph
+438	filmar	481	to film
+439	editar	482	to edit
+440	publicar	483	to publish
+441	componer	484	to compose
+442	ensayar	485	to rehearse
+443	actuar	486	to act
+444	interpretar	487	to interpret / to perform
+445	estrenar	488	to premiere / to use for the first time
+446	aplaudir	489	to applaud
+447	coquetear	490	to flirt
+448	enamorar	491	to fall in love
+449	divorciar	492	to divorce
+450	parir	493	to give birth
+451	adoptar	494	to adopt
+452	educar	495	to educate
+453	mimar	496	to spoil (a person)
+454	regañar	497	to tell off
+455	castigar	498	to punish
+456	premiar	499	to reward
+457	reflexionar	500	to reflect
+458	meditar	501	to meditate
+459	concentrar	502	to concentrate
+460	distraer	503	to distract
+461	confundir	504	to confuse
+462	deducir	505	to deduce
+463	predecir	506	to predict
+464	adivinar	507	to guess
+465	acertar	508	to get right
+466	avanzar	509	to advance
+467	retroceder	510	to go back
+468	girar	511	to turn / to spin
+469	rodear	512	to surround
+470	atravesar	513	to cross through
+471	recorrer	514	to travel around
+472	perseguir	515	to chase
+473	escapar	516	to escape
+474	huir	517	to flee
+475	desaparecer	518	to disappear
+476	pasear	519	to stroll
+477	transformar	520	to transform
+478	reducir	521	to reduce
+479	aumentar	522	to increase
+480	disminuir	523	to decrease
+481	duplicar	524	to double
+482	expandir	525	to expand
+483	encoger	526	to shrink
+484	estirar	527	to stretch
+485	derretir	528	to melt
+486	evaporar	529	to evaporate
+487	oxidar	530	to rust
+488	afirmar	531	to state
+489	jurar	532	to swear
+490	amenazar	533	to threaten
+491	insultar	534	to insult
+492	elogiar	535	to praise
+493	burlar	536	to mock
+494	bromear	537	to joke
+495	exagerar	538	to exaggerate
+496	susurrar	539	to whisper
+497	murmurar	540	to mutter
+498	tartamudear	541	to stutter
+499	suspirar	542	to sigh
+500	quejar	543	to complain
+501	llamarse		to be called

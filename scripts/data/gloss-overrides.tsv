@@ -1,0 +1,21 @@
+# Hand-reviewed gloss overrides for the top tier.
+# Format: infinitive<TAB>gloss. Applied after the conjugator join, before writing
+# the artifact, so the generated JSON is never edited by hand.
+deber	to have to, must, to owe
+quedar	to stay, remain, be left
+llevar	to carry, take, wear
+dejar	to leave, let, allow
+contar	to count, tell, matter
+esperar	to wait, hope
+sacar	to take out, remove
+resultar	to turn out, result
+presentar	to present, introduce
+cumplir	to fulfil, complete, turn (an age)
+intentar	to try, intend
+ayudar	to help, assist
+reconocer	to recognize
+tomar	to take, drink
+partir	to leave, depart, divide
+hacer	to do, make
+conseguir	to get, obtain, manage
+alcanzar	to reach, achieve
