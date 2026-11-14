@@ -1,6 +1,6 @@
 # 09 — Vocabulary check item
 
-Status: in-progress
+Status: done
 Type: task
 Blocked by: 01, 02, 05, 07, 08
 
@@ -13,7 +13,7 @@ Blocked by: 01, 02, 05, 07, 08
 - [x] Remove the builder and drill placeholders, update their tests
 - [x] Typecheck, suite and build
 - [x] Review and address findings
-- [ ] Commit
+- [x] Commit
 
 ## Context
 
