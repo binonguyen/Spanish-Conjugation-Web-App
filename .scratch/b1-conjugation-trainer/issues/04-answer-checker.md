@@ -1,6 +1,6 @@
 # 04 — Answer checker
 
-Status: ready-for-agent
+Status: done
 Type: task
 Blocked by: 01
 
@@ -20,3 +20,17 @@ The highest-risk pure logic in the app. Rules: [spec.md](../spec.md#answer-check
 ## Done when
 
 - All cases pass and the module has no React imports (pure function, importable by tests and by a future CLI).
+
+## Progress
+
+- [x] Table-driven tests for the verdict cases in `src/domain/check.test.ts`.
+- [x] `src/domain/check.ts`: normalization and exact-match verdict.
+- [x] Accent/diaeresis folding that leaves `ñ` alone.
+- [x] Typecheck and focused test pass.
+- [x] Full test suite, review, ticket closed.
+
+## Comments
+
+- Implemented `src/domain/check.ts`: a pure `checkAnswer(input, accepted[])` returning `correct` / `accent-only` / `wrong`, with `Verdict` exported. Normalization is NFC, trim, collapse whitespace, lowercase, strip surrounding `¡!¿?` and a trailing `.`; only leading `¡!¿?` are forgiven, a leading `.` is not. Accent folding covers the acute vowels and `ü` only, so `ano` stays distinct from `año`.
+- `src/domain/check.test.ts` is table-driven, 24 cases: the ticket's minimum set (accent-only, `ano`/`año`, `-ra`/`-se`, required pronoun, attached clitic, punctuation, uppercase) plus decomposed NFC input, trailing period, collapsed whitespace, empty input and exact-match precedence. Helpers stay module-private; the module imports nothing, so a CLI can use it.
+- Review fixes: removed the duplicated accent character list (the fold pattern is derived from its map), made the helpers private rather than speculative exports, and kept punctuation stripping literal to the spec (leading `.` is now `wrong`).
